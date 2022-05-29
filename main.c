@@ -9,7 +9,8 @@ int main()
 	t_node	*stack_b;
 	i = 0;
 
-	stack_b = create_node(200, 0);
+	//stack_b = create_node(500, 0);
+	stack_b = NULL;
 	stack_a = create_node(a[i], i);
 	i++;
 	while (i < N)
@@ -22,18 +23,11 @@ int main()
 		add_node_end(&stack_a, create_node(a[i], i));
 		i++;
 	}
-	//print_list(&stack_a);
-	// printf("after swap------\n")
-	// swap(&node);
-	// printf("after rotate------\n");
-	// rotate(&node);
-	// printf("after reverse rotate-----\n");
-	// rev_rotate(&node);
-	// printf("after pop-----\n");
-	// pop(&node);
-	printf("stack before push------\n");
+	printf("stack B before push------\n");
 	print_list(&stack_b);
-	//push(&stack_a, &stack_b);
-	printf("stack after push------\n");
+	stack_b = push(&stack_a, &stack_b);
+	printf("stack B after push------\n");
 	print_list(&stack_b);
+	printf("stack A after push------\n");
+	print_list(&stack_a);
 }

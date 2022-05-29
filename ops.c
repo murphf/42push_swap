@@ -47,15 +47,19 @@ void	rev_rotate(t_node	**head)
 
 /*
 * push first element of stack1 to the top of stack2
-* return first node of stack2 
+* works good unless we don't have a stack2
 */
 t_node	*push(t_node	**stack1, t_node **stack2)
 {
 	t_node	*first_node;
+	int	data_first;
 
-	first_node = *stack1;
-	add_node_beg(stack2, first_node);
+	data_first = (*stack1)->data;
 	pop(stack1);
+	if (*stack2 == NULL)
+		*stack2 = create_node(data_first, 0);
+	else
+		add_node_beg(stack2, create_node(data_first, 0));
 	return (*stack2);
 }
 /*

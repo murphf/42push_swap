@@ -47,13 +47,7 @@ t_node	*add_node_beg(t_node	**head, t_node	*new_node)
 	t_node	*first_node;
 	t_node	*last_node;
 
-	if (head == NULL)
-	{
-		head = &new_node;
-		new_node->next = new_node;
-		new_node->prev = new_node;
-		return (new_node);
-	}
+
 	first_node = *head;
 	last_node = first_node->prev;
 
@@ -72,6 +66,11 @@ void	print_list(t_node **head)
 {
 	t_node	*first_node;
 
+	if (!*head)
+	{
+		printf("empty list\n");
+		return ;
+	}
 	first_node = *head;
 	printf("%d\n", first_node->data);
 	first_node = first_node->next;
