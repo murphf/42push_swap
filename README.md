@@ -6,12 +6,16 @@ I can make it work with both approaches:
 > ./push_swap 9 8 7 4  && 
 > ./push_swap "9 8 7 4"
 
---------I'll let the parsing part for last, and let's emulated with a given array
+--------I'll let the parsing part for last, and let's emulated with a given array----
+**parsing rules:
+
+
+0- sort 2
 1- sort 3
 2- sort 5
 3- sort 100
 4- sort 500
-
+5- sort 1000+
 --------
 used data structure: circular doubly linked list
 

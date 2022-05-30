@@ -10,7 +10,6 @@ int	is_sorted(t_node **head)
 {
 	t_node	*first_node;
 	t_node	*last_node;
-	int		i;
 
 	first_node = *head;
 	last_node = first_node->prev;
@@ -19,7 +18,6 @@ int	is_sorted(t_node **head)
 	{
 		if (first_node->data > first_node->next->data)
 			return (0);
-		i++;
 		first_node = first_node->next;
 	}
 	return (1);

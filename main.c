@@ -20,10 +20,13 @@ void	error(int i)
 int main(int argc, char *argv[])
 {
 	t_node	*stack_a;
+	t_node	*stack_b;
 	int		i;
 	int		len;
+	long	num;
 
 	i = 1;
+	stack_b = NULL;
 	/* INPUT ERROR CHECK*/
 	if (argc < 2)
 		error(0);
@@ -34,18 +37,20 @@ int main(int argc, char *argv[])
 		{
 			stack_a = create_node(ft_atoi(argv[i]), i - 1);
 			i++;
+			num = ft_atoi(argv[i]);
 		}
-		while (valid_arg(argv[i]) && i < argc)
+		while (valid_arg(argv[i]) && i < argc && is_int(num))
 		{
-			if (identical_found(&stack_a, ft_atoi(argv[i])))
+			if (identical_found(&stack_a, num))
 				{
 					delete_list(&stack_a);
 					error(2);
 				}
-			add_node_end(&stack_a, create_node(ft_atoi(argv[i]), i - 1));
+			add_node_end(&stack_a, create_node(num, i - 1));
 			i++;
 			if (i == argc)
 				break;
+			num = ft_atoi(argv[i]);
 		}
 		if (i != argc)
 		{
@@ -55,6 +60,10 @@ int main(int argc, char *argv[])
 	}
 	/*--------------------*/
 	/* SORTING */
-
+	if (len < 6)
+		sort_small(&stack_a, &stack_b);
+	printf("stack a----\n");
 	print_list(&stack_a);
+	printf("stack b----\n");
+	print_list(&stack_b);
 }

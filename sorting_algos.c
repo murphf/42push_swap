@@ -10,10 +10,10 @@ int	in_range(int a, int b, int	c)
 	return (0);
 }
 
-void sort2(t_node	**head)
+void sort2(t_node	**head, int l)
 {
-	rotate(head);
-	printf("ra\n");
+	if (!is_sorted(head))
+		cons_ra(head, l, 1);
 }
 /*
 * sort 3 numbers
@@ -21,7 +21,7 @@ void sort2(t_node	**head)
 * of the max, min amd medium
 * medium being the number between min and max
 */
-t_node	*sort3(t_node	**head)
+t_node	*sort3(t_node	**head, int l)
 {
 	t_node	*f_node;
 	int		f;
@@ -36,32 +36,23 @@ t_node	*sort3(t_node	**head)
 	
 	if (in_range(t, f, s))
 	{
-		rev_rotate(head);
-		swap(head);
-		printf("rra\nsa\n");
+		cons_rra(head, l, 1);
+		cons_sa(head, l, 1);
 	}
 	else if (in_range(t, s, f))
-	{
-		rotate(head);
-		printf("ra\n");
-	}
+		cons_ra(head, l, 1);
 	else if (in_range(f, t, s))
-	{
-		rev_rotate(head);
-		printf("rra\n");
-	}
+		cons_rra(head, l, 1);
 	else if (in_range(f, s, t))
-	{
-		swap(head);
-		printf("sa\n");
-	}
+		cons_sa(head, l, 1);
 	else if(in_range(s, t, f))
 	{
-		swap(head);
-		rev_rotate(head);
+		cons_sa(head, l, 1);
+		cons_rra(head, l, 1);
 	}
 	return (*head);
 }
+
 /*
 * sort 5 numbers
 *
@@ -70,12 +61,20 @@ void	sort_small(t_node	**stack_a, t_node	**stack_b)
 {
 	t_node	*first_node;
 	t_node	*last_node;
+	int		len;
+	int		pb;
 
 	first_node = *stack_a;
 	last_node = first_node->prev;
-	if (last_node->index == 1)
-		sort2(stack_a);
-	else if (last_node->index == 2)
-		sort3(stack_a);
-
+	len = last_node->index + 1;
+	if (len == 2)
+		sort2(stack_a, 1) ;
+	else if (len == 3)
+		sort3(stack_a, 1);
+	else if (len == 5)
+	{
+		consecutive_pa(stack_a, stack_b, 2, 2);
+		sort3(stack_a, 1);
+		sort2(stack_b, 2);
+	}
 }
