@@ -1,33 +1,60 @@
 #include "push_swap.h"
 #define	N 3
 
-int main()
+/*
+* The different error message,
+* add an option in makefile?
+*/
+void	error(int i)
 {
-	int a[N] = {1, 2, 3};
-	int	i;
-	t_node	*stack_a;
-	t_node	*stack_b;
-	i = 0;
+	printf("error: \n");
+	if (i == 0)
+		printf("INVALID NUMBER OF ARGUMENTS\n");
+	else if (i == 1)
+		printf("INVALID ARGUMENT(S)\n");
+	else if (i == 2)
+		printf("FOUND DUPLICATES\n");
+	exit(EXIT_FAILURE);
+}
 
-	//stack_b = create_node(500, 0);
-	stack_b = NULL;
-	stack_a = create_node(a[i], i);
-	i++;
-	while (i < N)
+int main(int argc, char *argv[])
+{
+	t_node	*stack_a;
+	int		i;
+	int		len;
+
+	i = 1;
+	/* INPUT ERROR CHECK*/
+	if (argc < 2)
+		error(0);
+	else
 	{
-		if (identical_found(&stack_a, a[i]))
-			{
-				printf("found indentical\n");
-				return (0);
-			}
-		add_node_end(&stack_a, create_node(a[i], i));
-		i++;
+		len = argc - 1;
+		if (valid_arg(argv[i]))
+		{
+			stack_a = create_node(ft_atoi(argv[i]), i - 1);
+			i++;
+		}
+		while (valid_arg(argv[i]) && i < argc)
+		{
+			if (identical_found(&stack_a, ft_atoi(argv[i])))
+				{
+					delete_list(&stack_a);
+					error(2);
+				}
+			add_node_end(&stack_a, create_node(ft_atoi(argv[i]), i - 1));
+			i++;
+			if (i == argc)
+				break;
+		}
+		if (i != argc)
+		{
+			delete_list(&stack_a);
+			error(1);
+		}
 	}
-	printf("stack B before push------\n");
-	print_list(&stack_b);
-	stack_b = push(&stack_a, &stack_b);
-	printf("stack B after push------\n");
-	print_list(&stack_b);
-	printf("stack A after push------\n");
+	/*--------------------*/
+	/* SORTING */
+
 	print_list(&stack_a);
 }

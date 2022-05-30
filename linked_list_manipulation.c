@@ -80,3 +80,34 @@ void	print_list(t_node **head)
 		first_node = first_node->next;
 	}
 }
+
+/*
+* delete elements of doubly circular linked list
+*/
+int	delete_list(t_node **head)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+	t_node	*save;
+
+	first_node = *head;
+	if (first_node == NULL)
+		return (0);
+	else
+	{
+		last_node = first_node->prev;
+		while (first_node != last_node)
+		{
+			save = first_node;
+			first_node = first_node->next;
+			free(save);
+		}
+		/*
+		* prevent double free 
+		* in case the list contained only one node
+		*/
+		if (*head != last_node)
+			free(last_node);
+	}
+	return (0);
+}
