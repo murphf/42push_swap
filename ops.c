@@ -34,6 +34,7 @@ void	rotate(t_node	**head)
 	second_node = (*head)->next;
 	*head = second_node;
 }
+
 /*
 * last element becomes first
 */
