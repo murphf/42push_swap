@@ -52,7 +52,7 @@ t_node	*sort3(t_node	**head)
 	}
 	return (*head);
 }
-t_node	*sort5(t_node	**head_a, t_node	**head_b)
+t_node	*sort4(t_node	**head_a, t_node	**head_b)
 {
 	t_node	*first_node_a;
 	t_node	*first_node_b;
@@ -66,20 +66,22 @@ t_node	*sort5(t_node	**head_a, t_node	**head_b)
 	first_node_a = *head_a;
 	first_node_b = *head_b;
 
-	while (first_node_b->data > first_node_a->data)
+	while (first_node_b->data > first_node_a->data && i < 5)
 	{
+		i++;
 		ra_count++;
 		rra_count++;
-
 		first_node_a = first_node_a->next;
 	}
 
+	i = 0;
 	while (i < ra_count)
 	{
 		ra(head_a);
 		i++;
 	}
-	push(head_b, head_a);
+	//push(head_b, head_a);
+	pa(head_a, head_b);
 	i = 0;
 	while (i < rra_count)
 	{
@@ -87,7 +89,37 @@ t_node	*sort5(t_node	**head_a, t_node	**head_b)
 		i++;
 	}
 }
+/*
+* sort in a very naive manner
+*/
 
+void	sorting_unoptimized(t_node	**stack_a, t_node	**stack_b)
+{
+	int	len;
+	int	extra;
+	int	i;
+	t_node	*first_node_a;
+	t_node	*first_node_b;
+
+	first_node_a = *stack_a;
+	first_node_b = *stack_b;
+	len = list_len(stack_a);
+	extra = len - 3;
+	i = 0;
+	
+	while (i < extra)
+	{
+		pb(stack_a, stack_b);
+		i++;
+	}
+	sort3(stack_a);
+	i = 0;
+	while (i < extra)
+	{
+		sort4(stack_a, stack_b);
+		i++;
+	}
+}
 /*
 * sort 5 numbers
 */
@@ -101,16 +133,11 @@ void	sort_small(t_node	**stack_a, t_node	**stack_b)
 	last_node = first_node->prev;
 	len = last_node->index + 1;
 	if (len == 2)
-		sort2(stack_a) ;
+		sort2(stack_a);
 	else if (len == 3)
 		sort3(stack_a);
-	else if (len == 5)
+	else if (len > 3)
 	{
-		pb(stack_a, stack_b);
-		pb(stack_a, stack_b);
-
-		//sort2(stack_b);
-		//sort5(stack_a, stack_b);
-		//sort5(stack_a, stack_b);
+		sorting_unoptimized(stack_a, stack_b);
 	}
 }

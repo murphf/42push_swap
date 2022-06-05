@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 	}
 	/*--------------------*/
 	/* SORTING */
-	if (len < 6)
+	if (len < 100)
 		sort_small(&stack_a, &stack_b);
 	printf("stack a----\n");
 	print_list(&stack_a);
