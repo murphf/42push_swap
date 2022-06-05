@@ -10,10 +10,10 @@ int	in_range(int a, int b, int	c)
 	return (0);
 }
 
-void sort2(t_node	**head, int l)
+void sort2(t_node	**head)
 {
 	if (!is_sorted(head))
-		cons_ra(head, l, 1);
+		ra(head);
 }
 /*
 * sort 3 numbers
@@ -21,7 +21,7 @@ void sort2(t_node	**head, int l)
 * of the max, min amd medium
 * medium being the number between min and max
 */
-t_node	*sort3(t_node	**head, int l)
+t_node	*sort3(t_node	**head)
 {
 	t_node	*f_node;
 	int		f;
@@ -36,45 +36,81 @@ t_node	*sort3(t_node	**head, int l)
 	
 	if (in_range(t, f, s))
 	{
-		cons_rra(head, l, 1);
-		cons_sa(head, l, 1);
+		rra(head);
+		sa(head);
 	}
 	else if (in_range(t, s, f))
-		cons_ra(head, l, 1);
+		ra(head);
 	else if (in_range(f, t, s))
-		cons_rra(head, l, 1);
+		rra(head);
 	else if (in_range(f, s, t))
-		cons_sa(head, l, 1);
+		sa(head);
 	else if(in_range(s, t, f))
 	{
-		cons_sa(head, l, 1);
-		cons_rra(head, l, 1);
+		sa(head);
+		rra(head);
 	}
 	return (*head);
+}
+t_node	*sort5(t_node	**head_a, t_node	**head_b)
+{
+	t_node	*first_node_a;
+	t_node	*first_node_b;
+	int	ra_count;
+	int	rra_count;
+	int	i;
+
+	i = 0;
+	ra_count = 0;
+	rra_count = 0;
+	first_node_a = *head_a;
+	first_node_b = *head_b;
+
+	while (first_node_b->data > first_node_a->data)
+	{
+		ra_count++;
+		rra_count++;
+
+		first_node_a = first_node_a->next;
+	}
+
+	while (i < ra_count)
+	{
+		ra(head_a);
+		i++;
+	}
+	push(head_b, head_a);
+	i = 0;
+	while (i < rra_count)
+	{
+		rra(head_a);
+		i++;
+	}
 }
 
 /*
 * sort 5 numbers
-*
 */
 void	sort_small(t_node	**stack_a, t_node	**stack_b)
 {
 	t_node	*first_node;
 	t_node	*last_node;
 	int		len;
-	int		pb;
 
 	first_node = *stack_a;
 	last_node = first_node->prev;
 	len = last_node->index + 1;
 	if (len == 2)
-		sort2(stack_a, 1) ;
+		sort2(stack_a) ;
 	else if (len == 3)
-		sort3(stack_a, 1);
+		sort3(stack_a);
 	else if (len == 5)
 	{
-		consecutive_pa(stack_a, stack_b, 2, 2);
-		sort3(stack_a, 1);
-		sort2(stack_b, 2);
+		pb(stack_a, stack_b);
+		pb(stack_a, stack_b);
+
+		//sort2(stack_b);
+		//sort5(stack_a, stack_b);
+		//sort5(stack_a, stack_b);
 	}
 }

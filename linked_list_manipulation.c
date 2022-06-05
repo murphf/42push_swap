@@ -81,8 +81,10 @@ void	print_list(t_node **head)
 	}
 }
 
+
 /*
 * delete elements of doubly circular linked list
+* used in case some error is found during the creation if the linked list
 */
 int	delete_list(t_node **head)
 {
@@ -110,4 +112,26 @@ int	delete_list(t_node **head)
 			free(last_node);
 	}
 	return (0);
+}
+
+/*
+* return the lenght of circular doubly linked list
+*/
+int	list_len(t_node	**head)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+	int		len;
+
+	if (*head == NULL)
+		return (0);
+	first_node = *head;
+	last_node = first_node->prev;
+	len = 1;
+	while (first_node != last_node)
+	{
+		len++;
+		first_node = first_node->next;
+	}
+	return (len);
 }

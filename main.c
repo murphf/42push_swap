@@ -36,8 +36,17 @@ int main(int argc, char *argv[])
 		if (valid_arg(argv[i]))
 		{
 			stack_a = create_node(ft_atoi(argv[i]), i - 1);
-			i++;
-			num = ft_atoi(argv[i]);
+			if (argc >= 3)
+			{
+				i++;
+				num = ft_atoi(argv[i]);
+			}
+		/*
+		* this to prevent entering the next loop if there is only one number
+		* is there a better way?
+		*/
+			else
+				argc--; 
 		}
 		while (valid_arg(argv[i]) && i < argc && is_int(num))
 		{

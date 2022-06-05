@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+#include <stdbool.h>
 
 typedef	struct s_node
 {
@@ -19,14 +20,15 @@ t_node	*add_node_end(t_node	**head, t_node	*new_node);
 t_node	*add_node_beg(t_node	**head, t_node	*new_node);
 void	print_list(t_node **head);
 int		delete_list(t_node **head);
+int		list_len(t_node	**head);
 /*-------------------*/
 /* PARSING */
 static int	ft_isspace(int c);
 long	ft_atoi(const char *str);
 int	is_digit(char c);
 int	valid_arg(char	*str);
-int		is_sorted(t_node **head);
-int		identical_found(t_node	**head, int new_data);
+bool		is_sorted(t_node **head);
+bool		identical_found(t_node	**head, int new_data);
 int	is_int(long a);
 /*---------*/
 /* MOVES */
@@ -37,13 +39,14 @@ t_node	*push(t_node	**stack1, t_node **stack2);
 void	pop(t_node	**head);
 /*--------*/
 /* MOVES WRITER */
-int	consecutive_pa(t_node	**stack_a, t_node	**stack_b, int l, int n);
-int cons_ra(t_node **stack, int l, int n);
-int cons_rra(t_node **stack, int l, int n);
-int cons_sa(t_node **stack, int l, int n);
+void	pa(t_node **head_a, t_node	**head_b);
+void	pb(t_node **head_a, t_node	**head_b);
+void	ra(t_node	**head);
+void	rra(t_node	**head);
+void	sa(t_node	**head);
 /*--------------*/
-t_node	*sort3(t_node	**head, int l);
-void sort2(t_node	**head, int l);
+t_node	*sort3(t_node	**head);
+void sort2(t_node	**head);
 void	sort_small(t_node	**stack_a, t_node	**stack_b);
 
 #endif

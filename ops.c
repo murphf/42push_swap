@@ -52,17 +52,24 @@ void	rev_rotate(t_node	**head)
 */
 t_node	*push(t_node	**stack1, t_node **stack2)
 {
-	t_node	*first_node;
-	int	data_first;
+	int	data_of_first;
 
-	data_first = (*stack1)->data;
+	data_of_first = (*stack1)->data;
 	pop(stack1);
+
 	if (*stack2 == NULL)
-		*stack2 = create_node(data_first, 0);
+		*stack2 = create_node(data_of_first, 0);
 	else
-		add_node_beg(stack2, create_node(data_first, 0));
+		add_node_beg(stack2, create_node(data_of_first, 0));
 	return (*stack2);
 }
+
+void	del_node(t_node	*node)
+{
+	free(node);
+	node = NULL;
+}
+
 /*
 * delete first element of list
 * use free!
@@ -77,8 +84,14 @@ void	pop(t_node	**head)
 	second_node = first_node->next;
 	last_node = first_node->prev;
 
+	if (first_node == last_node)
+	{
+		del_node(first_node);
+		*head = NULL;
+		return ;
+	}
 	second_node->prev = last_node;
 	last_node->next = second_node;
-	free(first_node);
+	del_node(first_node);
 	*head = second_node;
 }
