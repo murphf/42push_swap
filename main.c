@@ -1,6 +1,13 @@
 #include "push_swap.h"
 #define	N 3
 
+void	print_stacks(t_node	**stack_a, t_node	**stack_b)
+{
+	printf("stack a----\n");
+	print_list(stack_a);
+	printf("stack b----\n");
+	print_list(stack_b);
+}
 /*
 * The different error message,
 * add an option in makefile?
@@ -69,10 +76,8 @@ int main(int argc, char *argv[])
 	}
 	/*--------------------*/
 	/* SORTING */
-	if (len < 100)
-		sort_small(&stack_a, &stack_b);
-	printf("stack a----\n");
-	print_list(&stack_a);
-	printf("stack b----\n");
-	print_list(&stack_b);
+	//if (len < 100)
+		m_insert_sort(&stack_a, &stack_b);
+		//sort_small(&stack_a, &stack_b);
+	print_stacks(&stack_a, &stack_b);
 }

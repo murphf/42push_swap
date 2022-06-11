@@ -1,5 +1,7 @@
 CC=gcc
-FLAGS=-Wall -Wextra -Werror
+
+CFLAGS=-Wall -Wextra -Werror
+
 SRC= main.c\
 	annexe_functions.c\
 	linked_list_manipulation.c\
@@ -7,6 +9,7 @@ SRC= main.c\
 	ops.c\
 	parser_stuff.c\
 	sorting_algos.c\
+	insert_sort.c\
 
 EXEC= push_swap
 

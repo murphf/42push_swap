@@ -38,7 +38,7 @@ void	rev_rotate(t_node	**head);
 t_node	*push(t_node	**stack1, t_node **stack2);
 void	pop(t_node	**head);
 /*--------*/
-/* MOVES WRITER */
+/* MOVES WRITERS */
 void	pa(t_node **head_a, t_node	**head_b);
 void	pb(t_node **head_a, t_node	**head_b);
 void	ra(t_node	**head);
@@ -48,5 +48,10 @@ void	sa(t_node	**head);
 t_node	*sort3(t_node	**head);
 void sort2(t_node	**head);
 void	sort_small(t_node	**stack_a, t_node	**stack_b);
-
+/* INSERT_SORT */
+int		_min(int a, int b);
+int		smallest(t_node	**stack_a);
+int		position(t_node	**stack_a, int	data);
+void	m_insert_sort(t_node	**stack_a, t_node	**stack_b);
+/*-------------*/
 #endif

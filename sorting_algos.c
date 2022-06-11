@@ -15,6 +15,7 @@ void sort2(t_node	**head)
 	if (!is_sorted(head))
 		ra(head);
 }
+
 /*
 * sort 3 numbers
 * moves depending of the posisiton
@@ -52,7 +53,8 @@ t_node	*sort3(t_node	**head)
 	}
 	return (*head);
 }
-t_node	*sort4(t_node	**head_a, t_node	**head_b)
+
+void	sort4(t_node	**head_a, t_node	**head_b)
 {
 	t_node	*first_node_a;
 	t_node	*first_node_b;
@@ -73,7 +75,6 @@ t_node	*sort4(t_node	**head_a, t_node	**head_b)
 		rra_count++;
 		first_node_a = first_node_a->next;
 	}
-
 	i = 0;
 	while (i < ra_count)
 	{
@@ -89,10 +90,10 @@ t_node	*sort4(t_node	**head_a, t_node	**head_b)
 		i++;
 	}
 }
+
 /*
 * sort in a very naive manner
 */
-
 void	sorting_unoptimized(t_node	**stack_a, t_node	**stack_b)
 {
 	int	len;
@@ -120,6 +121,7 @@ void	sorting_unoptimized(t_node	**stack_a, t_node	**stack_b)
 		i++;
 	}
 }
+
 /*
 * sort 5 numbers
 */
