@@ -16,7 +16,7 @@ int	smallest(t_node	**stack_a)
 	int		min;
 
 	first_node = *stack_a;
-	last_node = first_node->next;
+	last_node = first_node->prev;
 	min = _min(first_node->data, last_node->data);
 	while (first_node != last_node)
 	{
@@ -27,9 +27,7 @@ int	smallest(t_node	**stack_a)
 	return (min);
 }
 
-/*
-* return the position of the node contaning data
-*/
+/* WHAT'S WRONG WITH THIS ??*/
 int		position(t_node	**stack_a, int	data)
 {
 	int	i;
@@ -39,13 +37,16 @@ int		position(t_node	**stack_a, int	data)
 	t_node	*last_node;
 
 	first_node = *stack_a;
-	last_node = first_node->next;
+	last_node = first_node->prev;
 	while (first_node != last_node)
 	{
 		if (first_node->data == data)
 				return (i);
+		first_node = first_node->next;
 		i++;
 	}
+	if (first_node->data == data)
+		return (i);
 	return (-1);
 }
 
@@ -58,27 +59,34 @@ int		position(t_node	**stack_a, int	data)
 void	wich_one_ra_rra(t_node	**stack_a, int	pos)
 {
 	int		mid;
+	int		len;
 	int		i;
+	int		x;
 
 	i = 0;
-	mid = list_len(stack_a) / 2;
-	if (pos < mid)
+	len = list_len(stack_a);
+	//printf("len = %d\n", len);
+	mid = len / 2;
+	if (mid > 0)
 	{
-		while (i < mid)
+		if (pos && pos < mid)
 		{
-			ra(stack_a);
-			i++;
+			while (i < pos)
+			{
+				ra(stack_a);
+				i++;
+			}
+		}
+		else if ( pos && pos >= mid)
+		{
+			x = len - pos;
+			while (i < x)
+			{
+				rra(stack_a);
+				i++;
+			}
 		}
 	}
-	else
-	{
-		while (i < mid)
-		{
-			rra(stack_a);
-			i++;
-		}
-	}
-
 }
 
 void	m_insert_sort(t_node	**stack_a, t_node	**stack_b)
@@ -89,13 +97,11 @@ void	m_insert_sort(t_node	**stack_a, t_node	**stack_b)
 
 	while (*stack_a)
 	{
-		//printf("AA");
 		small = smallest(stack_a);
-		//printf("%d", small);
 		pos = position(stack_a, small);
-		//printf("[%d]\n", pos);
-		wich_one_ra_rra(stack_a, small);
+		wich_one_ra_rra(stack_a, pos);
 		pb(stack_a, stack_b);
+		i++;
 	}
 	while (*stack_b)
 		pa(stack_a, stack_b);	

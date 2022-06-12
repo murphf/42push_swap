@@ -60,29 +60,6 @@ t_node	*add_node_beg(t_node	**head, t_node	*new_node)
 }
 
 /*
-* print the data of a circular doubly linked list  
-*/
-void	print_list(t_node **head)
-{
-	t_node	*first_node;
-
-	if (!*head)
-	{
-		printf("empty list\n");
-		return ;
-	}
-	first_node = *head;
-	printf("%d\n", first_node->data);
-	first_node = first_node->next;
-	while (first_node != *head)
-	{
-		printf("%d\n", first_node->data);
-		first_node = first_node->next;
-	}
-}
-
-
-/*
 * delete elements of doubly circular linked list
 * used in case some error is found during the creation if the linked list
 */
@@ -135,3 +112,5 @@ int	list_len(t_node	**head)
 	}
 	return (len);
 }
+
+void	renew_indexes(t_node	*stack_a);

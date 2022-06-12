@@ -10,6 +10,7 @@ SRC= main.c\
 	parser_stuff.c\
 	sorting_algos.c\
 	insert_sort.c\
+	print_stacks.c\
 
 EXEC= push_swap
 
