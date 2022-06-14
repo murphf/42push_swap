@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 	/*--------------------*/
 	/* SORTING */
 	//if (len < 100)
-		//printf("%d", list_len(&stack_a));
+	//printf("SMALLEST %d\n", smallest(&stack_a, 5));
 	if (len == 5)
 		sort5(&stack_a, &stack_b);
 	else

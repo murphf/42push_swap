@@ -50,7 +50,9 @@ void 	sort2(t_node	**head);
 void	sort5(t_node	**stack_a, t_node	**stack_b);
 /* INSERT_SORT */
 int		_min(int a, int b);
-int		smallest(t_node	**stack_a);
+int		smallest(t_node	**stack_a, int len);
+int		smallest0(t_node	**stack_a);
+int		biggest(t_node	**stack_a);
 int		position(t_node	**stack_a, int	data);
 void	m_insert_sort(t_node	**stack_a, t_node	**stack_b);
 void	wich_one_ra_rra(t_node	**stack_a, int	pos);

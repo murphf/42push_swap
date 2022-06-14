@@ -22,7 +22,7 @@ used data structure: circular doubly linked list
 for the sake of simplification: I'll create a "libft_utils.c", but I'll have to call the makefile of libft in makefile of push_swap afterwards..
 
 --------
-the given actions:
+the allowed actions:
 let's say we have list [9, 4, 8, 7] in stack A and [1, 2] in stack B:
 NOTE: initially stack b is empty
 
@@ -42,4 +42,20 @@ rra *The last element becomes the first one*
 rra: A = [7, 9, 4, 8]	rrb: B = [2, 1]
 rrr = rra + rrb
 -------
-I can store the minimum number while creating the list
+
+sorting 5 numbers algorithm:
+INPUT: -7 4 7 6 -2
+EXPECTED OUTPUT: -7 -2 4 6 7
+what happens:
+1- pb + pb + (sort 3 numbers remaining in stack A)
+
+---STACK A---		---STACK B---
+0	-2					
+1	6					4
+2	7					-7
+
+2- see if the first number in stack B is an extreme (i.e smaller than the smallest or bigger than the biggest)
+	a- if smallest: pa
+	b- if biggest: pa + ra
+
+3- if not an extreme, search its interval: we want the direct follower of the stack B number 

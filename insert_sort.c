@@ -6,10 +6,16 @@ int	_min(int a, int b)
 		return (a);
 	return (b);
 }
+int	_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
 /*
 * return node with the smallest data
 */
-int	smallest(t_node	**stack_a)
+int	smallest0(t_node	**stack_a)
 {
 	t_node	*first_node;
 	t_node	*last_node;
@@ -27,7 +33,49 @@ int	smallest(t_node	**stack_a)
 	return (min);
 }
 
-/* WHAT'S WRONG WITH THIS ??*/
+int	smallest(t_node	**stack_a, int len)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+	int		min;
+	int		i;
+
+	i = 0;
+	first_node = *stack_a;
+	min = first_node->data;
+	while (i < len)
+	{
+		if (first_node->data < min)
+				min = first_node->data;
+		first_node = first_node->next;
+		i++;
+	}
+	return (min);
+}
+/*
+* for the sake of optimisation we will start from the last node
+*/
+int	biggest(t_node	**stack_a)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+	int		max;
+
+	first_node = *stack_a;
+	last_node = first_node->prev;
+	max = _max(first_node->data, last_node->data);
+	while (last_node != first_node)
+	{
+		if (last_node->data > max)
+				max = last_node->data;
+		last_node = last_node->prev;
+	}
+	return (max);
+}
+
+/*
+* return index of node containing data
+*/
 int		position(t_node	**stack_a, int	data)
 {
 	int	i;
@@ -97,7 +145,7 @@ void	m_insert_sort(t_node	**stack_a, t_node	**stack_b)
 
 	while (*stack_a)
 	{
-		small = smallest(stack_a);
+		small = smallest0(stack_a);
 		pos = position(stack_a, small);
 		wich_one_ra_rra(stack_a, pos);
 		pb(stack_a, stack_b);

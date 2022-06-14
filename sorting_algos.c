@@ -55,7 +55,7 @@ t_node	*sort3(t_node	**head)
 }
 
 /*
-* return position of the number who's just before n
+* return position of the number who's just AFTER n
 */
 int	in_between(t_node	**stack_a, int n)
 {
@@ -69,52 +69,76 @@ int	in_between(t_node	**stack_a, int n)
 	while (first_node != last_node)
 	{
 		if (in_range(n, first_node->data, first_node->next->data))
-			return (i);
+			return (first_node->next->data);
 		first_node = first_node->next;
 		i++;
 	}
 	if (in_range(n, last_node->data, last_node->next->data))
-		return (i);
+		return (last_node->next->data);
+	return (-1);
 }
 
 /*
 * insert sort implemented using only one list
+* THIS DON'T WORK: insert sort implementation in one linked list
 */
 void	one_stack_insert_sort(t_node	**stack_a)
 {
 	int	small;
 	int	pos;
-	small = smallest(stack_a);
-		//printf ("small == %d\n", small);
-	pos = position(stack_a, small);
-	wich_one_ra_rra(stack_a, pos);
+	t_node	*first_node;
+	int len = 5;
+
+	first_node = *stack_a;
+	//while (is_sorted(stack_a) == false)
+	//{
+		small = smallest(&first_node, len);
+		printf("SMALLEST == %d\n", small);
+		pos = position(stack_a, small);
+		wich_one_ra_rra(stack_a, pos);
+		first_node = first_node->next;
+		len--;
+	//}
+		small = smallest(&first_node, len);
+		printf("SMALLEST == %d\n", small);
+		pos = position(stack_a, small);
+		wich_one_ra_rra(stack_a, pos);
+		first_node = first_node->next;
 }
 
-/*sort 5 numbers*/
+/* SORT 5 NUMBERS: MAX: 12 MOVES*/
+
 /*
-*this sequence doesn't pass -7 4 7 6 -2
+* this sequence doesn't pass -7 4 7 6 -2
 */
 void	sort5(t_node	**stack_a, t_node	**stack_b)
 {
-	int	pos;
+	int		pos;
 	t_node	*last_node_a;
+	t_node	*first_node_a;
+	int		after;
+
+	last_node_a = (*stack_a)->prev;
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
 	sort3(stack_a);
-	last_node_a = (*stack_a)->prev;
-
-	if ((*stack_b)->data < (*stack_a)->data)
-		pa(stack_a, stack_b);
-	else if ((*stack_b)->data > last_node_a->data)
-	{
-		pa(stack_a, stack_b);
-		ra(stack_a);
-	}
 	while (*stack_b)
 	{
-		pos = in_between(stack_a, (*stack_b)->data);
-		wich_one_ra_rra(stack_a, pos);
-		pa(stack_a, stack_b);
+		if ((*stack_b)->data > biggest(stack_a))
+		{
+			pa(stack_a, stack_b);
+			ra(stack_a);
+		}
+		else if ((*stack_b)->data < smallest0(stack_a))
+			pa(stack_a, stack_b);
+		else
+		{
+			after = in_between(stack_a, (*stack_b)->data);
+			pos = position(stack_a, after);
+			wich_one_ra_rra(stack_a, pos);
+			pa(stack_a, stack_b);
+		}
 	}
-	one_stack_insert_sort(stack_a);
+	//one_stack_insert_sort(stack_a);
+
 }
