@@ -54,92 +54,67 @@ t_node	*sort3(t_node	**head)
 	return (*head);
 }
 
-void	sort4(t_node	**head_a, t_node	**head_b)
-{
-	t_node	*first_node_a;
-	t_node	*first_node_b;
-	int	ra_count;
-	int	rra_count;
-	int	i;
-
-	i = 0;
-	ra_count = 0;
-	rra_count = 0;
-	first_node_a = *head_a;
-	first_node_b = *head_b;
-
-	while (first_node_b->data > first_node_a->data && i < 5)
-	{
-		i++;
-		ra_count++;
-		rra_count++;
-		first_node_a = first_node_a->next;
-	}
-	i = 0;
-	while (i < ra_count)
-	{
-		ra(head_a);
-		i++;
-	}
-	//push(head_b, head_a);
-	pa(head_a, head_b);
-	i = 0;
-	while (i < rra_count)
-	{
-		rra(head_a);
-		i++;
-	}
-}
-
 /*
-* sort in a very naive manner
+* return position of the number who's just before n
 */
-void	sorting_unoptimized(t_node	**stack_a, t_node	**stack_b)
-{
-	int	len;
-	int	extra;
-	int	i;
-	t_node	*first_node_a;
-	t_node	*first_node_b;
-
-	first_node_a = *stack_a;
-	first_node_b = *stack_b;
-	len = list_len(stack_a);
-	extra = len - 3;
-	i = 0;
-	
-	while (i < extra)
-	{
-		pb(stack_a, stack_b);
-		i++;
-	}
-	sort3(stack_a);
-	i = 0;
-	while (i < extra)
-	{
-		sort4(stack_a, stack_b);
-		i++;
-	}
-}
-
-/*
-* sort 5 numbers
-*/
-void	sort_small(t_node	**stack_a, t_node	**stack_b)
+int	in_between(t_node	**stack_a, int n)
 {
 	t_node	*first_node;
 	t_node	*last_node;
-	int		len;
+	int		i;
 
+	i = 0;
 	first_node = *stack_a;
 	last_node = first_node->prev;
-	len = last_node->index + 1;
-	if (len == 2)
-		sort2(stack_a);
-	else if (len == 3)
-		sort3(stack_a);
-	else if (len > 3)
+	while (first_node != last_node)
 	{
-		sorting_unoptimized(stack_a, stack_b);
+		if (in_range(n, first_node->data, first_node->next->data))
+			return (i);
+		first_node = first_node->next;
+		i++;
 	}
+	if (in_range(n, last_node->data, last_node->next->data))
+		return (i);
+}
+
+/*
+* insert sort implemented using only one list
+*/
+void	one_stack_insert_sort(t_node	**stack_a)
+{
+	int	small;
+	int	pos;
+	small = smallest(stack_a);
+		//printf ("small == %d\n", small);
+	pos = position(stack_a, small);
+	wich_one_ra_rra(stack_a, pos);
+}
+
+/*sort 5 numbers*/
+/*
+*this sequence doesn't pass -7 4 7 6 -2
+*/
+void	sort5(t_node	**stack_a, t_node	**stack_b)
+{
+	int	pos;
+	t_node	*last_node_a;
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	sort3(stack_a);
+	last_node_a = (*stack_a)->prev;
+
+	if ((*stack_b)->data < (*stack_a)->data)
+		pa(stack_a, stack_b);
+	else if ((*stack_b)->data > last_node_a->data)
+	{
+		pa(stack_a, stack_b);
+		ra(stack_a);
+	}
+	while (*stack_b)
+	{
+		pos = in_between(stack_a, (*stack_b)->data);
+		wich_one_ra_rra(stack_a, pos);
+		pa(stack_a, stack_b);
+	}
+	one_stack_insert_sort(stack_a);
 }

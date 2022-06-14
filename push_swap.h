@@ -44,14 +44,16 @@ void	ra(t_node	**head);
 void	rra(t_node	**head);
 void	sa(t_node	**head);
 /*--------------*/
+int	in_range(int a, int b, int	c);
 t_node	*sort3(t_node	**head);
 void 	sort2(t_node	**head);
-void	sort_small(t_node	**stack_a, t_node	**stack_b);
+void	sort5(t_node	**stack_a, t_node	**stack_b);
 /* INSERT_SORT */
 int		_min(int a, int b);
 int		smallest(t_node	**stack_a);
 int		position(t_node	**stack_a, int	data);
 void	m_insert_sort(t_node	**stack_a, t_node	**stack_b);
+void	wich_one_ra_rra(t_node	**stack_a, int	pos);
 /*-------------*/
 /*PRINT STACKS*/
 void	print_list(t_node **head);

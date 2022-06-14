@@ -71,7 +71,9 @@ int main(int argc, char *argv[])
 	/* SORTING */
 	//if (len < 100)
 		//printf("%d", list_len(&stack_a));
+	if (len == 5)
+		sort5(&stack_a, &stack_b);
+	else
 		m_insert_sort(&stack_a, &stack_b);
-		//sort_small(&stack_a, &stack_b);
 	print_stacks(&stack_a, &stack_b);
 }
