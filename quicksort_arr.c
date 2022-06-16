@@ -51,15 +51,7 @@ void	quicksort(int	*arr, int	low, int	high)
 	quicksort(arr, new_piv + 1, high);
 }
 
-void printarray(int array[], int size)
-{
-	int	i;
 
-	i = 0;
-	while (i < size)
-		printf("%d ", array[i++]);
-	printf("\n");
-}
 
 /*
 * give the index of the target in the arr 

@@ -79,7 +79,11 @@ int main(int argc, char *argv[])
 	// 		//best_element(&stack_a, &stack_b);
 	// 		printf("lenght of LIS: %d\n", len_lis(&stack_a));
 	// }
-	t_edges	*result = lis(&stack_a);
-	printf("min of LIS: %d\nmax of LIS: %d\nlen of LIS: %d\n",result->min, result->max, len_lis(&stack_a));
+	int *arr;
+	int	leni;
+	leni = lis_lenght(&stack_a);
+	printf("len of LIS: %d\n", leni);
+	arr = return_lis(&stack_a);
+	printarray(arr, len);
 	//print_stacks(&stack_a, &stack_b);
 }

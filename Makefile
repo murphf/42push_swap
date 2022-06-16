@@ -12,6 +12,8 @@ SRC= main.c\
 	insert_sort.c\
 	print_stacks.c\
 	lis.c\
+	lis2.c\
+	array_manipulation.c\
 
 EXEC= push_swap
 

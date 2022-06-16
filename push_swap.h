@@ -71,8 +71,13 @@ void	print_stacks_index(t_node	**stack_a, t_node	**stack_b);
 /*LONGUEST INCREASING SUBSEQUENCE*/
 void	smallest_on_top(t_node	**head);
 void	best_element(t_node	**head_a, t_node	**head_b);
-t_edges		*lis(t_node	**head);
-int len_lis(t_node	**head);
-
+int 	_lis(int *arr, int n, int* max_ref);
+int		lis(int *arr, int n);
+int		lis_lenght(t_node   **head);
+int		*return_lis(t_node  **head);
 /*-------------------------------*/
+/*ARRAYS*/
+int	*list_to_array(t_node	**head);
+void printarray(int *array, int size);
+/*-----*/
 #endif

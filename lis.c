@@ -32,12 +32,14 @@ t_edges	*allocate_edge(void)
 		return (NULL);
 	return (new);
 }
+
+
 /*let's find the LIS*/
 
 /*
 * return the begining(min) and end(max) of the LONGUEST INCREASING SUBSEQUENCE
 */
-t_edges	*lis(t_node	**head)
+t_edges	*lisi(t_node	**head)
 {
 	t_node	*first_node_hold;
 	t_node	*first_node;
