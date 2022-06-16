@@ -71,16 +71,15 @@ int main(int argc, char *argv[])
 	}
 	/*--------------------*/
 	/* SORTING */
-	if (is_sorted(&stack_a) == false)
-	{
-		if (len == 5)
-			sort5(&stack_a, &stack_b);
-		else
-			m_insert_sort(&stack_a, &stack_b);
-	}
-	else
-		error(3);
-	if (is_sorted(&stack_a) == false)
-		printf("error !!\n");
+	// if (is_sorted(&stack_a) == false)
+	// {
+	// 	if (len == 5)
+	// 		sort5(&stack_a, &stack_b);
+	// 	else
+	// 		//best_element(&stack_a, &stack_b);
+	// 		printf("lenght of LIS: %d\n", len_lis(&stack_a));
+	// }
+	t_edges	*result = lis(&stack_a);
+	printf("min of LIS: %d\nmax of LIS: %d\nlen of LIS: %d\n",result->min, result->max, len_lis(&stack_a));
 	//print_stacks(&stack_a, &stack_b);
 }

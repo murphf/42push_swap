@@ -11,6 +11,7 @@ SRC= main.c\
 	sorting_algos.c\
 	insert_sort.c\
 	print_stacks.c\
+	lis.c\
 
 EXEC= push_swap
 

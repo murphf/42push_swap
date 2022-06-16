@@ -87,7 +87,7 @@ void	one_stack_insert_sort(t_node	**stack_a)
 	int	small;
 	int	pos;
 
-	small = smallest0(stack_a);
+	small = smallest(stack_a);
 	pos = position(stack_a, small);
 	wich_one_ra_rra(stack_a, pos);
 }
@@ -115,7 +115,7 @@ void	sort5(t_node	**stack_a, t_node	**stack_b)
 			pa(stack_a, stack_b);
 			ra(stack_a);
 		}
-		else if ((*stack_b)->data < smallest0(stack_a))
+		else if ((*stack_b)->data < smallest(stack_a))
 			pa(stack_a, stack_b);
 		else
 		{

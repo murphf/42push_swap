@@ -14,6 +14,12 @@ typedef	struct s_node
 	struct s_node	*next;
 }	t_node;
 
+typedef struct s_edges
+{
+	int	min;
+	int max;
+} t_edges;
+
 /* LINKED LIST MANIP */
 t_node	*create_node(int data, int index);
 t_node	*add_node_end(t_node	**head, t_node	*new_node);
@@ -50,8 +56,7 @@ void 	sort2(t_node	**head);
 void	sort5(t_node	**stack_a, t_node	**stack_b);
 /* INSERT_SORT */
 int		_min(int a, int b);
-int		smallest(t_node	**stack_a, int len);
-int		smallest0(t_node	**stack_a);
+int		smallest(t_node	**stack_a);
 int		biggest(t_node	**stack_a);
 int		position(t_node	**stack_a, int	data);
 void	m_insert_sort(t_node	**stack_a, t_node	**stack_b);
@@ -63,4 +68,11 @@ void	print_list_with_index(t_node **head);
 void	print_stacks(t_node	**stack_a, t_node	**stack_b);
 void	print_stacks_index(t_node	**stack_a, t_node	**stack_b);
 /*------------*/
+/*LONGUEST INCREASING SUBSEQUENCE*/
+void	smallest_on_top(t_node	**head);
+void	best_element(t_node	**head_a, t_node	**head_b);
+t_edges		*lis(t_node	**head);
+int len_lis(t_node	**head);
+
+/*-------------------------------*/
 #endif

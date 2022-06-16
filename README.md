@@ -65,3 +65,11 @@ TESTING OF 5 NUMBERS:
 -1 2 5 0 8		8mv	  --- 
 1 22 -5 0 8		9mv	  --- could be 7mv
 1 22 -5 0 -8 	10mv
+
+-------------
+BEST ELEMENT ALGORITHM:
+1- find the smallest number in STACK A and make it to the top (depending on its position, ra or rra)
+2-determine the LIS (longuest increasing subsequence) starting ofc from the min of stack A 
+	a- find the most optimized algorithm for that
+3- remove all the numbers that doesn't belong to LIS from stack A (push them to STACK B)
+	a-what 's the best element we can push from stack A to stack B (least moves)
