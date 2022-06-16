@@ -14,6 +14,8 @@ void	error(int i)
 		printf("INVALID ARGUMENT(S)\n");
 	else if (i == 2)
 		printf("FOUND DUPLICATES\n");
+	else if ( i == 3)
+		printf("ALREADY SORTED!\n");
 	exit(EXIT_FAILURE);
 }
 
@@ -69,11 +71,16 @@ int main(int argc, char *argv[])
 	}
 	/*--------------------*/
 	/* SORTING */
-	//if (len < 100)
-	//printf("SMALLEST %d\n", smallest(&stack_a, 5));
-	if (len == 5)
-		sort5(&stack_a, &stack_b);
+	if (is_sorted(&stack_a) == false)
+	{
+		if (len == 5)
+			sort5(&stack_a, &stack_b);
+		else
+			m_insert_sort(&stack_a, &stack_b);
+	}
 	else
-		m_insert_sort(&stack_a, &stack_b);
-	print_stacks(&stack_a, &stack_b);
+		error(3);
+	if (is_sorted(&stack_a) == false)
+		printf("error !!\n");
+	//print_stacks(&stack_a, &stack_b);
 }

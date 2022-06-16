@@ -50,12 +50,18 @@ what happens:
 1- pb + pb + (sort 3 numbers remaining in stack A)
 
 ---STACK A---		---STACK B---
-0	-2					
-1	6					4
-2	7					-7
+	-2					
+	6					4
+	7					-7
 
 2- see if the first number in stack B is an extreme (i.e smaller than the smallest or bigger than the biggest)
 	a- if smallest: pa
 	b- if biggest: pa + ra
 
 3- if not an extreme, search its interval: we want the direct follower of the stack B number 
+
+TESTING OF 5 NUMBERS:
+1 2 5 0 8		10mv  --- could be 8mv
+-1 2 5 0 8		8mv	  --- 
+1 22 -5 0 8		9mv	  --- could be 7mv
+1 22 -5 0 -8 	10mv

@@ -86,24 +86,10 @@ void	one_stack_insert_sort(t_node	**stack_a)
 {
 	int	small;
 	int	pos;
-	t_node	*first_node;
-	int len = 5;
 
-	first_node = *stack_a;
-	//while (is_sorted(stack_a) == false)
-	//{
-		small = smallest(&first_node, len);
-		printf("SMALLEST == %d\n", small);
-		pos = position(stack_a, small);
-		wich_one_ra_rra(stack_a, pos);
-		first_node = first_node->next;
-		len--;
-	//}
-		small = smallest(&first_node, len);
-		printf("SMALLEST == %d\n", small);
-		pos = position(stack_a, small);
-		wich_one_ra_rra(stack_a, pos);
-		first_node = first_node->next;
+	small = smallest0(stack_a);
+	pos = position(stack_a, small);
+	wich_one_ra_rra(stack_a, pos);
 }
 
 /* SORT 5 NUMBERS: MAX: 12 MOVES*/
@@ -138,7 +124,6 @@ void	sort5(t_node	**stack_a, t_node	**stack_b)
 			wich_one_ra_rra(stack_a, pos);
 			pa(stack_a, stack_b);
 		}
+		one_stack_insert_sort(stack_a);
 	}
-	//one_stack_insert_sort(stack_a);
-
 }

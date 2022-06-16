@@ -113,7 +113,6 @@ void	wich_one_ra_rra(t_node	**stack_a, int	pos)
 
 	i = 0;
 	len = list_len(stack_a);
-	//printf("len = %d\n", len);
 	mid = len / 2;
 	if (mid > 0)
 	{
