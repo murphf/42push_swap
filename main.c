@@ -83,7 +83,8 @@ int main(int argc, char *argv[])
 	int	leni;
 	leni = lis_lenght(&stack_a);
 	printf("len of LIS: %d\n", leni);
+	//printf("%d\n", node_of_index(&stack_a, 10)->data);
 	arr = return_lis(&stack_a);
-	printarray(arr, len);
+	printarray(arr, leni);
 	//print_stacks(&stack_a, &stack_b);
 }

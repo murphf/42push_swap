@@ -75,6 +75,7 @@ int 	_lis(int *arr, int n, int* max_ref);
 int		lis(int *arr, int n);
 int		lis_lenght(t_node   **head);
 int		*return_lis(t_node  **head);
+t_node  *node_of_index(t_node   **head, int i);
 /*-------------------------------*/
 /*ARRAYS*/
 int	*list_to_array(t_node	**head);

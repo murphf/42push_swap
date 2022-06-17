@@ -35,6 +35,8 @@ void printarray(int *array, int size)
 	int	i;
 
 	i = 0;
+	if (array == NULL)
+		printf("NOTHING!\n");
 	while (i < size)
 		printf("%d ", array[i++]);
 	printf("\n");

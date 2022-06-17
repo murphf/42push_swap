@@ -60,53 +60,74 @@ int lis_lenght(t_node   **head)
     return (lis(array, len));
 }
 
+void    fill_arr_int(int    *arr, int   len)
+{
+    int i;
+
+    i = 0;
+    while (i < len)
+        arr[i++] = 0;
+}
+
 /*
 * return array containing longuest increasing subsequence 
 */
-int *return_lis(t_node  **head)
-{
-    int len_of_lis;
-    int len;
-    int *array;
-    int big;
-    t_node  *first_node;
-    t_node  *first_node_hold;
-    t_node  *next_hold;
-    t_node  *last_node;
+// int *return_lis(t_node  **head)
+// {
+//     int len_of_lis;
+//     int len;
+//     int *array;
+//     int big;
+//     t_node  *first_node;
+//     t_node  *first_node_hold;
+//     t_node  *next_hold;
+//     t_node  *last_node;
 
-    first_node = *head;
-    first_node_hold = first_node;
-    next_hold = first_node->next;
-    last_node = first_node->prev;
-    len_of_lis = lis_lenght(head);
-    len = 0;
-    array = (int *)malloc(sizeof(int) * len);
-    if (array == NULL)
-        return (NULL);
+//     first_node = *head;
+//     first_node_hold = first_node;
+//     next_hold = first_node->next;
+//     last_node = first_node->prev;
+//     len_of_lis = lis_lenght(head);
+//     len = 0;
+//     array = (int *)malloc(sizeof(int) * len);
+//     if (array == NULL)
+//         return (NULL);
+//     fill_arr_int(array, len);
 
-    
-    while (next_hold != last_node)
-    {
-        first_node = next_hold;
-        while (first_node != last_node)
-        {
-            if (first_node->data > big)
-            {
-                array[len] = first_node->data;
-                big = first_node->data;
-                len++;
-                if (len == len_of_lis)
-                    return(array);
-            }
-            first_node = first_node->next;
-        }
-        next_hold = next_hold->next;
-        len = 0;        
-        array[len] = first_node_hold->data;
-        big = first_node_hold->data;
-    }
-    return (array);
-}
+//     big = first_node_hold->data;
+//     array[len] = big;
+//     len++;
+//     while (next_hold != last_node)
+//     {
+//         first_node = next_hold;
+//         while (first_node != last_node)
+//         {
+//             if (first_node->data > big)
+//             {
+//                 array[len] = first_node->data;
+//                 big = first_node->data;
+//                 len++;
+//                 if (len == len_of_lis)
+//                     return(array);
+//             }
+//             first_node = first_node->next;
+//         }
+//         if (first_node->data > big)
+//             {
+//                 array[len] = first_node->data;
+//                 big = first_node->data;
+//                 len++;
+//                 if (len == len_of_lis)
+//                     return(array);
+//             }
+//         next_hold = next_hold->next;
+//         len = 1;        
+//         array[len] = next_hold->data;
+//         big = next_hold->data;
+//         len++;
+//     }
+//     return (array);
+// }
 /*
 * return
 */
@@ -114,3 +135,80 @@ int *return_lis(t_node  **head)
 // {
 
 // }
+
+/*
+* return node of index i
+*/
+t_node  *node_of_index(t_node   **head, int i)
+{
+    t_node  *first_node;
+    int j;
+    int len;
+
+    first_node = *head;
+    j = 0;
+    len = list_len(head);
+    while (j < len)
+    {
+        if (j == i)
+            return(first_node);
+        j++;
+        first_node = first_node->next;
+    }
+    return (NULL);
+}
+int *return_lis(t_node **head)
+{
+    int len_LIS;
+    int len_list;
+    int *array;
+    t_node  *first_node;
+    int big;
+    int big_hold;
+    int i;
+    int j;
+    int k;
+    int l;
+
+    first_node = *head;
+    len_list = list_len(head);
+    len_LIS = lis_lenght(head);
+    array = (int *)malloc(sizeof(int) * len_LIS);
+    if (array == NULL)
+        return (NULL);
+    
+    array[0] = first_node->data;
+    big = first_node->data;
+    big_hold = big;
+    j = 1;
+    l = 1;
+    while (l < len_LIS)
+    {
+        while (j < len_list)
+        {
+            i = j;
+            first_node = node_of_index(head, i);
+            if (first_node == NULL)
+                return (NULL);
+            k = l;
+            while (i < len_list)
+            {
+                if (first_node->data > array[k - 1])
+                {
+                    array[k] = first_node->data;
+                    //printf("%d ", array[k]);   
+                    big = first_node->data; 
+                    if (k == 5)
+                        return(array);
+                    k++;
+                }
+                i++;
+                first_node = first_node->next;
+            }
+            big = big_hold;
+            j++;
+        }
+        l++;
+    }
+    return (NULL);
+}
