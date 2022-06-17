@@ -1,141 +1,89 @@
 #include "push_swap.h"
-/*LONGUEST INCREASING SUBSEQUENCE*/
-
-
 
 /*
-* put smallest number on top of the stack (STACK A) 
+* implementation of LIS from GFG
+* temporary:
+* circular doubly linked list -> array -> lenght of LIS -> LIS
+* I should be able to extract the LIS directly from the linked list without converting it to an array  
 */
-void	smallest_on_top(t_node	**head)
+int _lis(int *arr, int n, int* max_ref)
 {
-	int	small;
-	int	pos;
-
-	if (*head == NULL)
-		return ;
-	small = smallest(head);
-	pos = position(head, small);
-	wich_one_ra_rra(head, pos);
+    /* Base case */
+    if (n == 1)
+        return 1;
+ 
+    // 'max_ending_here' is length of LIS ending with arr[n-1]
+    int res, max_ending_here = 1;
+ 
+    /* Recursively get all LIS ending with arr[0], arr[1] ...
+       arr[n-2]. If   arr[i-1] is smaller than arr[n-1], and
+       max ending with arr[n-1] needs to be updated, then
+       update it */
+    for (int i = 1; i < n; i++) {
+        res = _lis(arr, i, max_ref);
+        if (arr[i - 1] < arr[n - 1] && res + 1 > max_ending_here)
+            max_ending_here = res + 1;
+    }
+ 
+    // Compare max_ending_here with the overall max. And
+    // update the overall max if needed
+    if (*max_ref < max_ending_here)
+        *max_ref = max_ending_here;
+ 
+    // Return length of LIS ending with arr[n-1]
+    return max_ending_here;
 }
-
-void	best_element(t_node	**head_a, t_node	**head_b)
+ 
+// The wrapper function for _lis()
+int lis(int *arr, int n)
 {
-	smallest_on_top(head_a);
-}
-
-t_edges	*allocate_edge(void)
-{
-	t_edges	*new;
-
-	new = (t_edges *)malloc(sizeof(t_edges));
-	if (new == NULL)
-		return (NULL);
-	return (new);
-}
-
-
-/*let's find the LIS*/
-
-/*
-* return the begining(min) and end(max) of the LONGUEST INCREASING SUBSEQUENCE
-*/
-t_edges	*lisi(t_node	**head)
-{
-	t_node	*first_node_hold;
-	t_node	*first_node;
-	t_node	*last_node;
-	t_edges	*subsec = allocate_edge();
-	t_edges	*long_subsec = allocate_edge();
-	int		len;
-	int		long_len;
-	int		min;
-	int 	max;
-	int		big;
-
-	first_node_hold = *head;
-	first_node = *head;
-	last_node = first_node->prev;
-	long_len = 1;
-	while (first_node_hold != last_node)
-	{
-		min = first_node->data;
-		big = min;
-		len = 1;
-		subsec->max = first_node->data;
-		//printf("%d ", subsec->max);
-		while (first_node != last_node)
-		{
-			if (first_node->data > big)
-				{
-					len++;
-					big = first_node->data;
-					subsec->max = first_node->data;
-					//printf("%d ", subsec->max);
-				}
-			first_node = first_node->next;
-		}
-		if (first_node->data > big)
-			{
-				len++;
-				subsec->max = first_node->data;
-			}
-		//printf("%d ", subsec->max);
-		//printf("| \n");
-		first_node_hold = first_node_hold->next;
-		first_node = first_node_hold;
-		if (len > long_len)
-		{
-			long_len = len;
-			subsec->min = min;
-			long_subsec = subsec;
-		}
-	}
-	return (long_subsec);
+    // The max variable holds the result
+    int max = 1;
+ 
+    // The function _lis() stores its result in max
+    _lis(arr, n, &max);
+ 
+    // returns max
+    return max;
 }
 
 /*
-* return the lenght og the LIS
+* return length of longuest increasing susequence
 */
-int len_lis(t_node	**head)
+int lis_lenght(t_node   **head)
 {
-	t_node	*first_node_hold;
-	t_node	*first_node;
-	t_node	*last_node;
-	int		len;
-	int		long_len;
-	int		big;
-	int		min;
-	int 	max;
+    int len;
+    int *array;
 
-	first_node_hold = *head;
-	first_node = *head;
-	last_node = first_node->prev;
-	long_len = 1;
-	len = 1;
-	while (first_node_hold != last_node)
-	{
-		min = first_node->data;
-		big = min;
-		len = 1;
-		while (first_node != last_node)
-		{
-			if (first_node->data > big)
-				{
-					len++;
-					big = first_node->data;
-				}
-			first_node = first_node->next;
-		}
-		if (first_node->data > big)
-			{
-				len++;
-			}
-		if (len > long_len)
-			long_len = len;
-		first_node_hold = first_node_hold->next;
-		first_node = first_node_hold;
-	}
-	return (long_len);
+    len = list_len(head);
+    array = list_to_array(head);
+    return (lis(array, len));
 }
 
-//DON't FORGET TO FREE THE ALLOCATED STRUCT
+void    fill_arr_int(int    *arr, int   len)
+{
+    int i;
+
+    i = 0;
+    while (i < len)
+        arr[i++] = 0;
+}
+
+t_node  *node_of_index(t_node   **head, int i)
+{
+    t_node  *first_node;
+    int j;
+    int len;
+
+    first_node = *head;
+    j = 0;
+    len = list_len(head);
+    while (j < len)
+    {
+        if (j == i)
+            return(first_node);
+        j++;
+        first_node = first_node->next;
+    }
+    return (NULL);
+}

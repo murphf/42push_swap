@@ -10,7 +10,7 @@ static int	ft_isspace(int c)
 }
 
 //convert a string to an int (handle overflow if > MAX_LONG)
-long	ft_atoi(const char *str)
+long	ft_atoi0(const char *str)
 {
 	int		sign;
 	int		i;

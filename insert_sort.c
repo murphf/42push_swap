@@ -95,7 +95,7 @@ int		position(t_node	**stack_a, int	data)
 	}
 	if (first_node->data == data)
 		return (i);
-	return (-1);
+	return (-5);
 }
 
 /*

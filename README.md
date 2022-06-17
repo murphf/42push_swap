@@ -65,7 +65,8 @@ TESTING OF 5 NUMBERS:
 -1 2 5 0 8		8mv	  --- 
 1 22 -5 0 8		9mv	  --- could be 7mv
 1 22 -5 0 -8 	10mv
-
+-------------
+make libft inside the push_swap makefile
 -------------
 BEST ELEMENT ALGORITHM:
 1- find the smallest number in STACK A and make it to the top (depending on its position, ra or rra)

@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <limits.h>
 #include <stdbool.h>
-
+#include "libft/libft.h"
 typedef	struct s_node
 {
 	int				data;
@@ -29,7 +29,7 @@ int		list_len(t_node	**head);
 /*-------------------*/
 /* PARSING */
 static int	ft_isspace(int c);
-long		ft_atoi(const char *str);
+long		ft_atoi0(const char *str);
 int			is_digit(char c);
 int			valid_arg(char	*str);
 bool		is_sorted(t_node **head);
@@ -76,6 +76,7 @@ int		lis(int *arr, int n);
 int		lis_lenght(t_node   **head);
 int		*return_lis(t_node  **head);
 t_node  *node_of_index(t_node   **head, int i);
+int	*lis_constructor(t_node	**stack_a);
 /*-------------------------------*/
 /*ARRAYS*/
 int	*list_to_array(t_node	**head);

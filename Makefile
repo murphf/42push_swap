@@ -1,3 +1,5 @@
+#SILENCE THE WRITING..
+#ADD A LOADING BAR..
 CC=gcc
 
 CFLAGS=-Wall -Wextra -Werror
@@ -12,8 +14,9 @@ SRC= main.c\
 	insert_sort.c\
 	print_stacks.c\
 	lis.c\
-	lis2.c\
 	array_manipulation.c\
+	lis_construction.c\
+	best_element.c\
 
 EXEC= push_swap
 
@@ -28,13 +31,15 @@ COLOR_END=\033[0m
 All: $(EXEC)
 
 push_swap: $(SRC)
-	$(CC) $(SRC) -o $@
+	make -C libft
+	$(CC) $(SRC) libft/libft.a -o $@
 
 clean:
+	make clean -C libft
 	rm -f push_swap
 
 fclean: clean
+	make fclean -C libft
 
 re: clean All
-
 .PHONY: clean fclean re 

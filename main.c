@@ -79,12 +79,6 @@ int main(int argc, char *argv[])
 	// 		//best_element(&stack_a, &stack_b);
 	// 		printf("lenght of LIS: %d\n", len_lis(&stack_a));
 	// }
-	int *arr;
-	int	leni;
-	leni = lis_lenght(&stack_a);
-	printf("len of LIS: %d\n", leni);
-	//printf("%d\n", node_of_index(&stack_a, 10)->data);
-	arr = return_lis(&stack_a);
-	printarray(arr, leni);
-	//print_stacks(&stack_a, &stack_b);
+	best_element(&stack_a, &stack_b);
+	print_stacks(&stack_a, &stack_b);
 }
