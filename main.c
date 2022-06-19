@@ -74,7 +74,8 @@ int main(int argc, char *argv[])
 	print_stacks(&stack_a, &stack_b);
 	//printf("LEN OF LIST: %d\n", list_len(&stack_a));
 	//printf("moves = %d\n", how_much_to_the_top(&stack_a, 5));
-	moves_counter(&stack_a);
-	printf("NUMBER OF MOVES TO THE TOP:\n");
-	print_nb_of_moves(&stack_a);
+	//moves_counter(&stack_a);
+	//printf("NUMBER OF MOVES TO THE TOP:\n");
+	//print_nb_of_moves(&stack_a);
+	printf("%d\n", how_much_to_the_other_top(&stack_a, 7));
 }

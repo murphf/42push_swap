@@ -165,11 +165,75 @@ int	how_much_to_the_top(t_node	**head, int pos)
 * apparently there's 4 case:
 * 
 */
-int	how_much_to_the_other_top(t_node	**head_a, t_node	**head_b)
+// int	how_much_to_the_other_top(t_node	**head_a, t_node	**head_b)
+// {
+// 	t_node	*first_node;
+// 	t_node	*last_node;
+// 	int		pos;
+// 	int		num;
+// 	int		mid;
+// 	int		i;
+
+// 	first_node = *head_a;
+// 	last_node = first_node->prev;
+// 	num = (*head_b)->data;
+// 	mid = list_len(head_a) / 2;
+// 	i = 0;
+
+// 	if (in_range(num, first_node->data, last_node->data))
+// 		return (0);
+// 	while (first_node != last_node)
+// 	{
+// 		if (in_range(num, first_node->data, first_node->next->data))
+// 		{
+// 			pos = position(head_a, first_node->next->data);	
+// 			//wich_one_ra_rra(head_a, pos);
+// 			i = how_much_to_the_other_top(head_a, pos);
+// 			return (i); 
+// 		}
+// 		first_node = first_node->next;
+// 	}
+// 	if (num > biggest(head_a))
+// 		{
+// 			pos = position(head_a, biggest(head_a));
+// 			i = how_much_to_the_other_top(head_a, pos);
+// 			return (i);
+// 		}
+// 	return (-1);
+// }
+int	how_much_to_the_other_top(t_node	**head_a, int num)
 {
-	t_node	*first_node_b;
+	t_node	*first_node;
+	t_node	*last_node;
+	int		pos;
+	//int		num;
+	int		mid;
+	int		i;
 
-	first_node_b = *head_b;
-	if (0)
+	first_node = *head_a;
+	last_node = first_node->prev;
+	//num = (*head_b)->data;
+	i = 0;
 
+	if (in_range(num, first_node->data, last_node->data))
+		return (0);
+	while (first_node != last_node)
+	{
+		//printf("aaaa\n");
+		if (in_range(num, first_node->data, first_node->next->data))
+		{
+			pos = position(head_a, first_node->next->data);	
+			//wich_one_ra_rra(head_a, pos);
+			i = how_much_to_the_top(head_a, pos);
+			return (i); 
+		}
+		first_node = first_node->next;
+	}
+	if (num > biggest(head_a))
+		{
+			pos = position(head_a, biggest(head_a));
+			i = how_much_to_the_top(head_a, pos);
+			return (i);
+		}
+	return (-1);
 }

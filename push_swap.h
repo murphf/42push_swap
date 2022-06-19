@@ -75,6 +75,7 @@ int		how_much_to_the_top(t_node	**head, int pos);
 int		abs(int	n);
 void	moves_counter(t_node	**head);
 void	print_nb_of_moves(t_node	**head);
+int	how_much_to_the_other_top(t_node	**head_a, int num);
 
 /*-------------------------------*/
 /*ARRAYS*/
