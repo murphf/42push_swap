@@ -12,13 +12,8 @@ typedef	struct s_node
 	int				index;
 	struct s_node	*prev;
 	struct s_node	*next;
+	int			moves[2];
 }	t_node;
-
-typedef struct s_edges
-{
-	int	min;
-	int max;
-} t_edges;
 
 /* LINKED LIST MANIP */
 t_node	*create_node(int data, int index);
@@ -73,10 +68,14 @@ void	smallest_on_top(t_node	**head);
 void	best_element(t_node	**head_a, t_node	**head_b);
 int 	_lis(int *arr, int n, int* max_ref);
 int		lis(int *arr, int n);
-int		lis_lenght(t_node   **head);
-int		*return_lis(t_node  **head);
+int		LIS_lenght(t_node   **head);
 t_node  *node_of_index(t_node   **head, int i);
-int	*lis_constructor(t_node	**stack_a);
+int		*LIS_constructor(t_node	**stack_a);
+int		how_much_to_the_top(t_node	**head, int pos);
+int		abs(int	n);
+void	moves_counter(t_node	**head);
+void	print_nb_of_moves(t_node	**head);
+
 /*-------------------------------*/
 /*ARRAYS*/
 int	*list_to_array(t_node	**head);

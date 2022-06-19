@@ -70,15 +70,11 @@ int main(int argc, char *argv[])
 		}
 	}
 	/*--------------------*/
-	/* SORTING */
-	// if (is_sorted(&stack_a) == false)
-	// {
-	// 	if (len == 5)
-	// 		sort5(&stack_a, &stack_b);
-	// 	else
-	// 		//best_element(&stack_a, &stack_b);
-	// 		printf("lenght of LIS: %d\n", len_lis(&stack_a));
-	// }
-	best_element(&stack_a, &stack_b);
+	//best_element(&stack_a, &stack_b);
 	print_stacks(&stack_a, &stack_b);
+	//printf("LEN OF LIST: %d\n", list_len(&stack_a));
+	//printf("moves = %d\n", how_much_to_the_top(&stack_a, 5));
+	moves_counter(&stack_a);
+	printf("NUMBER OF MOVES TO THE TOP:\n");
+	print_nb_of_moves(&stack_a);
 }

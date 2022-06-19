@@ -74,3 +74,5 @@ BEST ELEMENT ALGORITHM:
 	a- find the most optimized algorithm for that
 3- remove all the numbers that doesn't belong to LIS from stack A (push them to STACK B)
 	a-what 's the best element we can push from stack A to stack B (least moves)
+
+-----------------

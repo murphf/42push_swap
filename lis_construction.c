@@ -47,7 +47,7 @@ ans = lis(arr)
 print "Length of lis is", ans[0]
 print "The longest sequence is", ", ".join(str(x) for x in ans[1])
 
-TRANSLATE CODE TO C
+NEED TO BE TRANSLATED TO C
 */
 
 int	*fill_arr(int	*array, char *string, int	len)
@@ -80,7 +80,7 @@ int	*fill_arr(int	*array, char *string, int	len)
 * now this only SIMULATE the right answer (that I can get from the python code)
 * so I can code the other part of the algorithm before returning to constructing LIS
 */
-int	*lis_constructor(t_node	**stack_a)
+int	*LIS_constructor(t_node	**stack_a)
 {
 	/* for now only return the LIS of 0 4 6 1 2 10 7 3 8 9 
 	(wainting for the code solution)
