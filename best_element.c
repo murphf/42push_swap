@@ -50,6 +50,9 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 	last_node = first_node->prev;
 	lis = LIS_constructor(head_a); //should be returning array of LIS 
 	lis_len = 6; //lenght of LIS
+	/*
+	* only letting the longuest incresing subsequence in STACK A
+	*/
 	while (first_node != last_node)
 	{
 		if (in_array(lis, first_node->data, lis_len) == false)
@@ -68,10 +71,14 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 		wich_one_ra_rra(head_a, pos);
 		pb(head_a, head_b);
 	}
+	moves_counter(head_b);
+	moves_counter2(head_a, head_b);
+	//print_nb_of_moves(head_b);
 }
 
 /*
-* count number of moves required to move each number from stack b to stack a (and put it in it's correct place)
+* fill moves[1] of numbers of STACK B
+* how much for it to get on the top of stack B
 */
 void	moves_counter(t_node	**head)
 {
@@ -108,11 +115,11 @@ void	print_nb_of_moves(t_node	**head)
 	last_node = first_node->prev;
 	while (first_node != last_node)
 	{
-		printf("[1] = %d\n", first_node->moves[1]);
+		printf("num = %d | [0] = %d [1] = %d\n",first_node->data, first_node->moves[0], first_node->moves[1]);
 		first_node = first_node->next;
 	}
-	printf("[1] = %d\n", first_node->moves[1]);
-		first_node = first_node->next;
+	printf("num = %d | [0] = %d [1] = %d\n",first_node->data, first_node->moves[0], first_node->moves[1]);
+		//first_node = first_node->next;
 }
 /*
 * return absolute value of n
@@ -161,69 +168,28 @@ int	how_much_to_the_top(t_node	**head, int pos)
 }
 
 /*
-* calculate how many moves we meed to position a number from the top of STACK B to 
-* apparently there's 4 case:
-* 
+* calculate how many moves we meed to position a number from the top of STACK B (num) in its position in stack A 
+* apparently there's 4 cases.
 */
-// int	how_much_to_the_other_top(t_node	**head_a, t_node	**head_b)
-// {
-// 	t_node	*first_node;
-// 	t_node	*last_node;
-// 	int		pos;
-// 	int		num;
-// 	int		mid;
-// 	int		i;
-
-// 	first_node = *head_a;
-// 	last_node = first_node->prev;
-// 	num = (*head_b)->data;
-// 	mid = list_len(head_a) / 2;
-// 	i = 0;
-
-// 	if (in_range(num, first_node->data, last_node->data))
-// 		return (0);
-// 	while (first_node != last_node)
-// 	{
-// 		if (in_range(num, first_node->data, first_node->next->data))
-// 		{
-// 			pos = position(head_a, first_node->next->data);	
-// 			//wich_one_ra_rra(head_a, pos);
-// 			i = how_much_to_the_other_top(head_a, pos);
-// 			return (i); 
-// 		}
-// 		first_node = first_node->next;
-// 	}
-// 	if (num > biggest(head_a))
-// 		{
-// 			pos = position(head_a, biggest(head_a));
-// 			i = how_much_to_the_other_top(head_a, pos);
-// 			return (i);
-// 		}
-// 	return (-1);
-// }
 int	how_much_to_the_other_top(t_node	**head_a, int num)
 {
 	t_node	*first_node;
 	t_node	*last_node;
 	int		pos;
-	//int		num;
 	int		mid;
 	int		i;
 
 	first_node = *head_a;
 	last_node = first_node->prev;
-	//num = (*head_b)->data;
 	i = 0;
 
 	if (in_range(num, first_node->data, last_node->data))
 		return (0);
 	while (first_node != last_node)
 	{
-		//printf("aaaa\n");
 		if (in_range(num, first_node->data, first_node->next->data))
 		{
 			pos = position(head_a, first_node->next->data);	
-			//wich_one_ra_rra(head_a, pos);
 			i = how_much_to_the_top(head_a, pos);
 			return (i); 
 		}
@@ -236,4 +202,39 @@ int	how_much_to_the_other_top(t_node	**head_a, int num)
 			return (i);
 		}
 	return (-1);
+}
+
+/*
+* fill moves[0] of the numbers of STACK B
+* how much for it to get in the righ position in STACK A (after getting in the top of STACK B)
+*/
+void	moves_counter2(t_node	**head_a, t_node	**head_b)
+{
+	t_node	*first_node_b;
+	t_node	*last_node_b;
+	int		n_moves;
+
+	first_node_b = *head_b;
+	last_node_b = first_node_b->prev;
+	while (first_node_b != last_node_b->prev)
+	{
+		first_node_b->moves[0] = how_much_to_the_other_top(head_a, first_node_b->data);
+		last_node_b->moves[0] = how_much_to_the_other_top(head_a, last_node_b->data);
+		first_node_b = first_node_b->next;
+		last_node_b = last_node_b->prev;
+	}
+	first_node_b->moves[0] = how_much_to_the_other_top(head_a, first_node_b->data);
+	last_node_b->moves[0] = how_much_to_the_other_top(head_a, last_node_b->data);
+}
+
+/*
+* claculate the sum of moves needed for each number in stack B
+* so we can compare them and chose the one with the least number
+*/
+void	all_moves_stack_b(t_node	**head)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+
+	first_node
 }

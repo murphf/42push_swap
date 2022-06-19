@@ -13,6 +13,7 @@ typedef	struct s_node
 	struct s_node	*prev;
 	struct s_node	*next;
 	int			moves[2];
+	int			nb_moves;
 }	t_node;
 
 /* LINKED LIST MANIP */
@@ -75,11 +76,16 @@ int		how_much_to_the_top(t_node	**head, int pos);
 int		abs(int	n);
 void	moves_counter(t_node	**head);
 void	print_nb_of_moves(t_node	**head);
+int		how_much_to_the_other_top(t_node	**head_a, int num);
+int		abs(int	n);
+int	how_much_to_the_top(t_node	**head, int pos);
 int	how_much_to_the_other_top(t_node	**head_a, int num);
 
 /*-------------------------------*/
 /*ARRAYS*/
 int	*list_to_array(t_node	**head);
 void printarray(int *array, int size);
+void	moves_counter2(t_node	**head_a, t_node	**head_b);
+
 /*-----*/
 #endif
