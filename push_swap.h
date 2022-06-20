@@ -52,6 +52,7 @@ void 	sort2(t_node	**head);
 void	sort5(t_node	**stack_a, t_node	**stack_b);
 /* INSERT_SORT */
 int		_min(int a, int b);
+int		_max(int a, int b);
 int		smallest(t_node	**stack_a);
 int		biggest(t_node	**stack_a);
 int		position(t_node	**stack_a, int	data);
@@ -78,13 +79,14 @@ void	moves_counter(t_node	**head);
 void	print_nb_of_moves(t_node	**head);
 int		how_much_to_the_other_top(t_node	**head_a, int num);
 int		abs(int	n);
-int	how_much_to_the_top(t_node	**head, int pos);
-int	how_much_to_the_other_top(t_node	**head_a, int num);
-
+int		how_much_to_the_top(t_node	**head, int pos);
+int		how_much_to_the_other_top(t_node	**head_a, int num);
+void	all_moves_stack_b(t_node	**head);
+int		find_minimum_moves(t_node	**head);
 /*-------------------------------*/
 /*ARRAYS*/
-int	*list_to_array(t_node	**head);
-void printarray(int *array, int size);
+int		*list_to_array(t_node	**head);
+void 	printarray(int *array, int size);
 void	moves_counter2(t_node	**head_a, t_node	**head_b);
 
 /*-----*/

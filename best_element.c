@@ -42,6 +42,7 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 	int		*lis;
 	int		lis_len;
 	int		pos;
+	int		p_number_to_push; //store the position of the number to push
 	t_node	*first_node;
 	t_node	*last_node;
 
@@ -73,6 +74,9 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 	}
 	moves_counter(head_b);
 	moves_counter2(head_a, head_b);
+	all_moves_stack_b(head_b);
+	p_number_to_push = find_minimum_moves(head_b);
+	printf("POS OF NUMBER TO PSUH = %d\n", p_number_to_push);
 	//print_nb_of_moves(head_b);
 }
 
@@ -115,10 +119,10 @@ void	print_nb_of_moves(t_node	**head)
 	last_node = first_node->prev;
 	while (first_node != last_node)
 	{
-		printf("num = %d | [0] = %d [1] = %d\n",first_node->data, first_node->moves[0], first_node->moves[1]);
+		printf("num = %d | [0] = %d [1] = %d | total = %d\n",first_node->data, first_node->moves[0], first_node->moves[1], first_node->nb_moves);
 		first_node = first_node->next;
 	}
-	printf("num = %d | [0] = %d [1] = %d\n",first_node->data, first_node->moves[0], first_node->moves[1]);
+	printf("num = %d | [0] = %d [1] = %d | total = %d\n",first_node->data, first_node->moves[0], first_node->moves[1], first_node->nb_moves);
 		//first_node = first_node->next;
 }
 /*
@@ -226,7 +230,12 @@ void	moves_counter2(t_node	**head_a, t_node	**head_b)
 	first_node_b->moves[0] = how_much_to_the_other_top(head_a, first_node_b->data);
 	last_node_b->moves[0] = how_much_to_the_other_top(head_a, last_node_b->data);
 }
-
+bool	same_sign(int	a, int	b)
+{
+	if ((a > 0 && b > 0) || (a < 0 && b < 0))
+		return true;
+	return false;
+}
 /*
 * claculate the sum of moves needed for each number in stack B
 * so we can compare them and chose the one with the least number
@@ -235,6 +244,91 @@ void	all_moves_stack_b(t_node	**head)
 {
 	t_node	*first_node;
 	t_node	*last_node;
+	int		num;
+	int		a;
+	int		b;
 
-	first_node
+	first_node = *head;
+	last_node = first_node->prev;
+	num = 0;
+	while (first_node != last_node)
+	{
+		if (same_sign(first_node->moves[0], first_node->moves[1]))
+		{
+			a = first_node->moves[0];
+			b = first_node->moves[1];
+			first_node->nb_moves = _max(abs(a), abs(b));
+		}
+		else
+		{
+			a = first_node->moves[0];
+			b = first_node->moves[1];
+			first_node->nb_moves = abs(a) + abs(b);
+		}
+		first_node = first_node->next;
+	}
+	if (same_sign(first_node->moves[0], first_node->moves[1]))
+		{
+			a = first_node->moves[0];
+			b = first_node->moves[1];
+			first_node->nb_moves = _max(abs(a), abs(b));
+		}
+		else
+		{
+			a = first_node->moves[0];
+			b = first_node->moves[1];
+			first_node->nb_moves = abs(a) + abs(b);
+		}
+}
+/*
+* return position of number who needs the minimum moves
+*/
+int		find_minimum_moves(t_node	**head)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+	int		min;
+	int		pos;
+	int		pos_m;
+
+	first_node = *head;
+	last_node = first_node->prev;
+	min = first_node->nb_moves;
+	pos = 0;
+	pos_m = pos;
+	while (first_node != last_node)
+	{	
+		if (first_node->nb_moves < min)
+		{
+			min = first_node->nb_moves;
+			pos_m = pos;
+		} 
+		pos++;
+		first_node = first_node->next;
+	}
+	if (first_node->nb_moves < min)
+	{
+		min = first_node->nb_moves;
+		pos_m = pos;
+	}
+	return(pos_m);
+}
+void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
+{
+	t_node	**first_node_b;
+	int					pos;
+
+	first_node_b = *head_b;
+	while (*head_b)
+	{
+		pos = find_minimum_moves(head_b);
+		/*
+		* when will we use rrr
+		*/
+		if (same_sign(first_node_b->moves[0], first_node_b->moves[1]))
+		{
+			if (first_node_b->moves[0] < 0)
+		}
+	}
+
 }

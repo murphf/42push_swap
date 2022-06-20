@@ -24,6 +24,12 @@ void	rra(t_node	**head)
 	write(1, "rra\n", 5);
 }
 
+void	rrr(t_node	**head_a, t_node	**head_b)
+{
+	rev_rotate(head_a);
+	rev_rotate(head_b);
+}
+
 void	sa(t_node	**head)
 {
 	swap(head);

@@ -30,7 +30,7 @@ COLOR_END=\033[0m
 
 All: $(EXEC)
 
-push_swap: $(SRC)
+push_swap: $(SRC) push_swap.h
 	make -C libft
 	$(CC) $(SRC) libft/libft.a -o $@
 
