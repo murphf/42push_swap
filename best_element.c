@@ -316,8 +316,13 @@ int		find_minimum_moves(t_node	**head)
 void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 {
 	t_node	**first_node_b;
-	int					pos;
+	int	pos;
+	int	i;
+	int	moves;
+	int	ind;
+	int	extra;
 
+	ind = 0;
 	first_node_b = *head_b;
 	while (*head_b)
 	{
@@ -325,9 +330,64 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 		/*
 		* when will we use rrr
 		*/
+		i = 0;
+		if (abs(first_node_b->moves[1]) > abs(first_node_b->moves[0]))
+			ind = 1;
 		if (same_sign(first_node_b->moves[0], first_node_b->moves[1]))
 		{
 			if (first_node_b->moves[0] < 0)
+			{
+				moves = _min(abs(first_node_b->moves[0]), abs(first_node_b->moves[1]));
+				extra = max(abs(first_node_b->moves[0]), abs(first_node_b->moves[1])) - moves; 
+				while (i < moves)
+				{
+					i++;
+					rrr(head_a, head_b);
+				}
+				i = 0;
+				if (ind)
+				{
+					while(i < extra)
+					{
+						i++;
+						rb(head_b);
+					}
+				}
+				else
+				{
+					while(i < extra)
+					{
+						i++;
+						rb(head_b);
+					}
+				}
+			}
+			else if (first_node_b->moves[0] > 0)
+			{	
+				moves = _min(first_node_b->moves[0], first_node_b->moves[1]);
+				while (i < moves)
+				{
+					i++;
+					rr(head_a, head_b);
+				}
+				i = 0;
+				if (ind)
+				{
+					while(i < extra)
+					{
+						i++;
+						rb(head_b);
+					}
+				}
+				else
+				{
+					while(i < extra)
+					{
+						i++;
+						rb(head_b);
+					}
+				}
+			}
 		}
 	}
 

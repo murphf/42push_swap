@@ -43,7 +43,11 @@ void	pop(t_node	**head);
 void	pa(t_node **head_a, t_node	**head_b);
 void	pb(t_node **head_a, t_node	**head_b);
 void	ra(t_node	**head);
+void	rb(t_node	**head);
+void	rr(t_node	**head_a, t_node	**head_b);
 void	rra(t_node	**head);
+void	rrb(t_node	**head);
+void	rrr(t_node	**head_a, t_node	**head_b);
 void	sa(t_node	**head);
 /*--------------*/
 int	in_range(int a, int b, int	c);
