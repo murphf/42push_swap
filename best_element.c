@@ -2,7 +2,10 @@
 /*LONGUEST INCREASING SUBSEQUENCE*/
 
 
-
+/*
+* MOVES[0] concern moves in STACK A
+* MOVES[1] concern moves in STACK B
+*/
 /*
 * put smallest number on top of the stack (STACK A) 
 */
@@ -75,9 +78,7 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 	moves_counter(head_b);
 	moves_counter2(head_a, head_b);
 	all_moves_stack_b(head_b);
-	p_number_to_push = find_minimum_moves(head_b);
-	printf("POS OF NUMBER TO PSUH = %d\n", p_number_to_push);
-	//print_nb_of_moves(head_b);
+	push_the_elemnt_to_a(head_a, head_b);
 }
 
 /*
@@ -281,7 +282,7 @@ void	all_moves_stack_b(t_node	**head)
 		}
 }
 /*
-* return position of number who needs the minimum moves
+* return POSITION of the number who needs the minimum moves
 */
 int		find_minimum_moves(t_node	**head)
 {
@@ -313,82 +314,142 @@ int		find_minimum_moves(t_node	**head)
 	}
 	return(pos_m);
 }
+
+/* PSEUDOCODE
+* 1- find the element with the least amount of moves
+* 2- CASES:
+	A- moves[0] && moves[1] have the same sign
+		a- positive
+			- rr time (min of both)
+			- extra = max - min
+			- if max is moves[0]
+				-ra time (extra)
+			- if max is moves[1]
+				-rb time (extra)
+		b- negative
+			- rrr time (min of absolute value of both)
+			- extra = max (of abs values) - min (of abs values)
+			- if max id moves[0]:
+				-rra time (extra)
+			- if max is moves[1]:
+				-rrb time (extra)
+	B- moves[0] && moves[1] have different signs:
+			-if moves[0] > 0:
+				-ra time (abs(moves[0]))
+			-if moves[0] < 0:
+				-rra time (abs(moves[0]))
+			-if moves[1] > 0:
+				-rb time (abs(moves[1]))
+			-if moves[1] < 0:
+				-rrb time (abs(moves[1]))
+*/
 void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 {
-	t_node	**first_node_b;
-	int	pos;
-	int	i;
-	int	moves;
-	int	ind;
-	int	extra;
+	int	best_el_pos;
+	t_node	*node_b;
+	int		combo;
+	int		extra;
+	int		max;
+	int		i;
 
-	ind = 0;
-	first_node_b = *head_b;
-	while (*head_b)
+	node_b = *head_b;
+	//while ( *head_b)
+	best_el_pos = find_minimum_moves(head_b);
+	i = 0;
+	//WHILE STACK_B ISN'T EMPTY
+	if (same_sign(node_b->moves[0], node_b->moves[1]))
 	{
-		pos = find_minimum_moves(head_b);
-		/*
-		* when will we use rrr
-		*/
-		i = 0;
-		if (abs(first_node_b->moves[1]) > abs(first_node_b->moves[0]))
-			ind = 1;
-		if (same_sign(first_node_b->moves[0], first_node_b->moves[1]))
+		combo = _min(abs(node_b->moves[0]), abs(node_b->moves[1]));
+		max = _max(abs(node_b->moves[0]), abs(node_b->moves[1]));
+		extra = max - combo;
+		
+		if (node_b->moves[0] > 0)
 		{
-			if (first_node_b->moves[0] < 0)
+			while (i < combo)
 			{
-				moves = _min(abs(first_node_b->moves[0]), abs(first_node_b->moves[1]));
-				extra = max(abs(first_node_b->moves[0]), abs(first_node_b->moves[1])) - moves; 
-				while (i < moves)
+				rr(head_a, head_b);
+				i++;
+			}
+			i = 0;
+			if (max == node_b->moves[0])
+			{
+				while (i < extra)
 				{
+					ra(head_a);
 					i++;
-					rrr(head_a, head_b);
-				}
-				i = 0;
-				if (ind)
-				{
-					while(i < extra)
-					{
-						i++;
-						rb(head_b);
-					}
-				}
-				else
-				{
-					while(i < extra)
-					{
-						i++;
-						rb(head_b);
-					}
 				}
 			}
-			else if (first_node_b->moves[0] > 0)
-			{	
-				moves = _min(first_node_b->moves[0], first_node_b->moves[1]);
-				while (i < moves)
+			else if (max == node_b->moves[1])
+			{
+				while (i < extra)
 				{
+					rb(head_b);
 					i++;
-					rr(head_a, head_b);
 				}
-				i = 0;
-				if (ind)
+			}
+		}
+		else
+		{
+			while (i < combo)
+			{
+				rrr(head_a, head_b);
+				i++;
+			}
+			i = 0;
+			if (max == node_b->moves[0])
+			{
+				while (i < extra)
 				{
-					while(i < extra)
-					{
-						i++;
-						rb(head_b);
-					}
+					rra(head_a);
+					i++;
 				}
-				else
+			}
+			else if (max == node_b->moves[1])
+			{
+				while (i < extra)
 				{
-					while(i < extra)
-					{
-						i++;
-						rb(head_b);
-					}
+					rrb(head_b);
+					i++;
 				}
 			}
 		}
 	}
-
+	else
+	{
+		combo = abs(node_b->moves[0]);
+		extra = abs(node_b->moves[1]);
+		if (node_b->moves[0] > 0)
+		{
+			while (i < combo)
+			{
+				ra(head_a);
+				i++;
+			}
+		}
+		else if (node_b->moves[0] < 0)
+		{
+			while (i < combo)
+			{
+				rra(head_a);
+				i++;
+			}
+		}
+		i = 0;
+		if (node_b->moves[1] > 0)
+		{
+			while (i < extra)
+			{
+				rb(head_b);
+				i++;
+			}
+		}
+		else if (node_b->moves[1] < 0)
+		{
+			while (i < combo)
+			{
+				rrb(head_a);
+				i++;
+			}
+		}
+	}
 }

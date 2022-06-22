@@ -87,6 +87,7 @@ int		how_much_to_the_top(t_node	**head, int pos);
 int		how_much_to_the_other_top(t_node	**head_a, int num);
 void	all_moves_stack_b(t_node	**head);
 int		find_minimum_moves(t_node	**head);
+void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b);
 /*-------------------------------*/
 /*ARRAYS*/
 int		*list_to_array(t_node	**head);
