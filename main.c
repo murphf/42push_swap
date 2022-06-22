@@ -19,7 +19,7 @@ void	error(int i)
 	exit(EXIT_FAILURE);
 }
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
@@ -71,7 +71,7 @@ void main(int argc, char *argv[])
 	}
 	/*--------------------*/
 	best_element(&stack_a, &stack_b);
-	//print_stacks(&stack_a, &stack_b);
+	print_stacks(&stack_a, &stack_b);
 	//print_nb_of_moves(&stack_b);
 	
 }

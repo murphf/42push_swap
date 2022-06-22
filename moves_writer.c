@@ -23,14 +23,6 @@ void	ra(t_node	**head)
 	rotate(head);
 	write(1, "ra\n", 4);
 }
-
-void	rr(t_node	**head_a, t_node	**head_b)
-(
-	rotate(head_a);
-	rotate(head_b);
-	write(1, "rr\n", 4);
-)
-
 void	rra(t_node	**head)
 {
 	rev_rotate(head);
@@ -49,9 +41,14 @@ void	rrr(t_node	**head_a, t_node	**head_b)
 	rev_rotate(head_b);
 	write(1, "rrr\n", 5);
 }
-
 void	sa(t_node	**head)
 {
 	swap(head);
 	write(1, "sa\n", 4);
+}
+void	rr(t_node	**head_a, t_node	**head_b)
+{
+	rotate(head_a);
+	rotate(head_b);
+	write(1, "rr\n", 4);
 }
