@@ -16,11 +16,11 @@ SRC= main.c\
 	lis.c\
 	array_manipulation.c\
 	lis_construction.c\
-	best_element.c\
+	moves_counters.c\
 	push_best_element.c\
+	best_elements_annex.c\
 
 EXEC= push_swap
-
 #color codes
 COLOR_GREEN=\033[0;32m
 COLOR_RED=\033[0;31m

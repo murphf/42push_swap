@@ -27,7 +27,9 @@
 				-rb time (abs(moves[1]))
 			-if moves[1] < 0:
 				-rrb time (abs(moves[1]))
+VERY FUCKING BIG UGLY FUNCTION
 */
+
 void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 {
 	int		best_el_pos;
@@ -46,14 +48,13 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 		best_el_pos = find_minimum_moves(head_b);
 		wich_one_ra_rra(head_b, best_el_pos);
 		node_b = *head_b;
+		//CASE OF MOVE == 0, non handled here
 		if (same_sign(node_b->moves[0], node_b->moves[1]))
 		{
 			combo = _min(abs(node_b->moves[0]), abs(node_b->moves[1]));
 			max = _max(abs(node_b->moves[0]), abs(node_b->moves[1]));
 			extra = max - combo;
-			if (node_b->moves[0] == 0 && node_b->moves[1] == 0)
-				pa(head_a, head_b);
-			else if (node_b->moves[0] > 0 || node_b->moves[1] > 0)
+			if (node_b->moves[0] > 0)
 			{
 				while (i < combo)
 				{
@@ -79,7 +80,7 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 				}
 				pa(head_a, head_b);
 			}
-			else if (node_b->moves[0] < 0 || node_b->moves[1] < 0)
+			else if (node_b->moves[0] < 0)
 			{
 				while (i < combo)
 				{
@@ -149,11 +150,11 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 		
 		if (*head_b)
 		{
-			moves_counter(head_b);
-			moves_counter2(head_a, head_b);
+			moves_counter1(head_b);
+			moves_counter0(head_a, head_b);
 			all_moves_stack_b(head_b);
 		}
-		printf("1\n");
+		//printf("1\n");
 	}
 }
 	/*
@@ -196,9 +197,10 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 			wich_one_ra_rra(head_a, pos);
 			pb(head_a, head_b);
 		}
-	moves_counter(head_b);
-	moves_counter2(head_a, head_b);
+	moves_counter1(head_b);
+	moves_counter0(head_a, head_b);
 	all_moves_stack_b(head_b);
+	print_nb_of_moves(head_b);
 	push_the_elemnt_to_a(head_a, head_b);
 	smallest_on_top(head_a);
 }

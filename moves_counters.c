@@ -1,47 +1,11 @@
 #include "push_swap.h"
 /*LONGUEST INCREASING SUBSEQUENCE*/
 
-
-/*
-* MOVES[0] concern moves in STACK A
-* MOVES[1] concern moves in STACK B
-*/
-/*
-* put smallest number on top of the stack (STACK A) 
-*/
-void	smallest_on_top(t_node	**head)
-{
-	int	small;
-	int	pos;
-
-	if (*head == NULL)
-		return ;
-	small = smallest(head);
-	pos = position(head, small);
-	wich_one_ra_rra(head, pos);
-}
-
-/*
-* check if number nbr is in array
-*/
-bool	in_array(int	*array, int nbr, int len)
-{
-	int i;
-
-	i = 0;
-	while (i < len)
-	{
-		if (array[i] == nbr)
-			return (true);
-		i++;
-	}
-	return (false);
-}
 /*
 * fill moves[1] of numbers of STACK B
 * how much for it to get on the top of stack B
 */
-void	moves_counter(t_node	**head)
+void	moves_counter1(t_node	**head)
 {
 	t_node	*first_node;
 	t_node	*last_node;
@@ -81,15 +45,6 @@ void	print_nb_of_moves(t_node	**head)
 	}
 	printf("num = %d | [0] = %d [1] = %d | total = %d\n",first_node->data, first_node->moves[0], first_node->moves[1], first_node->nb_moves);
 		//first_node = first_node->next;
-}
-/*
-* return absolute value of n
-*/
-int	abs(int	n)
-{
-	if (n < 0)
-		return (-n);
-	return (n);
 }
 
 /*
@@ -144,7 +99,9 @@ int	how_much_to_the_other_top(t_node	**head_a, int num)
 	last_node = first_node->prev;
 	i = 0;
 
-	if (in_range(num, first_node->data, last_node->data))
+	// if (in_range(num, first_node->data, last_node->data))
+	// 	return (0);
+	if (in_range(num, last_node->data, first_node->data))
 		return (0);
 	while (first_node != last_node)
 	{
@@ -158,7 +115,7 @@ int	how_much_to_the_other_top(t_node	**head_a, int num)
 	}
 	if (num > biggest(head_a))
 		{
-			pos = position(head_a, biggest(head_a));
+			pos = position(head_a, smallest(head_a));
 			i = how_much_to_the_top(head_a, pos);
 			return (i);
 		}
@@ -169,7 +126,7 @@ int	how_much_to_the_other_top(t_node	**head_a, int num)
 * fill moves[0] of the numbers of STACK B
 * how much for it to get in the righ position in STACK A (after getting in the top of STACK B)
 */
-void	moves_counter2(t_node	**head_a, t_node	**head_b)
+void	moves_counter0(t_node	**head_a, t_node	**head_b)
 {
 	t_node	*first_node_b;
 	t_node	*last_node_b;
@@ -187,12 +144,7 @@ void	moves_counter2(t_node	**head_a, t_node	**head_b)
 	first_node_b->moves[0] = how_much_to_the_other_top(head_a, first_node_b->data);
 	last_node_b->moves[0] = how_much_to_the_other_top(head_a, last_node_b->data);
 }
-bool	same_sign(int	a, int	b)
-{
-	if ((a > 0 && b > 0) || (a < 0 && b < 0))
-		return true;
-	return false;
-}
+
 /*
 * claculate the sum of moves needed for each number in stack B
 * so we can compare them and chose the one with the least number

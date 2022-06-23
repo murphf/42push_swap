@@ -77,24 +77,23 @@ int		lis(int *arr, int n);
 int		LIS_lenght(t_node   **head);
 t_node  *node_of_index(t_node   **head, int i);
 int		*LIS_constructor(t_node	**stack_a);
-int		how_much_to_the_top(t_node	**head, int pos);
 int		abs(int	n);
-void	moves_counter(t_node	**head);
-void	print_nb_of_moves(t_node	**head);
-int		how_much_to_the_other_top(t_node	**head_a, int num);
-int		abs(int	n);
-int		how_much_to_the_top(t_node	**head, int pos);
-int		how_much_to_the_other_top(t_node	**head_a, int num);
-void	all_moves_stack_b(t_node	**head);
 int		find_minimum_moves(t_node	**head);
 void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b);
 bool	same_sign(int	a, int	b);
 bool	in_array(int	*array, int nbr, int len);
-/*-------------------------------*/
+/*MOVES COUNTER*/
+void	moves_counter0(t_node	**head_a, t_node	**head_b);
+void	moves_counter1(t_node	**head);
+int		how_much_to_the_other_top(t_node	**head_a, int num);
+int		how_much_to_the_top(t_node	**head, int pos);
+void	print_nb_of_moves(t_node	**head);
+void	all_moves_stack_b(t_node	**head);
+/*-------------*/
 /*ARRAYS*/
 int		*list_to_array(t_node	**head);
 void 	printarray(int *array, int size);
-void	moves_counter2(t_node	**head_a, t_node	**head_b);
+
 
 /*-----*/
 #endif
