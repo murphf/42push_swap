@@ -46,7 +46,7 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 	while (*head_b)
 	{
 		best_el_pos = find_minimum_moves(head_b);
-		wich_one_ra_rra(head_b, best_el_pos);
+		//wich_one_ra_rra(head_b, best_el_pos);
 		node_b = *head_b;
 		//CASE OF MOVE == 0, non handled here
 		if (same_sign(node_b->moves[0], node_b->moves[1]))
@@ -175,7 +175,7 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 		first_node = *head_a;
 		last_node = first_node->prev;
 		lis = LIS_constructor(head_a); //should be returning array of LIS 
-		lis_len = 6; //lenght of LIS
+		lis_len = N; //lenght of LIS
 		/*
 		* only letting the longuest incresing subsequence in STACK A
 		*/
@@ -200,9 +200,9 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 	moves_counter1(head_b);
 	moves_counter0(head_a, head_b);
 	all_moves_stack_b(head_b);
-	print_nb_of_moves(head_b);
 	push_the_elemnt_to_a(head_a, head_b);
 	smallest_on_top(head_a);
+	biggest_on_top(head_b);
 }
 /*
 * return POSITION of the number who needs the minimum moves

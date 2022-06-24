@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#define	N 3
 
 /*
 * The different error message,
@@ -71,7 +70,7 @@ int main(int argc, char *argv[])
 	}
 	/*--------------------*/
 	best_element(&stack_a, &stack_b);
-	print_stacks(&stack_a, &stack_b);
+	//print_stacks(&stack_a, &stack_b);
 	//print_nb_of_moves(&stack_b);
 	
 }

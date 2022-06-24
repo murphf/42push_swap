@@ -6,6 +6,7 @@
 #include <limits.h>
 #include <stdbool.h>
 #include "libft/libft.h"
+#define N 18
 typedef	struct s_node
 {
 	int				data;
@@ -71,6 +72,7 @@ void	print_stacks_index(t_node	**stack_a, t_node	**stack_b);
 /*------------*/
 /*LONGUEST INCREASING SUBSEQUENCE*/
 void	smallest_on_top(t_node	**head);
+void	biggest_on_top(t_node	**head);
 void	best_element(t_node	**head_a, t_node	**head_b);
 int 	_lis(int *arr, int n, int* max_ref);
 int		lis(int *arr, int n);

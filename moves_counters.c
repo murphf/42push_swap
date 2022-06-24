@@ -99,10 +99,17 @@ int	how_much_to_the_other_top(t_node	**head_a, int num)
 	last_node = first_node->prev;
 	i = 0;
 
-	// if (in_range(num, first_node->data, last_node->data))
-	// 	return (0);
+	//if (in_range(num, first_node->data, last_node->data))
+	 	//return (0);
+	
+	/*
+	* 10
+	* 0
+	* 5
+	* 9
+	*/ 
 	if (in_range(num, last_node->data, first_node->data))
-		return (0);
+			return (0);
 	while (first_node != last_node)
 	{
 		if (in_range(num, first_node->data, first_node->next->data))
@@ -114,11 +121,11 @@ int	how_much_to_the_other_top(t_node	**head_a, int num)
 		first_node = first_node->next;
 	}
 	if (num > biggest(head_a))
-		{
-			pos = position(head_a, smallest(head_a));
-			i = how_much_to_the_top(head_a, pos);
-			return (i);
-		}
+	{
+		pos = position(head_a, smallest(head_a));
+		i = how_much_to_the_top(head_a, pos);
+		return (i);
+	}
 	return (-1);
 }
 

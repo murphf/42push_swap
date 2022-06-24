@@ -18,6 +18,20 @@ void	smallest_on_top(t_node	**head)
 	pos = position(head, small);
 	wich_one_ra_rra(head, pos);
 }
+/*
+* put biggest number on top of the stack (STACK A) 
+*/
+void	biggest_on_top(t_node	**head)
+{
+	int	big;
+	int	pos;
+
+	if (*head == NULL)
+		return;
+	big = biggest(head);
+	pos = position(head, big);
+	wich_one_ra_rra(head, pos);
+}
 
 /*
 * check if number nbr is in array
