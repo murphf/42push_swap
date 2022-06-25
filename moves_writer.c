@@ -46,6 +46,20 @@ void	sa(t_node	**head)
 	swap(head);
 	write(1, "sa\n", 4);
 }
+
+void	sb(t_node	**head)
+{
+	swap(head);
+	write(1, "sb\n", 4);
+}
+
+void	ss(t_node	**head_a, t_node	**head_b)
+{
+	swap(head_a);
+	swap(head_b);
+	write(1, "ss\n", 4);
+}
+
 void	rr(t_node	**head_a, t_node	**head_b)
 {
 	rotate(head_a);

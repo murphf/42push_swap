@@ -10,17 +10,32 @@ void printLIS(vector<int>& arr)
 void	printLIS(int *arr, int	n)
 {
 	for (int i = 0; i < n; i++)
-	{
 		printf ("%d ", arr[i]);
-	}
+}
+
+void    constructPrintLis(int *arr, int n, t_node   **stack_a)
+{
+   int  **l;
+   int    i;
+
+    l = (int **)malloc()
+    i = 0;
+    while (i < n)
+    {
+        l[0][i] = arr[i];
+    }
 }
 // Function to construct and print Longest Increasing 
 // Subsequence 
 void constructPrintLIS(int arr[], int n) 
 { 
-    // L[i] - The longest increasing sub-sequence  
-    // ends with arr[i] 
-    vector<vector<int> > L(n); 
+    
+    /*
+    * 2D vecteur of type int
+    * a vector is a dynamic arrays
+    *  with the ability to resize itself automatically when an element is inserted or deleted
+    */
+    vector<vector<int> > L(n);  
   
     // L[0] is equal to arr[0] 
     L[0].push_back(arr[0]); 

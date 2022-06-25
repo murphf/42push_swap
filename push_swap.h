@@ -50,6 +50,8 @@ void	rra(t_node	**head);
 void	rrb(t_node	**head);
 void	rrr(t_node	**head_a, t_node	**head_b);
 void	sa(t_node	**head);
+void	sb(t_node	**head);
+void	ss(t_node	**head_a, t_node	**head_b);
 /*--------------*/
 int	in_range(int a, int b, int	c);
 t_node	*sort3(t_node	**head);
@@ -76,7 +78,7 @@ void	biggest_on_top(t_node	**head);
 void	best_element(t_node	**head_a, t_node	**head_b);
 int 	_lis(int *arr, int n, int* max_ref);
 int		lis(int *arr, int n);
-int		LIS_lenght(t_node   **head);
+int		lis_lenght(t_node   **head);
 t_node  *node_of_index(t_node   **head, int i);
 int		*LIS_constructor(t_node	**stack_a);
 int		abs(int	n);

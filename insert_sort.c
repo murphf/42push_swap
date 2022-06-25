@@ -118,10 +118,15 @@ void	wich_one_ra_rra(t_node	**stack_a, int	pos)
 	{
 		if (pos && pos <= mid)
 		{
-			while (i < pos)
+			if (pos == 1)
+				sa(stack_a);
+			else
 			{
-				ra(stack_a);
-				i++;
+				while (i < pos)
+				{
+					ra(stack_a);
+					i++;
+				}
 			}
 		}
 		else if ( pos && pos > mid)

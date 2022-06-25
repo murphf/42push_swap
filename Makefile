@@ -17,7 +17,7 @@ SRC= main.c\
 	array_manipulation.c\
 	lis_construction.c\
 	moves_counters.c\
-	push_best_element.c\
+	push_best_element_3.c\
 	best_elements_annex.c\
 
 EXEC= push_swap
