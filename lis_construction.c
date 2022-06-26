@@ -44,8 +44,8 @@ def lis(arr):
 # Driver program to test above function
 arr = [10, 22, 9, 33, 21, 50, 41, 60]
 ans = lis(arr)
-print "Length of lis is", ans[0]
-print "The longest sequence is", ", ".join(str(x) for x in ans[1])
+print ("Length of lis is", ans[0])
+print ("The longest sequence is", ", ".join(str(x) for x in ans[1]))
 
 NEED TO BE TRANSLATED TO C
 */

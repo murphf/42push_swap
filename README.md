@@ -74,5 +74,16 @@ BEST ELEMENT ALGORITHM:
 	a- find the most optimized algorithm for that
 3- remove all the numbers that doesn't belong to LIS from stack A (push them to STACK B)
 	a-what 's the best element we can push from stack A to stack B (least moves)
-
 -----------------
+
+100 numbers:
+19 43 5 57 95 90 52 65 98 26 56 84 94 12 99 69 10 53 73 88 45 81 72 16 37 78 62 14 60 63 36 4 91 54 39 20 86 79 23 9 70 41 82 97 44 1 38 66 11 100 48 8 32 25 83 15 71 17 27 6 31 61 21 22 59 34 58 93 3 85 30 24 67 55 89 2 75 51 33 35 13 46 7 64 40 76 28 68 42 77 92 80 96 0 49 18 50 74 87 29
+
+100 numbers (with the smallest on top):
+0 49 18 50 74 87 29 19 43 5 57 95 90 52 65 98 26 56 84 94 12 99 69 10 53 73 88 45 81 72 16 37 78 62 14 60 63 36 4 91 54 39 20 86 79 23 9 70 41 82 97 44 1 38 66 11 100 48 8 32 25 83 15 71 17 27 6 31 61 21 22 59 34 58 93 3 85 30 24 67 55 89 2 75 51 33 35 13 46 7 64 40 76 28 68 42 77 92 80 96
+
+longuest increasing subsequence (python): 
+len (17):
+0, 5, 12, 16, 20, 23, 25, 27, 31, 34, 58, 67, 75, 76, 77, 92, 96
+longuest increasing subsequence (c++):
+0, 4 9, 11, 15, 17, 21, 22, 24, 33, 35, 46, 64, 68, 77, 80, 96 

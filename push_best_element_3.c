@@ -228,30 +228,29 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 		/*
 		* only letting the longuest incresing subsequence in STACK A
 		*/
-		while (first_node != last_node)
-		{
-			if (in_array(lis, first_node->data, lis_len) == false)
-			{
-				pos = position(head_a, first_node->data);
-				wich_one_ra_rra(head_a, pos);
-				pb(head_a, head_b);
-				first_node = *head_a;
-				last_node = first_node->prev;
-			}
-			first_node = first_node->next;
-		}
-		if (in_array(lis, first_node->data, lis_len) == false)
-		{
-			pos = position(head_a, first_node->data);
-			wich_one_ra_rra(head_a, pos);
-			pb(head_a, head_b);
-		}
-	moves_counter1(head_b);
-	moves_counter0(head_a, head_b);
-	all_moves_stack_b(head_b);
-	push_the_elemnt_to_a(head_a, head_b);
-	smallest_on_top(head_a);
-	biggest_on_top(head_b);
+		// while (first_node != last_node)
+		// {
+		// 	if (in_array(lis, first_node->data, lis_len) == false)
+		// 	{
+		// 		pos = position(head_a, first_node->data);
+		// 		wich_one_ra_rra(head_a, pos);
+		// 		pb(head_a, head_b);
+		// 		first_node = *head_a;
+		// 		last_node = first_node->prev;
+		// 	}
+		// 	first_node = first_node->next;
+		// }
+		// if (in_array(lis, first_node->data, lis_len) == false)
+		// {
+		// 	pos = position(head_a, first_node->data);
+		// 	wich_one_ra_rra(head_a, pos);
+		// 	pb(head_a, head_b);
+		// }
+	//moves_counter1(head_b);
+	//moves_counter0(head_a, head_b);
+	//all_moves_stack_b(head_b);
+	//push_the_elemnt_to_a(head_a, head_b);
+	//smallest_on_top(head_a);
 }
 /*
 * return POSITION of the number who needs the minimum moves
