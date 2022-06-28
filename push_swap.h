@@ -97,7 +97,11 @@ void	all_moves_stack_b(t_node	**head);
 /*ARRAYS*/
 int		*list_to_array(t_node	**head);
 void 	printarray(int *array, int size);
-
+/*QUICKSORT*/
+void swap(int *a, int *b);
+int	partition(int	*arr, int low, int high);
+void	quicksort(int	*arr, int	low, int	high);
+/*---------*/
 
 /*-----*/
 #endif

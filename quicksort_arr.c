@@ -69,11 +69,3 @@ int	indexof(int *arr, int target, int len)
 	}
 	return (-1);
 }
-
-int	main()
-{
-	int n;
-	int arr[] = {2, 0, 8, 5, 7}; 
-	n = sizeof(arr) / sizeof(arr[0]);
-	printf("%d \n", n);
-}

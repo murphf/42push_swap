@@ -1,4 +1,3 @@
-//#include "push_swap.h"
 #include "bitsStdcpp.hpp"
 using namespace std;
 // Utility function to print LIS 
@@ -19,6 +18,7 @@ void	printLIS(int *arr, int	n)
 		printf ("%d ", arr[i]);
 }
 
+/* trying to rewrite the C++ code of LIS in C */
 int *constructPrintLis(int *arr, int n, t_node   **stack_a)
 {
    int  **L;

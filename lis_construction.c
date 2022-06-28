@@ -47,6 +47,7 @@ ans = lis(arr)
 print ("Length of lis is", ans[0])
 print ("The longest sequence is", ", ".join(str(x) for x in ans[1]))
 
+LIS CONSTRUCTOR IN PYTHON
 NEED TO BE TRANSLATED TO C
 */
 

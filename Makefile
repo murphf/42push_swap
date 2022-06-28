@@ -19,6 +19,7 @@ SRC= main.c\
 	moves_counters.c\
 	push_best_element_3.c\
 	best_elements_annex.c\
+	quicksort_arr.c\
 
 EXEC= push_swap
 #color codes
