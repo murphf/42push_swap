@@ -69,8 +69,7 @@ int main(int argc, char *argv[])
 		}
 	}
 	/*--------------------*/
+	//smallest_on_top(&stack_a);
 	best_element(&stack_a, &stack_b);
-	//print_stacks(&stack_a, &stack_b);
-	//print_nb_of_moves(&stack_b);
-	
+	print_stacks(&stack_a, &stack_b);	
 }

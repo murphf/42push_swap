@@ -39,7 +39,6 @@ void	same_half(t_node	**head_a, t_node	**head_b, t_node	*node)
 	int	no_a;
 	int	no_b;
 
-	printf("AA\n");
 	combo = _min(abs(node->moves[0]), abs(node->moves[1]));
 	//printf("COMBO = %d", combo);
 	max = _max(abs(node->moves[0]), abs(node->moves[1]));
@@ -105,7 +104,6 @@ void	diff_halfs(t_node	**head_a, t_node	**head_b, t_node	*node)
 	int	extra;
 	int		i;
 
-	printf("BB\n");
 	combo = abs(node->moves[0]);
 	extra = abs(node->moves[1]);
 	i = 0;
