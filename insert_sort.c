@@ -95,7 +95,7 @@ int		position(t_node	**stack_a, int	data)
 	}
 	if (first_node->data == data)
 		return (i);
-	return (-5);
+	return (-1);
 }
 
 /*
@@ -118,15 +118,10 @@ void	wich_one_ra_rra(t_node	**stack_a, int	pos)
 	{
 		if (pos && pos <= mid)
 		{
-			if (pos == 1)
-				sa(stack_a);
-			else
+			while (i < pos)
 			{
-				while (i < pos)
-				{
-					ra(stack_a);
-					i++;
-				}
+				ra(stack_a);
+				i++;
 			}
 		}
 		else if ( pos && pos > mid)

@@ -1,7 +1,6 @@
 #include "push_swap.h"
 /*
 # Dynamic programming Python implementation of LIS problem
-
 # lis returns length of the longest increasing subsequence
 # in arr of size n
 def lis(arr):
@@ -93,6 +92,6 @@ int	*LIS_constructor(t_node	**stack_a)
 	if (lis == NULL)
 		return (NULL);
 	//lis = fill_arr(lis, "0 1 2 3 8 9", n);
-	lis = fill_arr(lis, "1, 5, 10, 11, 14, 19, 20, 38, 39, 42, 45, 50, 54, 60, 68, 75, 84, 99", N);
+	lis = fill_arr(lis, "0, 5, 12, 16, 20, 23, 25, 27, 31, 34, 58, 67, 75, 76, 77, 92, 96", N);
 	return (lis);
 }

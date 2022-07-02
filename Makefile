@@ -22,6 +22,7 @@ SRC= main.c\
 	quicksort_arr.c\
 
 EXEC= push_swap
+
 #color codes
 COLOR_GREEN=\033[0;32m
 COLOR_RED=\033[0;31m
@@ -36,12 +37,14 @@ push_swap: $(SRC) push_swap.h
 	make -C libft
 	$(CC) $(SRC) libft/libft.a -o $@
 
-clean:
+clean_lib:
 	make clean -C libft
+
+clean: clean_lib
 	rm -f push_swap
 
 fclean: clean
 	make fclean -C libft
 
 re: clean All
-.PHONY: clean fclean re 
+.PHONY: clean clean_lib fclean re 

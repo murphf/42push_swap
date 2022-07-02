@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "push_swap.h"
 /*
 * function to swap elements
 */
-void swap(int *a, int *b)
+void swap2(int *a, int *b)
  {
   int t;
 	
@@ -32,12 +32,12 @@ int	partition(int	*arr, int low, int high)
 		if (arr[j] <= pivot)
 		{
 			i++;
-			swap(&arr[i], &arr[j]);
+			swap2(&arr[i], &arr[j]);
 		}
 		j++;
 	}
 	i++;
-	swap(&arr[i], &arr[j]);
+	swap2(&arr[i], &arr[j]);
 	return (i);
 }
 
@@ -68,4 +68,16 @@ int	indexof(int *arr, int target, int len)
 		i++;
 	}
 	return (-1);
+}
+
+/*
+* now this will sort the stack in an array
+*/
+int *quicksort__stack(t_node    **stack_a, int size)
+{
+    int *array;
+
+    array = list_to_array(stack_a);
+    quicksort(array, 0, size - 1);
+    return (array);
 }
