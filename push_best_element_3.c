@@ -193,8 +193,11 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 	{
 		best_el_pos = find_minimum_moves(head_b);
 		//wich_one_ra_rra(head_b, best_el_pos);
+		//print_nb_of_moves(head_b);
 		node_b = node_of_index(head_b, best_el_pos);
+		//printf("BEST NUM IS : %d\n", node_b->data);
 		//CASE OF MOVE == 0, non handled here
+		//node_b = *head_b; THIS WORK BUT DOESN'T USE THE FUCKING ALGO
 		if (same_sign(node_b->moves[0], node_b->moves[1]))
 			same_half(head_a, head_b, node_b);
 		else
@@ -204,6 +207,8 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 			moves_counter1(head_b);
 			moves_counter0(head_a, head_b);
 			all_moves_stack_b(head_b);
+			//print_stacks(head_a, head_b);
+			//print_nb_of_moves(head_b);
 		}
 		//printf("1\n");
 	}
@@ -213,7 +218,7 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 	* 2- let only the longuest increasing subsequence in stack A
 	* 3- iterate on stack B and store how much moves are needed for each element:  MOVES_COUNTER
 	*/
-void	best_element(t_node	**head_a, t_node	**head_b)
+void	best_element1(t_node	**head_a, t_node	**head_b)
 {
 	int		*lis;
 	int		lis_len;
@@ -254,7 +259,49 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 	push_the_elemnt_to_a(head_a, head_b);
 	smallest_on_top(head_a);
 }
+/*TO FOUND THE BUG*/
+void	best_element(t_node	**head_a, t_node	**head_b)
+{
+	int		*lis;
+	int		lis_len;
+	int		pos;
+	int		p_number_to_push; //store the position of the number to push
+	t_node	*first_node;
+	t_node	*last_node;
 
+	smallest_on_top(head_a);
+	first_node = *head_a;
+	last_node = first_node->prev;
+	lis = LIS_constructor(head_a); //should be returning array of LIS 
+	lis_len = N; //lenght of LIS
+	/*
+	* only letting the longuest incresing subsequence in STACK A
+	*/
+	while (first_node != last_node)
+	{
+		if (in_array(lis, first_node->data, lis_len) == false)
+		{
+			pos = position(head_a, first_node->data);
+			wich_one_ra_rra(head_a, pos);
+			pb(head_a, head_b);
+			first_node = *head_a;
+			last_node = first_node->prev;
+		}
+		first_node = first_node->next;
+	}
+	if (in_array(lis, first_node->data, lis_len) == false)
+	{
+		pos = position(head_a, first_node->data);
+		wich_one_ra_rra(head_a, pos);
+		pb(head_a, head_b);
+	}
+	moves_counter1(head_b);
+	moves_counter0(head_a, head_b);
+	all_moves_stack_b(head_b);
+	//print_nb_of_moves(head_b);
+	push_the_elemnt_to_a(head_a, head_b);
+	smallest_on_top(head_a);
+}
 /*
 * return POSITION of the number who needs the minimum moves
 */

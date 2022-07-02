@@ -94,3 +94,23 @@ len (17):
 longuest increasing subsequence (python): 
 len (42):
 0, 4, 46, 53, 92, 109, 120, 137, 141, 184, 194, 223, 235, 263, 283, 284, 324, 334, 350, 366, 368, 374, 375, 383, 384, 390, 391, 396, 418, 429, 430, 432, 436, 452, 462, 472, 481, 485, 487, 494, 495, 498
+
+15 numbers to detect the problems:
+13 4 1 2 0 15 12 10 11 3 14 6 5 9 7
+
+15 with the smallest on top:
+0, 15, 12, 10, 11, 3, 14, 6, 5, 9, 7, 13, 4, 1, 2
+
+longuest increasing subsequence (python): 
+len (5):
+0, 3, 6, 9, 13
+
+30 numbers to detect the problems:
+8 25 22 26 16 15 3 24 18 19 30 27 7 14 29 6 0 12 4 2 28 9 10 11 21 13 23 5 1 17
+
+30 with the smallest on top:
+0, 12, 4, 2, 28, 9, 10, 11, 21, 13, 23, 5, 1, 17, 8, 25, 22, 26, 16, 15, 3, 24, 18, 19, 30, 27, 7, 14, 29, 6
+
+longuest increasing subsequence (python): 
+len (11):
+0, 4, 9, 10, 11, 21, 23, 25, 26, 27, 29

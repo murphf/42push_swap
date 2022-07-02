@@ -87,7 +87,8 @@ int	how_much_to_the_top(t_node	**head, int pos)
 * calculate how many moves we meed to position a number from the top of STACK B (num) in its position in stack A 
 * apparently there's 4 cases.
 */
-int	how_much_to_the_other_top(t_node	**head_a, int num)
+/* THIS FUNTCION IS THE ROOT OF THE BUG*/
+int	how_much_to_the_other_top0(t_node	**head_a, int num)
 {
 	t_node	*first_node;
 	t_node	*last_node;
@@ -114,7 +115,7 @@ int	how_much_to_the_other_top(t_node	**head_a, int num)
 	{
 		if (in_range(num, first_node->data, first_node->next->data))
 		{
-			pos = position(head_a, first_node->next->data);	
+			pos = position(head_a, first_node->data);	
 			i = how_much_to_the_top(head_a, pos);
 			return (i); 
 		}
@@ -122,11 +123,83 @@ int	how_much_to_the_other_top(t_node	**head_a, int num)
 	}
 	if (num > biggest(head_a))
 	{
-		pos = position(head_a, smallest(head_a));
+		pos = position(head_a, biggest(head_a)); 
+		i = how_much_to_the_top(head_a, pos);
+		return (i);
+	}
+	if (num < smallest(head_a))
+	{
+		pos = position(head_a, smallest(head_a)); 
 		i = how_much_to_the_top(head_a, pos);
 		return (i);
 	}
 	return (-1);
+}
+int last_node0(t_node	**head)
+{
+	t_node *first_node;
+	first_node = *head;
+	return(first_node->prev->data);
+}
+int	how_much_to_the_other_top(t_node	**head_a, int num)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+	int		pos;
+	int		mid;
+	int		i;
+	int 	best;
+	int 	enter;
+
+	first_node = *head_a;
+	last_node = first_node->prev;
+	i = 0;
+
+	//if (in_range(num, first_node->data, last_node->data))
+	 	//return (0);
+	
+	/*
+	* 10
+	* 0
+	* 5
+	* 9
+	*/
+	enter = 0;
+	best = INT_MAX;
+	if (in_range(num, last_node->data, first_node->data))
+			return (0);
+	while (first_node != last_node)
+	{
+		if (in_range(num, first_node->data, first_node->next->data))
+		{
+			if (first_node->next->data < best)
+				{
+					enter = 1;
+					best = first_node->next->data;
+				}
+		}
+		first_node = first_node->next;
+	}
+	if (enter)
+	{
+		pos = position(head_a, best);	
+		i = how_much_to_the_top(head_a, pos);
+		return (i);
+	}
+	if (num > biggest(head_a))//THIS
+	{
+		//pos = position(head_a, biggest(head_a)); 
+		pos = list_len(head_a) - 1;
+		i = how_much_to_the_top(head_a, pos);
+		return (i);
+	}
+	if (num < smallest(head_a)) 
+	{
+		pos = position(head_a, smallest(head_a)); 
+		i = how_much_to_the_top(head_a, pos);
+		return (-1);
+	}	
+	return(-1);
 }
 
 /*

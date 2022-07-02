@@ -6,7 +6,7 @@
 #include <limits.h>
 #include <stdbool.h>
 #include "libft/libft.h"
-#define N 42
+#define N 11
 typedef	struct s_node
 {
 	int				data;
