@@ -71,5 +71,7 @@ int main(int argc, char *argv[])
 	/*--------------------*/
 	//smallest_on_top(&stack_a);
 	best_element(&stack_a, &stack_b);
+	//int *a = quicksort__stack(&stack_a, 30);
+	//printarray(a, 30);
 	print_stacks(&stack_a, &stack_b);	
 }

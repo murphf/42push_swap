@@ -20,6 +20,7 @@ SRC= main.c\
 	push_best_element_3.c\
 	best_elements_annex.c\
 	quicksort_arr.c\
+	best_place.c\
 
 EXEC= push_swap
 

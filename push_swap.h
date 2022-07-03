@@ -104,6 +104,9 @@ void	quicksort(int	*arr, int	low, int	high);
 int		*quicksort__stack(t_node    **stack_a, int size);
 void    subseq(t_node   **stack_a, t_node   **stack_b, int  *sorted_arr);
 /*---------*/
+/*BEST PLACE*/
+bool	in_part_of_array(int *array, int num, int size, int start);
+int	closest_follower(t_node	**head_a, int	num, int	*sorted_arr, int	size);
 
 /*-----*/
 #endif

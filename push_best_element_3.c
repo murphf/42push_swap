@@ -207,8 +207,6 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 			moves_counter1(head_b);
 			moves_counter0(head_a, head_b);
 			all_moves_stack_b(head_b);
-			//print_stacks(head_a, head_b);
-			//print_nb_of_moves(head_b);
 		}
 		//printf("1\n");
 	}

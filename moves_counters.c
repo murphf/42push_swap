@@ -15,20 +15,15 @@ void	moves_counter1(t_node	**head)
 	first_node = *head;
 	last_node = first_node->prev;
 
-	while (first_node != last_node->prev)
+	while (first_node != last_node)
 	{
 		pos0 = position(head, first_node->data);
-		pos1 = position(head, last_node->data);
 		first_node->moves[1] = how_much_to_the_top(head, pos0);
-		last_node->moves[1] = how_much_to_the_top(head, pos1);
 		first_node = first_node->next;
-		last_node = last_node->prev;
 	}
-	//last_node = last_node->prev;
 	pos0 = position(head, first_node->data);
 	first_node->moves[1] = how_much_to_the_top(head, pos0);
-	pos1 = position(head, last_node->data);
-	last_node->moves[1] = how_much_to_the_top(head, pos1);
+	first_node = first_node->next;
 }
 
 void	print_nb_of_moves(t_node	**head)
@@ -88,120 +83,21 @@ int	how_much_to_the_top(t_node	**head, int pos)
 * apparently there's 4 cases.
 */
 /* THIS FUNTCION IS THE ROOT OF THE BUG*/
-int	how_much_to_the_other_top0(t_node	**head_a, int num)
-{
-	t_node	*first_node;
-	t_node	*last_node;
-	int		pos;
-	int		mid;
-	int		i;
-
-	first_node = *head_a;
-	last_node = first_node->prev;
-	i = 0;
-
-	//if (in_range(num, first_node->data, last_node->data))
-	 	//return (0);
-	
-	/*
-	* 10
-	* 0
-	* 5
-	* 9
-	*/ 
-	if (in_range(num, last_node->data, first_node->data))
-			return (0);
-	while (first_node != last_node)
-	{
-		if (in_range(num, first_node->data, first_node->next->data))
-		{
-			pos = position(head_a, first_node->data);	
-			i = how_much_to_the_top(head_a, pos);
-			return (i); 
-		}
-		first_node = first_node->next;
-	}
-	if (num > biggest(head_a))
-	{
-		pos = position(head_a, biggest(head_a)); 
-		i = how_much_to_the_top(head_a, pos);
-		return (i);
-	}
-	if (num < smallest(head_a))
-	{
-		pos = position(head_a, smallest(head_a)); 
-		i = how_much_to_the_top(head_a, pos);
-		return (i);
-	}
-	return (-1);
-}
-int last_node0(t_node	**head)
-{
-	t_node *first_node;
-	first_node = *head;
-	return(first_node->prev->data);
-}
 int	how_much_to_the_other_top(t_node	**head_a, int num)
 {
+	int		pos;
+	int		i;
+	int		size;
 	t_node	*first_node;
 	t_node	*last_node;
-	int		pos;
-	int		mid;
-	int		i;
-	int 	best;
-	int 	enter;
 
-	first_node = *head_a;
-	last_node = first_node->prev;
+	int sorted_arr[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}; 
 	i = 0;
-
-	//if (in_range(num, first_node->data, last_node->data))
-	 	//return (0);
-	
-	/*
-	* 10
-	* 0
-	* 5
-	* 9
-	*/
-	enter = 0;
-	best = INT_MAX;
-	if (in_range(num, last_node->data, first_node->data))
-			return (0);
-	while (first_node != last_node)
-	{
-		if (in_range(num, first_node->data, first_node->next->data))
-		{
-			if (first_node->next->data < best)
-				{
-					enter = 1;
-					best = first_node->next->data;
-				}
-		}
-		first_node = first_node->next;
-	}
-	if (enter)
-	{
-		pos = position(head_a, best);	
-		i = how_much_to_the_top(head_a, pos);
-		return (i);
-	}
-	if (num > biggest(head_a))//THIS
-	{
-		//pos = position(head_a, biggest(head_a)); 
-		pos = list_len(head_a) - 1;
-		i = how_much_to_the_top(head_a, pos);
-		return (i);
-	}
-	if (num < smallest(head_a)) 
-	{
-		pos = position(head_a, smallest(head_a)); 
-		i = how_much_to_the_top(head_a, pos);
-		return (-1);
-	}	
-	return(-1);
+	size = 30;
+	pos = position(head_a, closest_follower(head_a, num, sorted_arr, size));
+	i = how_much_to_the_top(head_a, pos);
+	return (i);
 }
-
 /*
 * fill moves[0] of the numbers of STACK B
 * how much for it to get in the righ position in STACK A (after getting in the top of STACK B)
@@ -214,15 +110,12 @@ void	moves_counter0(t_node	**head_a, t_node	**head_b)
 
 	first_node_b = *head_b;
 	last_node_b = first_node_b->prev;
-	while (first_node_b != last_node_b->prev)
+	while (first_node_b != last_node_b)
 	{
 		first_node_b->moves[0] = how_much_to_the_other_top(head_a, first_node_b->data);
-		last_node_b->moves[0] = how_much_to_the_other_top(head_a, last_node_b->data);
 		first_node_b = first_node_b->next;
-		last_node_b = last_node_b->prev;
 	}
 	first_node_b->moves[0] = how_much_to_the_other_top(head_a, first_node_b->data);
-	last_node_b->moves[0] = how_much_to_the_other_top(head_a, last_node_b->data);
 }
 
 /*
