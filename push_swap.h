@@ -10,7 +10,6 @@
 typedef	struct s_node
 {
 	int				data;
-	int				index;
 	struct s_node	*prev;
 	struct s_node	*next;
 	int			moves[2];
@@ -18,7 +17,7 @@ typedef	struct s_node
 }	t_node;
 
 /* LINKED LIST MANIP */
-t_node	*create_node(int data, int index);
+t_node	*create_node(int data);
 t_node	*add_node_end(t_node	**head, t_node	*new_node);
 t_node	*add_node_beg(t_node	**head, t_node	*new_node);
 int		delete_list(t_node **head);
@@ -62,13 +61,12 @@ int		_min(int a, int b);
 int		_max(int a, int b);
 int		smallest(t_node	**stack_a);
 int		biggest(t_node	**stack_a);
-int		position(t_node	**stack_a, int	data);
+int		position(t_node	**head, int	data);
 void	m_insert_sort(t_node	**stack_a, t_node	**stack_b);
 void	wich_one_ra_rra(t_node	**stack_a, int	pos);
 /*-------------*/
 /*PRINT STACKS*/
 void	print_list(t_node **head);
-void	print_list_with_index(t_node **head);
 void	print_stacks(t_node	**stack_a, t_node	**stack_b);
 void	print_stacks_index(t_node	**stack_a, t_node	**stack_b);
 /*------------*/

@@ -58,9 +58,9 @@ t_node	*push(t_node	**stack1, t_node **stack2)
 	pop(stack1);
 
 	if (*stack2 == NULL)
-		*stack2 = create_node(data_of_first, 0);
+		*stack2 = create_node(data_of_first);
 	else
-		add_node_beg(stack2, create_node(data_of_first, 0));
+		add_node_beg(stack2, create_node(data_of_first));
 	return (*stack2);
 }
 

@@ -1,4 +1,4 @@
-#SILENCE THE WRITING..
+#SILENCE THE WRITING in in libft makefile..
 #ADD A LOADING BAR..
 CC=gcc
 
@@ -21,6 +21,7 @@ SRC= main.c\
 	best_elements_annex.c\
 	quicksort_arr.c\
 	best_place.c\
+	positions_extremes.c\
 
 EXEC= push_swap
 

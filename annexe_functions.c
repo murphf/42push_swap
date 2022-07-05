@@ -23,6 +23,7 @@ bool	is_sorted(t_node **head)
 	return (true);
 }
 
+
 /*
 * check if the int new_data is already in the list
 * to make sure there is no identical numbers in the list

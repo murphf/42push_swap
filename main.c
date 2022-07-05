@@ -2,7 +2,7 @@
 
 /*
 * The different error message,
-* add an option in makefile?
+* add as option in makefile?
 */
 void	error(int i)
 {
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
 	i = 1;
 	stack_b = NULL;
-	/* INPUT ERROR CHECK*/
+	/* PARSING OF INPUT */
 	if (argc < 2)
 		error(0);
 	else
@@ -36,16 +36,12 @@ int main(int argc, char *argv[])
 		len = argc - 1;
 		if (valid_arg(argv[i]))
 		{
-			stack_a = create_node(ft_atoi(argv[i]), i - 1);
+			stack_a = create_node(ft_atoi(argv[i]));
 			if (argc >= 3)
 			{
 				i++;
 				num = ft_atoi(argv[i]);
 			}
-		/*
-		* this to prevent entering the next loop if there is only one number
-		* is there a better way?
-		*/
 			else
 				argc--; 
 		}
@@ -56,7 +52,7 @@ int main(int argc, char *argv[])
 					delete_list(&stack_a);
 					error(2);
 				}
-			add_node_end(&stack_a, create_node(num, i - 1));
+			add_node_end(&stack_a, create_node(num));
 			i++;
 			if (i == argc)
 				break;
@@ -68,10 +64,7 @@ int main(int argc, char *argv[])
 			error(1);
 		}
 	}
-	/*--------------------*/
-	//smallest_on_top(&stack_a);
-	best_element(&stack_a, &stack_b);
-	//int *a = quicksort__stack(&stack_a, 30);
-	//printarray(a, 30);
-	print_stacks(&stack_a, &stack_b);	
+	/* SORTING PHASE */
+	//best_element(&stack_a, &stack_b);
+	//print_stacks(&stack_a, &stack_b);	
 }
