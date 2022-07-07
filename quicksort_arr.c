@@ -51,8 +51,6 @@ void	quicksort(int	*arr, int	low, int	high)
 	quicksort(arr, new_piv + 1, high);
 }
 
-
-
 /*
 * give the index of the target in the arr 
 */

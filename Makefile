@@ -13,14 +13,12 @@ SRC= main.c\
 	sorting_algos.c\
 	insert_sort.c\
 	print_stacks.c\
-	lis.c\
 	array_manipulation.c\
 	lis_construction.c\
 	moves_counters.c\
 	push_best_element_3.c\
 	best_elements_annex.c\
 	quicksort_arr.c\
-	best_place.c\
 	positions_extremes.c\
 
 EXEC= push_swap

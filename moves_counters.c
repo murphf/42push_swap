@@ -2,50 +2,9 @@
 /*LONGUEST INCREASING SUBSEQUENCE*/
 
 /*
-* fill moves[1] of numbers of STACK B
-* how much for it to get on the top of stack B
-*/
-void	moves_counter1(t_node	**head)
-{
-	t_node	*first_node;
-	t_node	*last_node;
-	int		pos0;
-	int		pos1;
-
-	first_node = *head;
-	last_node = first_node->prev;
-
-	while (first_node != last_node)
-	{
-		pos0 = position(head, first_node->data);
-		first_node->moves[1] = how_much_to_the_top(head, pos0);
-		first_node = first_node->next;
-	}
-	pos0 = position(head, first_node->data);
-	first_node->moves[1] = how_much_to_the_top(head, pos0);
-	first_node = first_node->next;
-}
-
-void	print_nb_of_moves(t_node	**head)
-{
-	t_node	*first_node;
-	t_node	*last_node;
-
-	first_node = *head;
-	last_node = first_node->prev;
-	while (first_node != last_node)
-	{
-		printf("num = %d | [0] = %d [1] = %d | total = %d\n",first_node->data, first_node->moves[0], first_node->moves[1], first_node->nb_moves);
-		first_node = first_node->next;
-	}
-	printf("num = %d | [0] = %d [1] = %d | total = %d\n",first_node->data, first_node->moves[0], first_node->moves[1], first_node->nb_moves);
-		//first_node = first_node->next;
-}
-
-/*
 * return how much rb are needed for the node to be on top (positive number)
 * or how much rrb are needed.. (negative number) 
-* DIDN'T COUNT PB
+* DON'T COUNT PB
 */
 int	how_much_to_the_top(t_node	**head, int pos)
 {
@@ -77,26 +36,100 @@ int	how_much_to_the_top(t_node	**head, int pos)
 	}
 	return (sign * i);
 }
+/*
+* fill moves[1] of numbers of STACK B
+* how much for it to get on the top of stack B
+*/
+void	moves_counter1(t_node	**head)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+	int		pos;
+
+	first_node = *head;
+	last_node = first_node->prev;
+	while (first_node != last_node)
+	{
+		pos = position(head, first_node->data);
+		first_node->moves[1] = how_much_to_the_top(head, pos);
+		first_node = first_node->next;
+	}
+	pos = position(head, first_node->data);
+	first_node->moves[1] = how_much_to_the_top(head, pos);
+}
+
+void	print_nb_of_moves(t_node	**head)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+
+	first_node = *head;
+	last_node = first_node->prev;
+	while (first_node != last_node)
+	{
+		printf("num = %d | [0] = %d [1] = %d | total = %d\n",first_node->data, first_node->moves[0], first_node->moves[1], first_node->nb_moves);
+		first_node = first_node->next;
+	}
+	printf("num = %d | [0] = %d [1] = %d | total = %d\n",first_node->data, first_node->moves[0], first_node->moves[1], first_node->nb_moves);
+		//first_node = first_node->next;
+}
 
 /*
 * calculate how many moves we meed to position a number from the top of STACK B (num) in its position in stack A 
 * apparently there's 4 cases.
 */
 /* THIS FUNTCION IS THE ROOT OF THE BUG*/
+
 int	how_much_to_the_other_top(t_node	**head_a, int num)
 {
-	int		pos;
-	int		i;
-	int		size;
 	t_node	*first_node;
 	t_node	*last_node;
+	int		pos;
+	int		i;
+	int		best;
+	int		enter;
+	first_node = *head_a;
+	last_node = first_node->prev;
 
-	int sorted_arr[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}; 
 	i = 0;
-	size = 30;
-	pos = position(head_a, closest_follower(head_a, num, sorted_arr, size));
-	i = how_much_to_the_top(head_a, pos);
-	return (i);
+	enter = 0;
+	best = INT_MAX;
+	
+	while (first_node != last_node)
+	{
+		if (num < first_node->data)
+			{
+				enter = 1;
+				if (first_node->data <= best)
+					best = first_node->data;
+			}
+		first_node = first_node->next;
+	}
+	if (first_node == last_node)
+	{
+		if (num < first_node->data)
+			{
+				enter = 1;
+				if (first_node->data <= best)
+					best = first_node->data;
+			}
+	}
+	if (enter) //it be placed on top it's smallest folower
+	{
+		pos = position(head_a, best);	
+		i = how_much_to_the_top(head_a, pos);
+		return (i); 
+	}
+	if (num > biggest(head_a)) //it should take the place of the biggest
+	{
+		printf("a\n");
+		pos = position(head_a, biggest(head_a));
+		i = how_much_to_the_top(head_a, pos);
+		return (i + 1);
+	}
+	// if (in_range(num, last_node->data, first_node->data))
+	// 		return (0);
+	return (-1);
 }
 /*
 * fill moves[0] of the numbers of STACK B
@@ -106,7 +139,6 @@ void	moves_counter0(t_node	**head_a, t_node	**head_b)
 {
 	t_node	*first_node_b;
 	t_node	*last_node_b;
-	int		n_moves;
 
 	first_node_b = *head_b;
 	last_node_b = first_node_b->prev;

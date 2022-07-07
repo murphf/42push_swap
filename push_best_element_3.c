@@ -40,7 +40,6 @@ void	same_half(t_node	**head_a, t_node	**head_b, t_node	*node)
 	int	no_b;
 
 	combo = _min(abs(node->moves[0]), abs(node->moves[1]));
-	//printf("COMBO = %d", combo);
 	max = _max(abs(node->moves[0]), abs(node->moves[1]));
 	extra = max - combo;
 	i = 0;
@@ -52,7 +51,7 @@ void	same_half(t_node	**head_a, t_node	**head_b, t_node	*node)
 				i++;
 			}
 			i = 0;
-			if (max == node->moves[0])
+			if (max == abs(node->moves[0]))
 			{
 				while (i < extra)
 				{
@@ -60,7 +59,7 @@ void	same_half(t_node	**head_a, t_node	**head_b, t_node	*node)
 					i++;
 				}
 			}
-			else if (max == node->moves[1])
+			else if (max == abs(node->moves[1]))
 			{
 				while (i < extra)
 				{
@@ -78,7 +77,7 @@ void	same_half(t_node	**head_a, t_node	**head_b, t_node	*node)
 			i++;
 		}
 		i = 0;
-		if (max == node->moves[0])
+		if (max == abs(node->moves[0]))
 		{
 			while (i < extra)
 			{
@@ -86,7 +85,7 @@ void	same_half(t_node	**head_a, t_node	**head_b, t_node	*node)
 				i++;
 			}
 		}
-		else if (max == node->moves[1])
+		else if (max == abs(node->moves[1]))
 		{
 			while (i < extra)
 			{
@@ -135,7 +134,7 @@ void	diff_halfs(t_node	**head_a, t_node	**head_b, t_node	*node)
 	}
 	else if (node->moves[1] < 0)
 	{
-		while (i < combo)
+		while (i < extra)
 		{
 			rrb(head_a);
 			i++;
@@ -192,12 +191,7 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 	while (*head_b)
 	{
 		best_el_pos = find_minimum_moves(head_b);
-		//wich_one_ra_rra(head_b, best_el_pos);
-		//print_nb_of_moves(head_b);
 		node_b = node_of_index(head_b, best_el_pos);
-		//printf("BEST NUM IS : %d\n", node_b->data);
-		//CASE OF MOVE == 0, non handled here
-		//node_b = *head_b; THIS WORK BUT DOESN'T USE THE FUCKING ALGO
 		if (same_sign(node_b->moves[0], node_b->moves[1]))
 			same_half(head_a, head_b, node_b);
 		else
@@ -208,7 +202,6 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 			moves_counter0(head_a, head_b);
 			all_moves_stack_b(head_b);
 		}
-		//printf("1\n");
 	}
 }
 	/*
@@ -296,7 +289,6 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 	moves_counter1(head_b);
 	moves_counter0(head_a, head_b);
 	all_moves_stack_b(head_b);
-	//print_nb_of_moves(head_b);
 	push_the_elemnt_to_a(head_a, head_b);
 	smallest_on_top(head_a);
 }

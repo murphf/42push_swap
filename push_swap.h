@@ -74,9 +74,6 @@ void	print_stacks_index(t_node	**stack_a, t_node	**stack_b);
 void	smallest_on_top(t_node	**head);
 void	biggest_on_top(t_node	**head);
 void	best_element(t_node	**head_a, t_node	**head_b);
-int 	_lis(int *arr, int n, int* max_ref);
-int		lis(int *arr, int n);
-int		lis_lenght(t_node   **head);
 t_node  *node_of_index(t_node   **head, int i);
 int		*LIS_constructor(t_node	**stack_a);
 int		abs(int	n);
@@ -101,10 +98,5 @@ int		partition(int	*arr, int low, int high);
 void	quicksort(int	*arr, int	low, int	high);
 int		*quicksort__stack(t_node    **stack_a, int size);
 void    subseq(t_node   **stack_a, t_node   **stack_b, int  *sorted_arr);
-/*---------*/
-/*BEST PLACE*/
-bool	in_part_of_array(int *array, int num, int size, int start);
-int	closest_follower(t_node	**head_a, int	num, int	*sorted_arr, int	size);
-
 /*-----*/
 #endif

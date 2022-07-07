@@ -34,6 +34,27 @@ void	biggest_on_top(t_node	**head)
 }
 
 /*
+* return node if index i
+*/
+t_node  *node_of_index(t_node   **head, int i)
+{
+    t_node  *first_node;
+    int j;
+    int len;
+
+    first_node = *head;
+    j = 0;
+    len = list_len(head);
+    while (j < len)
+    {
+        if (j == i)
+            return(first_node);
+        j++;
+        first_node = first_node->next;
+    }
+    return (NULL);
+}
+/*
 * check if number nbr is in array
 */
 bool	in_array(int	*array, int nbr, int len)
