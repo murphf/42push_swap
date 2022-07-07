@@ -98,7 +98,7 @@ void	wich_one_ra_rra(t_node	**stack, int	pos)
 	mid = len / 2;
 	if (mid > 0)
 	{
-		if (pos && pos <= mid)
+		if (pos && pos < mid)
 		{
 			while (i < pos)
 			{
@@ -106,7 +106,7 @@ void	wich_one_ra_rra(t_node	**stack, int	pos)
 				i++;
 			}
 		}
-		else if ( pos && pos > mid)
+		else if (pos && pos >= mid)
 		{
 			x = len - pos;
 			while (i < x)

@@ -142,39 +142,6 @@ void	diff_halfs(t_node	**head_a, t_node	**head_b, t_node	*node)
 		pa(head_a, head_b);
 	}
 }
-
-void	push_the_elemnt_to_a2(t_node	**head_a, t_node	**head_b)
-{
-	int		best_el_pos;
-	t_node	*node_b;
-	int		combo;
-	int		extra;
-	int		max;
-	int		i;
-
-	
-	//while ( *head_b)
-	
-	i = 0;
-	while (*head_b)
-	{
-		best_el_pos = find_minimum_moves(head_b);
-		//wich_one_ra_rra(head_b, best_el_pos);
-		node_b = *head_b;
-		//CASE OF MOVE == 0, non handled here
-		if (same_sign(node_b->moves[0], node_b->moves[1]))
-			same_half(head_a, head_b, node_b);
-		else
-			diff_halfs(head_a, head_b, node_b);
-		if (*head_b)
-		{
-			moves_counter1(head_b);
-			moves_counter0(head_a, head_b);
-			all_moves_stack_b(head_b);
-		}
-		//printf("1\n");
-	}
-}
 void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 {
 	int		best_el_pos;
@@ -209,62 +176,19 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 	* 2- let only the longuest increasing subsequence in stack A
 	* 3- iterate on stack B and store how much moves are needed for each element:  MOVES_COUNTER
 	*/
-void	best_element1(t_node	**head_a, t_node	**head_b)
-{
-	int		*lis;
-	int		lis_len;
-	int		pos;
-	int		p_number_to_push; //store the position of the number to push
-	t_node	*first_node;
-	t_node	*last_node;
-
-	smallest_on_top(head_a);
-	first_node = *head_a;
-	last_node = first_node->prev;
-	lis = LIS_constructor(head_a); //should be returning array of LIS 
-	lis_len = N; //lenght of LIS
-	/*
-	* only letting the longuest incresing subsequence in STACK A
-	*/
-	while (first_node != last_node)
-	{
-		if (in_array(lis, first_node->data, lis_len) == false)
-		{
-			pos = position(head_a, first_node->data);
-			wich_one_ra_rra(head_a, pos);
-			pb(head_a, head_b);
-			first_node = *head_a;
-			last_node = first_node->prev;
-		}
-		first_node = first_node->next;
-	}
-	if (in_array(lis, first_node->data, lis_len) == false)
-	{
-		pos = position(head_a, first_node->data);
-		wich_one_ra_rra(head_a, pos);
-		pb(head_a, head_b);
-	}
-	moves_counter1(head_b);
-	moves_counter0(head_a, head_b);
-	all_moves_stack_b(head_b);
-	push_the_elemnt_to_a(head_a, head_b);
-	smallest_on_top(head_a);
-}
-/*TO FOUND THE BUG*/
 void	best_element(t_node	**head_a, t_node	**head_b)
 {
 	int		*lis;
 	int		lis_len;
 	int		pos;
-	int		p_number_to_push; //store the position of the number to push
 	t_node	*first_node;
 	t_node	*last_node;
 
 	smallest_on_top(head_a);
-	first_node = *head_a;
-	last_node = first_node->prev;
 	lis = LIS_constructor(head_a); //should be returning array of LIS 
 	lis_len = N; //lenght of LIS
+	first_node = *head_a;
+	last_node = first_node->prev;
 	/*
 	* only letting the longuest incresing subsequence in STACK A
 	*/
@@ -286,6 +210,7 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 		wich_one_ra_rra(head_a, pos);
 		pb(head_a, head_b);
 	}
+	
 	moves_counter1(head_b);
 	moves_counter0(head_a, head_b);
 	all_moves_stack_b(head_b);
@@ -313,6 +238,7 @@ int		find_minimum_moves(t_node	**head)
 		if (first_node->nb_moves < min)
 		{
 			min = first_node->nb_moves;
+			//pos_m = position(head, first_node->data);
 			pos_m = pos;
 		} 
 		pos++;
@@ -321,6 +247,7 @@ int		find_minimum_moves(t_node	**head)
 	if (first_node->nb_moves < min)
 	{
 		min = first_node->nb_moves;
+		//pos_m = position(head, first_node->data);
 		pos_m = pos;
 	}
 	return(pos_m);

@@ -94,43 +94,37 @@ int	how_much_to_the_other_top(t_node	**head_a, int num)
 	i = 0;
 	enter = 0;
 	best = INT_MAX;
-	
+	if (num > biggest(head_a)) //it should take the place of the biggest
+	{
+		pos = position(head_a, biggest(head_a));
+		i = how_much_to_the_top(head_a, pos);
+		return (i + 1);
+	}
 	while (first_node != last_node)
 	{
-		if (num < first_node->data)
+		if (num > first_node->data && num < first_node->next->data)
 			{
 				enter = 1;
-				if (first_node->data <= best)
-					best = first_node->data;
+				if (first_node->next->data <= best)
+					best = first_node->next->data;
 			}
 		first_node = first_node->next;
 	}
-	if (first_node == last_node)
-	{
-		if (num < first_node->data)
-			{
-				enter = 1;
-				if (first_node->data <= best)
-					best = first_node->data;
-			}
-	}
+	first_node = *head_a;
+	last_node = first_node->prev;
 	if (enter) //it be placed on top it's smallest folower
 	{
 		pos = position(head_a, best);	
 		i = how_much_to_the_top(head_a, pos);
 		return (i); 
 	}
-	if (num > biggest(head_a)) //it should take the place of the biggest
-	{
-		printf("a\n");
-		pos = position(head_a, biggest(head_a));
-		i = how_much_to_the_top(head_a, pos);
-		return (i + 1);
-	}
-	// if (in_range(num, last_node->data, first_node->data))
-	// 		return (0);
+	if (num < first_node->data && num > last_node->data)
+		return(0);
+	//if (in_range(num, last_node->data, first_node->data))
+			//return (0);
 	return (-1);
 }
+
 /*
 * fill moves[0] of the numbers of STACK B
 * how much for it to get in the righ position in STACK A (after getting in the top of STACK B)
@@ -158,13 +152,11 @@ void	all_moves_stack_b(t_node	**head)
 {
 	t_node	*first_node;
 	t_node	*last_node;
-	int		num;
 	int		a;
 	int		b;
 
 	first_node = *head;
 	last_node = first_node->prev;
-	num = 0;
 	while (first_node != last_node)
 	{
 		if (same_sign(first_node->moves[0], first_node->moves[1]))

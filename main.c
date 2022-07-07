@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 			error(1);
 		}
 	}
-	/* SORTING PHASE */
+	/* SORTING PHASE */	
 	best_element(&stack_a, &stack_b);
 	print_stacks(&stack_a, &stack_b);	
 }
