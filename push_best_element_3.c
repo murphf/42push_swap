@@ -97,7 +97,7 @@ void	same_half(t_node	**head_a, t_node	**head_b, t_node	*node)
 	}
 }
 
-void	diff_halfs(t_node	**head_a, t_node	**head_b, t_node	*node)
+void	diff_halfs0(t_node	**head_a, t_node	**head_b, t_node	*node)
 {
 	int	combo;
 	int	extra;
@@ -142,6 +142,51 @@ void	diff_halfs(t_node	**head_a, t_node	**head_b, t_node	*node)
 		pa(head_a, head_b);
 	}
 }
+void	diff_halfs(t_node	**head_a, t_node	**head_b, t_node	*node)
+{
+	int	combo;
+	int	extra;
+	int		i;
+
+	combo = abs(node->moves[0]);
+	extra = abs(node->moves[1]);
+	i = 0;
+	if (node->moves[0] >= 0)
+	{
+		while (i < combo)
+		{
+			ra(head_a);
+			i++;
+		}
+	}
+	else if (node->moves[0] < 0)
+	{
+		while (i < combo)
+		{
+			rra(head_a);
+			i++;
+		}
+	}
+	i = 0;
+	if (node->moves[1] >= 0)
+	{
+		while (i < extra)
+		{
+			rb(head_b);
+			i++;
+		}
+		pa(head_a, head_b);
+	}
+	else if (node->moves[1] < 0)
+	{
+		while (i < extra)
+		{
+			rrb(head_b);
+			i++;
+		}
+		pa(head_a, head_b);
+	}
+}
 void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 {
 	int		best_el_pos;
@@ -159,6 +204,8 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 	{
 		best_el_pos = find_minimum_moves(head_b);
 		node_b = node_of_index(head_b, best_el_pos);
+		
+		//wich_one_ra_rra(head_b, best_el_pos);
 		if (same_sign(node_b->moves[0], node_b->moves[1]))
 			same_half(head_a, head_b, node_b);
 		else
@@ -184,7 +231,7 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 	t_node	*first_node;
 	t_node	*last_node;
 
-	smallest_on_top(head_a);
+	//smallest_on_top(head_a);
 	lis = LIS_constructor(head_a); //should be returning array of LIS 
 	lis_len = N; //lenght of LIS
 	first_node = *head_a;
@@ -210,7 +257,6 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 		wich_one_ra_rra(head_a, pos);
 		pb(head_a, head_b);
 	}
-	
 	moves_counter1(head_b);
 	moves_counter0(head_a, head_b);
 	all_moves_stack_b(head_b);

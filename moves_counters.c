@@ -20,13 +20,13 @@ int	how_much_to_the_top(t_node	**head, int pos)
 	mid = len / 2;
 	if (mid > 0)
 	{
-		if (pos && pos < mid)
+		if (pos && pos <= mid)
 		{
 			sign = 1;
 			while (i < pos)
 				i++;
 		}
-		else if (pos && pos >= mid)
+		else if (pos && pos > mid)
 		{
 			sign = -1;
 			x = len - pos;
@@ -80,7 +80,7 @@ void	print_nb_of_moves(t_node	**head)
 */
 /* THIS FUNTCION IS THE ROOT OF THE BUG*/
 
-int	how_much_to_the_other_top(t_node	**head_a, int num)
+int	how_much_to_the_other_top0(t_node	**head_a, int num)
 {
 	t_node	*first_node;
 	t_node	*last_node;
@@ -124,7 +124,46 @@ int	how_much_to_the_other_top(t_node	**head_a, int num)
 			//return (0);
 	return (-1);
 }
+int	how_much_to_the_other_top(t_node	**head_a, int num)
+{
+	t_node	*first_node;
+	t_node	*last_node;
+	int		mv;
+	int		best;
+	int		enter;
 
+	first_node = *head_a;
+	last_node = first_node->prev;
+	mv = 0;
+	enter = 0;
+	best = INT_MAX;
+	
+	while (first_node != last_node)
+	{
+		if (num > first_node->data && num < first_node->next->data)
+		{
+			enter = 1;
+			if (first_node->next->data <= best)
+				best = first_node->next->data;
+		}
+		first_node = first_node->next;
+	}
+	if (enter)
+	{
+		mv = how_much_to_the_top(head_a, position(head_a, best));
+		return(mv);
+	}
+	first_node = *head_a;
+	last_node = first_node->prev;
+	if (num > last_node->data && num < first_node->data)
+		return (0);
+	if (num > biggest(head_a))
+	{
+		mv = how_much_to_the_top(head_a, position(head_a, biggest(head_a)));
+		return (mv + 1);
+	}
+	return (-1);
+}
 /*
 * fill moves[0] of the numbers of STACK B
 * how much for it to get in the righ position in STACK A (after getting in the top of STACK B)

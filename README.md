@@ -34,7 +34,7 @@ pa * Take the first element at the top of b and put it at the top of a*
 pa: [1, 9, 4, 8, 7]	B = [2]
 pb: A = [4, 8, 7] 	B = [9, 2, 1]
 
-ra *first element becomes last one*
+ra *first element becomes last one*A
 ra: A = [4, 8, 7, 9]   rb: B = [1, 2]
 rr = ra + rb
 

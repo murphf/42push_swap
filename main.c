@@ -66,5 +66,6 @@ int main(int argc, char *argv[])
 	}
 	/* SORTING PHASE */	
 	best_element(&stack_a, &stack_b);
-	print_stacks(&stack_a, &stack_b);	
+	//m_insert_sort(&stack_a, &stack_b);
+	//print_stacks(&stack_a, &stack_b);	
 }
