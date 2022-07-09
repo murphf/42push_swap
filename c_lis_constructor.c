@@ -63,9 +63,9 @@ int	*creat_fill(int n, int size)
 	return (array);
 }
 
-int	*lis_construct(t_node	**stack_a, int	size)
+int	*lis_construct(int *arr, int	size)
 {
-	int	*arr;
+	//int	*arr;
 	int	*lis;
 	int	*prev;
 	int *seq;
@@ -74,7 +74,7 @@ int	*lis_construct(t_node	**stack_a, int	size)
 	int idx;
 
 	i = 0;
-	arr= list_to_array(stack_a);
+	//arr= list_to_array(head);
 	lis = creat_fill(1, size);
 	prev = creat_fill(0, size);
 	while (i < size)

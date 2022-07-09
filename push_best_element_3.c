@@ -230,33 +230,32 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 	int		pos;
 	t_node	*first_node;
 	t_node	*last_node;
+	int		*arr_;
+	int		o;
 
 	//smallest_on_top(head_a);
-	//lis = LIS_constructor(head_a); //should be returning array of LIS 
-	lis = lis_construct(head_a, list_len(head_a));
-	lis_len = lis[0] + 1; //lenght of LIS
+	arr_ = arr_smallest_on_top(head_a);
+	//printarray(arr_, 5);
+	lis = lis_construct(arr_, list_len(head_a));
+	lis_len = lis[0]; //lenght of LIS
 	first_node = *head_a;
 	last_node = first_node->prev;
 	/*
 	* only letting the longuest incresing subsequence in STACK A
 	*/
-	while (first_node != last_node)
+	o = 0;
+	while (o != (lis_len - 1))
 	{
 		if (in_array(lis, first_node->data, lis_len) == false)
 		{
 			pos = position(head_a, first_node->data);
 			wich_one_ra_rra(head_a, pos);
 			pb(head_a, head_b);
+			o++;
 			first_node = *head_a;
-			last_node = first_node->prev;
 		}
-		first_node = first_node->next;
-	}
-	if (in_array(lis, first_node->data, lis_len) == false)
-	{
-		pos = position(head_a, first_node->data);
-		wich_one_ra_rra(head_a, pos);
-		pb(head_a, head_b);
+		else
+			first_node = first_node->next;
 	}
 	moves_counter1(head_b);
 	moves_counter0(head_a, head_b);

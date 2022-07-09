@@ -66,6 +66,8 @@ int main(int argc, char *argv[])
 	}
 	/* SORTING PHASE */	
 	best_element(&stack_a, &stack_b);
+	//int	*arr = arr_smallest_on_top(&stack_a);
+	//printarray(arr, len);
 	//int *lis = lis_construct(&stack_a, len);
 	//printarray(lis, 18);
 	//m_insert_sort(&stack_a, &stack_b);

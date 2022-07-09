@@ -101,5 +101,8 @@ void    subseq(t_node   **stack_a, t_node   **stack_b, int  *sorted_arr);
 /*-----*/
 /*C LIS_CONSTRUCTOR*/
 int	*creat_fill(int n, int size);
-int	*lis_construct(t_node	**stack_a, int	size);
+int	*lis_construct0(t_node	**head, int	size);
+int	*lis_construct(int *arr, int	size);
+
+int	*arr_smallest_on_top(t_node	**head);
 #endif
