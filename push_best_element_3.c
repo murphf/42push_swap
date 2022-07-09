@@ -232,8 +232,9 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 	t_node	*last_node;
 
 	//smallest_on_top(head_a);
-	lis = LIS_constructor(head_a); //should be returning array of LIS 
-	lis_len = N; //lenght of LIS
+	//lis = LIS_constructor(head_a); //should be returning array of LIS 
+	lis = lis_construct(head_a, list_len(head_a));
+	lis_len = lis[0] + 1; //lenght of LIS
 	first_node = *head_a;
 	last_node = first_node->prev;
 	/*

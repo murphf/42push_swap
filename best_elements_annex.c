@@ -61,12 +61,12 @@ bool	in_array(int	*array, int nbr, int len)
 {
 	int i;
 
-	i = 0;
-	while (i < len)
+	i = len - 1;
+	while (i)
 	{
 		if (array[i] == nbr)
 			return (true);
-		i++;
+		i--;
 	}
 	return (false);
 }

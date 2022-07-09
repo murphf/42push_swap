@@ -117,3 +117,11 @@ len (5):
 longuest increasing subsequence (python): 
 len (11):
 0, 4, 9, 10, 11, 21, 23, 25, 26, 27, 29
+
+results:
+for 100 number: 657 mv
+for 500 number:
+-code the LIS constructor
+-optimize for sa/sb/ss
+-leaks
+-checker

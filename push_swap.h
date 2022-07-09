@@ -6,7 +6,7 @@
 #include <limits.h>
 #include <stdbool.h>
 #include "libft/libft.h"
-#define N 17
+#define N 42
 typedef	struct s_node
 {
 	int				data;
@@ -99,4 +99,7 @@ void	quicksort(int	*arr, int	low, int	high);
 int		*quicksort__stack(t_node    **stack_a, int size);
 void    subseq(t_node   **stack_a, t_node   **stack_b, int  *sorted_arr);
 /*-----*/
+/*C LIS_CONSTRUCTOR*/
+int	*creat_fill(int n, int size);
+int	*lis_construct(t_node	**stack_a, int	size);
 #endif
