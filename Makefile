@@ -16,7 +16,7 @@ SRC= main.c\
 	array_manipulation.c\
 	lis_construction.c\
 	moves_counters.c\
-	push_best_element_3.c\
+	push_best_element.c\
 	best_elements_annex.c\
 	quicksort_arr.c\
 	positions_extremes.c\
