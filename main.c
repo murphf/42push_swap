@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	i = 1;
 	stack_b = NULL;
 	/* PARSING OF INPUT */
-	if (argc < 2)
+	if (argc <= 2)
 		error(0);
 	else
 	{
@@ -65,11 +65,11 @@ int main(int argc, char *argv[])
 		}
 	}
 	/* SORTING PHASE */	
-	best_element(&stack_a, &stack_b);
-	//int	*arr = arr_smallest_on_top(&stack_a);
-	//printarray(arr, len);
-	//int *lis = lis_construct(&stack_a, len);
-	//printarray(lis, 18);
-	//m_insert_sort(&stack_a, &stack_b);
+	if (len == 2)
+		sort2(&stack_a);
+	else if (len == 3)
+		sort3(&stack_a);
+	else
+		best_element(&stack_a, &stack_b);
 	print_stacks(&stack_a, &stack_b);	
 }

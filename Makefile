@@ -35,17 +35,19 @@ COLOR_END=\033[0m
 All: $(EXEC)
 
 push_swap: $(SRC) push_swap.h
-	make -C libft
-	$(CC) $(SRC) libft/libft.a -o $@
+	@make -C libft
+	@echo "\033[0;34mcreating push_swap\033[0m"
+	@$(CC) $(SRC) libft/libft.a -o $@
 
 clean_lib:
-	make clean -C libft
+	@make clean -C libft
 
 clean: clean_lib
-	rm -f push_swap
+	@echo "\033[0;32mdeleting push_swap...\033[0m"
+	@rm -f push_swap
 
 fclean: clean
-	make fclean -C libft
+	@make fclean -C libft
 
 re: clean All
 .PHONY: clean clean_lib fclean re 
