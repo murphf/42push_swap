@@ -42,7 +42,8 @@ push_swap: $(SRC) push_swap.h
 clean_lib:
 	@make clean -C libft
 
-clean: clean_lib
+clean:
+	@make clean -C libft
 	@echo "\033[0;32mdeleting push_swap...\033[0m"
 	@rm -f push_swap
 

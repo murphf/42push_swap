@@ -46,6 +46,8 @@ void	moves_counter1(t_node	**head)
 	t_node	*last_node;
 	int		pos;
 
+	if (!*head)
+		return;
 	first_node = *head;
 	last_node = first_node->prev;
 	while (first_node != last_node)
@@ -173,6 +175,8 @@ void	moves_counter0(t_node	**head_a, t_node	**head_b)
 	t_node	*first_node_b;
 	t_node	*last_node_b;
 
+	if (!*head_b)
+		return ;
 	first_node_b = *head_b;
 	last_node_b = first_node_b->prev;
 	while (first_node_b != last_node_b)
@@ -194,6 +198,8 @@ void	all_moves_stack_b(t_node	**head)
 	int		a;
 	int		b;
 
+	if (!*head)
+		return ;
 	first_node = *head;
 	last_node = first_node->prev;
 	while (first_node != last_node)

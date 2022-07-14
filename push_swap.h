@@ -16,6 +16,12 @@ typedef	struct s_node
 	int			nb_moves;
 }	t_node;
 
+typedef struct s_stack
+{
+	t_node	**stack_a;
+	t_node	**stack_b;
+} t_stack;
+
 /* LINKED LIST MANIP */
 t_node	*create_node(int data);
 t_node	*add_node_end(t_node	**head, t_node	*new_node);

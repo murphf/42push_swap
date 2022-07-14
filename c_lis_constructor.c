@@ -40,7 +40,7 @@ def lis(arr):
 
     return (maximum, reversed(seq))
 # end of lis function
-
+*/
 /*
 * fisrt I'll convert stack A to array A of lenght n
 * n = argc - 1

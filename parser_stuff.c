@@ -35,6 +35,7 @@ int	is_digit(char c)
 		return (1);
 	return (0);
 }
+
 /*
 * check if str is a valid argument;
 * allowed syntax: A, +A, -A (with A in [0, 9])

@@ -219,9 +219,11 @@ void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b)
 	}
 }
 	/*
-	* 1- let the smallest be on top
-	* 2- let only the longuest increasing subsequence in stack A
+	* 1- create a copy of stack A where the smallest number is on top 
+	* 2- extract the LONGUEST INCREASING SUBSEQ from this copy
+	* 2- let only the longuest increasing subsequence in stack A i.e move all the the other numbers to STACK B
 	* 3- iterate on stack B and store how much moves are needed for each element:  MOVES_COUNTER
+	* 4- push the element who needs the least amount of moves to be put on its place
 	*/
 void	best_element(t_node	**head_a, t_node	**head_b)
 {
@@ -234,28 +236,30 @@ void	best_element(t_node	**head_a, t_node	**head_b)
 	int		o;
 
 	//smallest_on_top(head_a);
-	arr_ = arr_smallest_on_top(head_a);
-	//printarray(arr_, 5);
-	lis = lis_construct(arr_, list_len(head_a));
-	lis_len = lis[0]; //lenght of LIS
+	arr_ = arr_smallest_on_top(head_a); //the temporary copy where that begins with the smallest number 
+	lis = lis_construct(arr_, list_len(head_a)); //the LIS created from that
+	//printarray(lis, 18);
+	lis_len = lis[0] + 1; //lenght of LIS
 	first_node = *head_a;
 	last_node = first_node->prev;
 	/*
 	* only letting the longuest incresing subsequence in STACK A
 	*/
 	o = 0;
-	while (o != (lis_len - 1))
+	while (o < lis_len)
 	{
 		if (in_array(lis, first_node->data, lis_len) == false)
 		{
 			pos = position(head_a, first_node->data);
 			wich_one_ra_rra(head_a, pos);
 			pb(head_a, head_b);
-			o++;
 			first_node = *head_a;
 		}
 		else
+		{
 			first_node = first_node->next;
+			o++;
+		}
 	}
 	moves_counter1(head_b);
 	moves_counter0(head_a, head_b);
