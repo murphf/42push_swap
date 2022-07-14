@@ -30,13 +30,15 @@ int		delete_list(t_node **head);
 int		list_len(t_node	**head);
 /*-------------------*/
 /* PARSING */
-static int	ft_isspace(int c);
-long		ft_atoi0(const char *str);
-int			is_digit(char c);
 int			valid_arg(char	*str);
+t_node		**parsing(int argc, char **argv);
+/*---------*/
+/*ERRORS_CHECK*/
+void		error(int e, t_node	**stack_a);
+bool		is_int(long num);
 bool		is_sorted(t_node **head);
 bool		identical_found(t_node	**head, int new_data);
-int			is_int(long a);
+
 /*---------*/
 /* MOVES */
 void	swap(t_node	**head);

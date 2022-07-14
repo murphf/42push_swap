@@ -5,11 +5,11 @@ CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 
 SRC= main.c\
-	annexe_functions.c\
 	linked_list_manipulation.c\
 	moves_writer.c\
 	ops.c\
-	parser_stuff.c\
+	parsing.c\
+	errors_check.c\
 	sorting_algos.c\
 	insert_sort.c\
 	print_stacks.c\
@@ -39,9 +39,6 @@ push_swap: $(SRC) push_swap.h
 	@echo "\033[0;34mcreating push_swap\033[0m"
 	@$(CC) $(SRC) libft/libft.a -o $@
 
-clean_lib:
-	@make clean -C libft
-
 clean:
 	@make clean -C libft
 	@echo "\033[0;32mdeleting push_swap...\033[0m"
@@ -51,4 +48,5 @@ fclean: clean
 	@make fclean -C libft
 
 re: clean All
-.PHONY: clean clean_lib fclean re 
+
+.PHONY: clean fclean re 
