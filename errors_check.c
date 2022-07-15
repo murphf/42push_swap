@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors_check.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/15 16:35:08 by styes             #+#    #+#             */
+/*   Updated: 2022/07/15 17:07:29 by styes            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /*
@@ -6,7 +18,10 @@
 void	error(int e, t_node	**stack_a)
 {
 	if (e)
+	{
 		write(1, "\033[0;31mError\033[0m\n", 18);
+		delete_list(stack_a);
+	}
 	else
 		delete_list(stack_a);
 	exit(EXIT_FAILURE);
@@ -24,19 +39,13 @@ bool	is_int(long num)
 
 /*
 * check if the list's data is sorted or not
-* returns
-* 		false / 0 if unsorted
-*		true / 1 if sorted
 */
 bool	is_sorted(t_node **head)
 {
 	t_node	*first_node;
-	t_node	*last_node;
 
 	first_node = *head;
-	last_node = first_node->prev;
-
-	while (first_node != last_node)
+	while (first_node->next != *head)
 	{
 		if (first_node->data > first_node->next->data)
 			return (false);
@@ -45,25 +54,22 @@ bool	is_sorted(t_node **head)
 	return (true);
 }
 
-
 /*
 * check if the int new_data is already in the list
+* start checking from the last node 
 */
 bool	identical_found(t_node	**head, int new_data)
 {
-	t_node	*first_node;
 	t_node	*last_node;
 
-	first_node = *head;
-	last_node = first_node->prev;
-
-	if (last_node->data == new_data)
-		return (1);
-	while (first_node != last_node)
+	last_node = (*head)->prev;
+	while (last_node != *head)
 	{
-		if (first_node->data == new_data)
+		if (last_node->data == new_data)
 			return (true);
-		first_node = first_node->next;
+		last_node = last_node->prev;
 	}
+	if (last_node->data == new_data)
+		return (true);
 	return (false);
 }

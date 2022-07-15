@@ -13,7 +13,7 @@ typedef	struct s_node
 	struct s_node	*prev;
 	struct s_node	*next;
 	int			moves[2];
-	int			nb_moves;
+	int			nb_mv;
 }	t_node;
 
 typedef struct s_stack
@@ -26,7 +26,7 @@ typedef struct s_stack
 t_node	*create_node(int data);
 t_node	*add_node_end(t_node	**head, t_node	*new_node);
 t_node	*add_node_beg(t_node	**head, t_node	*new_node);
-int		delete_list(t_node **head);
+void		delete_list(t_node **head);
 int		list_len(t_node	**head);
 /*-------------------*/
 /* PARSING */
@@ -92,8 +92,8 @@ bool	in_array(int	*array, int nbr, int len);
 /*MOVES COUNTER*/
 void	moves_counter0(t_node	**head_a, t_node	**head_b);
 void	moves_counter1(t_node	**head);
-int		how_much_to_the_other_top(t_node	**head_a, int num);
-int		how_much_to_the_top(t_node	**head, int pos);
+int		to_the_other_top(t_node	**head_a, int num);
+int		to_the_top(t_node	**head, int pos);
 void	print_nb_of_moves(t_node	**head);
 void	all_moves_stack_b(t_node	**head);
 /*-------------*/

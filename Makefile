@@ -11,16 +11,14 @@ SRC= main.c\
 	parsing.c\
 	errors_check.c\
 	sorting_algos.c\
-	insert_sort.c\
 	print_stacks.c\
 	array_manipulation.c\
-	lis_construction.c\
 	moves_counters.c\
 	push_best_element.c\
 	best_elements_annex.c\
 	quicksort_arr.c\
 	positions_extremes.c\
-	c_lis_constructor.c\
+	lis_constructor.c\
 
 EXEC= push_swap
 

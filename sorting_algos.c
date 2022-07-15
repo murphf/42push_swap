@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 /*
-* check if a is in range ]b, c[
+* check if a is in ]b, c[
 */
 int	in_range(int a, int b, int	c)
 {

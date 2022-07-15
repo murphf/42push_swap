@@ -280,23 +280,23 @@ int		find_minimum_moves(t_node	**head)
 
 	first_node = *head;
 	last_node = first_node->prev;
-	min = first_node->nb_moves;
+	min = first_node->nb_mv;
 	pos = 0;
 	pos_m = pos;
 	while (first_node != last_node)
 	{	
-		if (first_node->nb_moves < min)
+		if (first_node->nb_mv < min)
 		{
-			min = first_node->nb_moves;
+			min = first_node->nb_mv;
 			//pos_m = position(head, first_node->data);
 			pos_m = pos;
 		} 
 		pos++;
 		first_node = first_node->next;
 	}
-	if (first_node->nb_moves < min)
+	if (first_node->nb_mv < min)
 	{
-		min = first_node->nb_moves;
+		min = first_node->nb_mv;
 		//pos_m = position(head, first_node->data);
 		pos_m = pos;
 	}

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   array_manipulation.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/15 15:24:24 by styes             #+#    #+#             */
+/*   Updated: 2022/07/15 15:27:21 by styes            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /*
@@ -5,37 +17,34 @@
 */
 int	*list_to_array(t_node	**head)
 {
-	int	    len;
-	int	    *array;
-	int	    i;
+	int		len;
 	t_node	*first_node;
-	t_node	*last_node;
+	int		*array;
+	int		i;
 
-    first_node = *head;
-    last_node = first_node->prev;
 	len = list_len(head);
+	first_node = *head;
 	array = (int *)malloc(sizeof(int) * len);
-	if (array == NULL)
+	if (!array)
 		return (NULL);
 	i = 0;
 	while (i < len)
 	{
-		array[i] = first_node->data;
-        first_node = first_node->next;
-        i++;
+		array[i++] = first_node->data;
+		first_node = first_node->next;
 	}
-    return (array);
+	return (array);
 }
 
 /*
 * print content of array 
 */
-void printarray(int *array, int size)
+void	printarray(int *array, int size)
 {
 	int	i;
 
 	i = 0;
-	if (array == NULL)
+	if (!array)
 		printf("NOTHING!\n");
 	while (i < size)
 		printf("%d ", array[i++]);
