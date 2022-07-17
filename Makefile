@@ -6,17 +6,20 @@ CFLAGS=-Wall -Wextra -Werror
 
 SRC= main.c\
 	linked_list_manipulation.c\
-	moves_writer.c\
-	ops.c\
+	moves_writer0.c\
+	moves_writer1.c\
+	moves_writer2.c\
+	stack_ops0.c\
+	stack_ops1.c\
+	algebra.c\
 	parsing.c\
 	errors_check.c\
-	sorting_algos.c\
 	print_stacks.c\
 	array_manipulation.c\
 	moves_counters.c\
-	push_best_element.c\
+	best_element_algo.c\
 	best_elements_annex.c\
-	quicksort_arr.c\
+	push_best_element.c\
 	positions_extremes.c\
 	lis_constructor.c\
 

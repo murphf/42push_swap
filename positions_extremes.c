@@ -1,18 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   positions_extremes.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/16 15:07:16 by styes             #+#    #+#             */
+/*   Updated: 2022/07/16 15:36:28 by styes            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-int	_min(int a, int b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-int	_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
 
 /*
 * return the data of the node with the smallest data
@@ -20,13 +18,11 @@ int	_max(int a, int b)
 int	smallest(t_node	**stack_a)
 {
 	t_node	*first_node;
-	t_node	*last_node;
 	int		min;
 
 	first_node = *stack_a;
-	last_node = first_node->prev;
-	min = _min(first_node->data, last_node->data);
-	while (first_node != last_node)
+	min = _min(first_node->data, first_node->prev->data);
+	while (first_node->next != *stack_a)
 	{
 		if (first_node->data < min)
 				min = first_node->data;
@@ -41,14 +37,12 @@ int	smallest(t_node	**stack_a)
 */
 int	biggest(t_node	**stack_a)
 {
-	t_node	*first_node;
 	t_node	*last_node;
 	int		max;
 
-	first_node = *stack_a;
-	last_node = first_node->prev;
-	max = _max(first_node->data, last_node->data);
-	while (last_node != first_node)
+	last_node = (*stack_a)->prev;
+	max = _max((*stack_a)->data, last_node->data);
+	while (last_node->prev != *stack_a)
 	{
 		if (last_node->data > max)
 				max = last_node->data;
@@ -58,15 +52,14 @@ int	biggest(t_node	**stack_a)
 }
 
 /*
-* return position/index of node containing data
+* return position/index of node containing @data
 */
-int position(t_node	**head, int data)
+int	position(t_node	**head, int data)
 {
-	int	pos;
-
-	pos = 0;
+	int		pos;
 	t_node	*first_node;
 
+	pos = 0;
 	first_node = *head;
 	while (first_node->next != *head)
 	{
@@ -76,44 +69,32 @@ int position(t_node	**head, int data)
 		first_node = first_node->next;
 	}
 	if (first_node->data == data)
-			return (pos);
-	return(-1);
+		return (pos);
+	return (-1);
 }
 
 /*
-* decide wich one is easier to use in order to get the number in position pos to the top of the stack
+* decide wich one is better to use in order to:
+* get the number in position pos to the top of the STACK A
 * ra or rra?
-* based on the lenght of stack A
-* and position of the node	
 */
-void	wich_one_ra_rra(t_node	**stack, int	pos)
+void	wich_one_ra_rra(t_node **stack, int pos)
 {
 	int		mid;
 	int		len;
 	int		i;
 	int		x;
 
-	i = 0;
-	len = list_len(stack);
-	mid = len / 2;
+	i = -1;
+	x = list_len(stack) - pos;
+	mid = (x + pos) / 2;
 	if (mid > 0)
 	{
-		if (pos && pos <= mid)
-		{
-			while (i < pos)
-			{
+		if (pos <= mid)
+			while (++i < pos)
 				ra(stack);
-				i++;
-			}
-		}
-		else if (pos && pos > mid)
-		{
-			x = len - pos;
-			while (i < x)
-			{
+		else
+			while (++i < x)
 				rra(stack);
-				i++;
-			}
-		}
 	}
 }

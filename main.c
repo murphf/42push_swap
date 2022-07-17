@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 22:08:17 by styes             #+#    #+#             */
-/*   Updated: 2022/07/15 17:44:33 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/17 05:39:37 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	sorting(t_node	**head_a, t_node **head_b, int size)
 {
-	if (size == 2)
-		sort2(head_a);
-	else if (size == 3)
-		sort3(head_a);
+	if (size == 3)
+		sort3(head_a);	
 	else
-		best_element(head_a, head_b);
+		only_lis(head_a, head_b);
 }
 
 int	main(int argc, char **argv)
@@ -36,6 +34,7 @@ int	main(int argc, char **argv)
 		stack_a = *(parsing(argc, argv));
 	if (is_sorted(&stack_a))
 		error(0, &stack_a);
+	//sb(&stack_b);
 	sorting(&stack_a, &stack_b, len);
 	//print_stacks(&stack_a, &stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:28:55 by styes             #+#    #+#             */
-/*   Updated: 2022/07/15 15:44:32 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/17 06:02:07 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,22 +65,39 @@ bool	in_array(int	*array, int nbr, int len)
 }
 
 /*
-* see if a and b have the same sign 
-* AND non null
+* sort 3 numbers
+* moves depending of the posisiton
+* of the max, min amd medium
+* medium being the number between min and max
 */
-bool	same_sign(int a, int b)
+t_node	*sort3(t_node	**head)
 {
-	if ((a > 0 && b > 0) || (a < 0 && b < 0))
-		return (true);
-	return (false);
-}
+	t_node	*f_node;
+	int		f;
+	int		s;
+	int		t;
 
-/*
-* return absolute value of n
-*/
-int	abs(int n)
-{
-	if (n < 0)
-		return (-n);
-	return (n);
+	f_node = *head;
+
+	f = f_node->data;
+	s = f_node->next->data;
+	t = f_node->prev->data;
+	
+	if (in_range(t, f, s))
+	{
+		rra(head);
+		sa(head);
+	}
+	else if (in_range(t, s, f))
+		ra(head);
+	else if (in_range(f, t, s))
+		rra(head);
+	else if (in_range(f, s, t))
+		sa(head);
+	else if(in_range(s, t, f))
+	{
+		sa(head);
+		rra(head);
+	}
+	return (*head);
 }

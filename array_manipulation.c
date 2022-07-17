@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:24:24 by styes             #+#    #+#             */
-/*   Updated: 2022/07/15 15:27:21 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/16 16:55:34 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,52 @@ int	*list_to_array(t_node	**head)
 	while (i < len)
 	{
 		array[i++] = first_node->data;
+		first_node = first_node->next;
+	}
+	return (array);
+}
+
+int	*arr_smallest_on_top(t_node	**head)
+{
+	int	*array;
+	int size;
+	int	pos;
+	int	i;
+	int k;
+	t_node	*first_node;
+	t_node	*last_node;
+	
+	i = 0;
+	k = 0;
+	first_node = *head;
+	last_node = first_node->prev;
+	size = list_len(head);
+	array = (int *)malloc(sizeof(int) * size);
+	if (!array)
+		return (NULL);
+	pos = position(head, smallest(head));
+	while (first_node != last_node)
+	{
+		if (i >= pos)
+			{
+				array[k] = first_node->data;
+				k++;
+			}
+		i++;
+		first_node = first_node->next;
+	}
+	if (i >= pos)
+		{
+			array[k] = first_node->data;
+			k++;
+		}
+	first_node = *head;
+	i = 0;
+	while (i < pos)
+	{
+		array[k] = first_node->data;
+		k++;
+		i++;
 		first_node = first_node->next;
 	}
 	return (array);

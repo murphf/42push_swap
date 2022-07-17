@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/16 15:05:28 by styes             #+#    #+#             */
+/*   Updated: 2022/07/16 15:06:46 by styes            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-* check if str is a valid argument;
-* allowed syntax: A, +A, -A (with A in [0, 9])
+* check if str has a valid syntax;
+* allowed syntax: A, +A, -A (with A being composed of digits [0, 9])
 */
 int	valid_arg(char	*str)
 {

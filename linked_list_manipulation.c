@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linked_list_manipulation.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: styes <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 06:15:47 by styes             #+#    #+#             */
+/*   Updated: 2022/07/17 06:15:52 by styes            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "push_swap.h"
 
 /*
@@ -100,50 +113,4 @@ int	list_len(t_node	**head)
 		first_node = first_node->next;
 	}
 	return (len);
-}
-
-int	*arr_smallest_on_top(t_node	**head)
-{
-	int	*array;
-	int size;
-	int	pos;
-	int	i;
-	int k;
-	t_node	*first_node;
-	t_node	*last_node;
-	
-	i = 0;
-	k = 0;
-	first_node = *head;
-	last_node = first_node->prev;
-	size = list_len(head);
-	array = (int *)malloc(sizeof(int) * size);
-	if (!array)
-		return (NULL);
-	pos = position(head, smallest(head));
-	while (first_node != last_node)
-	{
-		if (i >= pos)
-			{
-				array[k] = first_node->data;
-				k++;
-			}
-		i++;
-		first_node = first_node->next;
-	}
-	if (i >= pos)
-		{
-			array[k] = first_node->data;
-			k++;
-		}
-	first_node = *head;
-	i = 0;
-	while (i < pos)
-	{
-		array[k] = first_node->data;
-		k++;
-		i++;
-		first_node = first_node->next;
-	}
-	return (array);
 }

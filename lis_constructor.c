@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_lis_constructor.c                                :+:      :+:    :+:   */
+/*   lis_constructor.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:58:02 by styes             #+#    #+#             */
-/*   Updated: 2022/07/15 16:33:51 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/17 05:48:37 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	*creat_fill_indx(int size)
 * the LIS returned is reversed 
 * it actually return the Longuest Descreasing Subsequence (starting from the end)
 */
-int	*lis_construct(int *arr, int	size)
+int	*lis_construct(t_node	**head, int	size)
 {
 	int	*lis;
 	int	*prev;
@@ -56,8 +56,10 @@ int	*lis_construct(int *arr, int	size)
 	int	i;
 	int	max;
 	int	idx;
+	int	*arr;
 
 	i = 0;
+	arr = arr_smallest_on_top(head);
 	lis = creat_fill(1, size);
 	prev = creat_fill_indx(size);
 	for (i = 1; i < size; i++)
