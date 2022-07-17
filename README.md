@@ -93,3 +93,7 @@ len (17):
 - how does the checker work (all it's possible options)
 - flag to print the content of stack A
 - loading bar (Makefile)
+
+Mean: 545 for stack of size 100 
+Mean: 5042 for stack of size 500
+

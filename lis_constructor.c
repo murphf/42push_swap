@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:58:02 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 05:48:37 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/17 20:19:08 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ int	*creat_fill_indx(int size)
 		array[i] = i;
 	return (array);
 }
+void	free_3_arr(int	*a, int	*b, int	*c)
+{
+	free(a);
+	free(b);
+	free(c);
+}
 
 /*
 * return the Longest Increasing Subsequence of array @arr of size @size
@@ -54,17 +60,19 @@ int	*lis_construct(t_node	**head, int	size)
 	int	*prev;
 	int	*seq;
 	int	i;
+	int	j;
 	int	max;
 	int	idx;
 	int	*arr;
 
-	i = 0;
 	arr = arr_smallest_on_top(head);
 	lis = creat_fill(1, size);
 	prev = creat_fill_indx(size);
-	for (i = 1; i < size; i++)
+	i = 0;
+	while (++i < size)
 	{
-		for (int j = 0; j < i; j++)
+		j = -1;
+		while (++j < i)
 		{
 			if (arr[i] > arr[j] && lis[i] < (lis[j] + 1))
 			{
@@ -75,7 +83,8 @@ int	*lis_construct(t_node	**head, int	size)
 	}
 	max = 0;
 	idx = 0;
-	for (i = 0; i < size; i++)
+	i = -1;
+	while (++i < size)
 	{
 		if (max < lis[i])
 		{
@@ -95,5 +104,6 @@ int	*lis_construct(t_node	**head, int	size)
 		seq[k] = arr[idx];
 		k++;
 	}
+	free_3_arr(arr, lis, prev);
 	return (seq);
 }

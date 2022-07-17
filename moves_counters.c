@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:16:32 by styes             #+#    #+#             */
-/*   Updated: 2022/07/15 18:28:11 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/17 17:40:48 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	moves_counter1(t_node	**head)
 }
 
 /*
-* calculate how many moves we meed to position number @num 
+* calculate how many moves we need to position number @num 
 * from the top of STACK B to its fitting position in stack A 
 * there's 4 cases.
 */
@@ -79,6 +79,8 @@ int	to_the_other_top(t_node	**head_a, int num)
 	enter = 0;
 	best = INT_MAX;
 	f_node = *head_a;
+	if (in_range(num, f_node->prev->data, f_node->data))
+		return (0);
 	while (f_node->next != *head_a)
 	{
 		if (in_range(num, f_node->data, f_node->next->data))
@@ -89,13 +91,10 @@ int	to_the_other_top(t_node	**head_a, int num)
 		}
 		f_node = f_node->next;
 	}
-	f_node = *head_a;
-	if (in_range(num, f_node->prev->data, f_node->data) && f_node->data <= best)
-		return (0);
 	if (enter)
 		return (to_the_top(head_a, position(head_a, best)));
 	if (num > biggest(head_a))
-		return (to_the_top(head_a, position(head_a, biggest(head_a))) + 1);
+			return (to_the_top(head_a,position(head_a, biggest(head_a)) + 1));
 	return (-1);
 }
 

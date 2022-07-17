@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:15:30 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 05:29:20 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/17 16:42:44 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,3 +91,4 @@ void	only_lis(t_node	**head_a, t_node	**head_b)
 	free(lis);
 	best_element(head_a, head_b);
 }
+

@@ -6,12 +6,24 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:09:00 by styes             #+#    #+#             */
-/*   Updated: 2022/07/16 18:36:29 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/17 17:20:11 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+void	print_nb_mv(t_node **head)
+{
+	t_node	*first_node;
 
+	first_node = *head;
+	while (first_node->next != *head)
+	{
+		printf("%d ", first_node->nb_mv);
+		first_node = first_node->next;
+	}
+	printf("%d ", first_node->nb_mv);
+	printf("\n");
+}
 /* PSEUDOCODE
 * 1- find the element with the least amount of moves
 * 2- CASES:
@@ -45,6 +57,7 @@ void	pos_same_half(t_node	**head_a, t_node	**head_b, t_node	*node)
 		while (++i < extra)
 			rb(head_b);
 	pa(head_a, head_b);
+	
 }
 
 /*

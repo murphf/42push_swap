@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:07:16 by styes             #+#    #+#             */
-/*   Updated: 2022/07/16 15:36:28 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/17 17:18:08 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	biggest(t_node	**stack_a)
 				max = last_node->data;
 		last_node = last_node->prev;
 	}
+	if (last_node->data > max)
+				max = last_node->data;
 	return (max);
 }
 
