@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 16:23:05 by styes             #+#    #+#             */
-/*   Updated: 2022/07/18 16:31:15 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/18 22:21:19 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 * unsorted
 * in INT range
 */
-t_node	**parsing(int argc, char **argv)
+t_node	**parsing_check(int argc, char **argv)
 {
 	int			i;
 	long		num;

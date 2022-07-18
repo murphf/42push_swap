@@ -23,7 +23,17 @@ SRC= main.c\
 	positions_extremes.c\
 	lis_constructor.c\
 
+SRC_b= checker.c\
+	checker_utils.c\
+	parsing.c\
+	linked_list_manipulation.c\
+	errors_check.c\
+	print_stacks.c\
+	stack_ops0.c\
+	stack_ops1.c\
+
 EXEC= push_swap
+bonus= checker
 
 #color codes
 COLOR_GREEN=\033[0;32m
@@ -40,10 +50,15 @@ push_swap: $(SRC) push_swap.h
 	@echo "\033[0;34mcreating push_swap\033[0m"
 	@$(CC) $(SRC) libft/libft.a -o $@
 
+bonus: $(SRC_b) push_swap.h
+	@make -C libft
+	$(CC) $(SRC_b) libft/libft.a -o checker
+
 clean:
 	@make clean -C libft
 	@echo "\033[0;32mdeleting push_swap...\033[0m"
 	@rm -f push_swap
+	@rm -f checker
 
 fclean: clean
 	@make fclean -C libft

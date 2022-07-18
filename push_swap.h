@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 06:09:20 by styes             #+#    #+#             */
-/*   Updated: 2022/07/18 14:34:29 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/18 22:21:33 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,5 @@ void	wich_one_ra_rra(t_node **stack, int pos);
 /* PRINT STACKS */
 void	print_list(t_node **head);
 void	print_stacks(t_node	**stack_a, t_node	**stack_b);
+t_node	**parsing_check(int argc, char **argv);
 #endif
