@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 06:09:20 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 06:13:15 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/18 14:34:29 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <unistd.h>
 # include "libft/libft.h"
 
 typedef struct s_node
