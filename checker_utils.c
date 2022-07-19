@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 16:23:05 by styes             #+#    #+#             */
-/*   Updated: 2022/07/18 22:21:19 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/19 19:18:54 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,3 @@ t_node	**parsing_check(int argc, char **argv)
 	return (head_a);
 }
 
-void *ft_realloc(void *ptr, size_t size)
-{
-	void	*new_ptr;
-	int		i;
-
-	if (size == 0)
-	{
-		free(ptr);
-		return (NULL);
-	}
-	new_ptr = malloc(size);
-	if (!new_ptr)
-		return (NULL);
-	i = -1;
-	while (++i < size)
-		new_ptr[] = ptr[]
-}
