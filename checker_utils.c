@@ -54,3 +54,21 @@ t_node	**parsing_check(int argc, char **argv)
 		}
 	return (head_a);
 }
+
+void *ft_realloc(void *ptr, size_t size)
+{
+	void	*new_ptr;
+	int		i;
+
+	if (size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	new_ptr = malloc(size);
+	if (!new_ptr)
+		return (NULL);
+	i = -1;
+	while (++i < size)
+		new_ptr[] = ptr[]
+}
