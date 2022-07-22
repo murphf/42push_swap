@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 06:09:20 by styes             #+#    #+#             */
-/*   Updated: 2022/07/18 22:21:33 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/22 19:25:59 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool	is_sorted(t_node **head);
 bool	identical_found(t_node	**head, int new_data);
 
 /* PARSING */
-int		valid_arg(char	*str);
+int	valid_arg(char	*str, t_node	**stack_a);
 t_node	**parsing(int argc, char **argv);
 
 /* ARRAY MANIPULATION */

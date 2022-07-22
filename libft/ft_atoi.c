@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:15:46 by styes             #+#    #+#             */
-/*   Updated: 2022/07/14 14:53:50 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/22 18:26:19 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ static int	ft_isspace(int c)
 }
 
 //convert a string to an int ( doesn't handle overflow if > MAX_LONG)
+/*
+* minor changes for push_swap
+*/
 long	ft_atoi(const char *str)
 {
 	int		sign;
@@ -34,6 +37,6 @@ long	ft_atoi(const char *str)
 		if (str[i++] == '-')
 			sign *= -1;
 	while (str[i] >= '0' && str[i] <= '9')
-		a = (a * 10) + (str[i++] - '0');
+			a = (a * 10) + (str[i++] - '0');
 	return (sign * a);
 }

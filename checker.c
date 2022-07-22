@@ -68,17 +68,17 @@ int main(int argc, char *argv[])
 					rotate(&stack_b);
 					i += 3;
 				}
-			if (ft_strncmp(&mv[i], "rra", 2) == 0)
+			if (ft_strncmp(&mv[i], "rra", 3) == 0)
 				{
 					rev_rotate(&stack_a);
 					i += 4;
 				}
-			if (ft_strncmp(&mv[i], "rrb", 2) == 0)
+			if (ft_strncmp(&mv[i], "rrb", 3) == 0)
 				{
 					rev_rotate(&stack_b);
 					i += 4;
 				}
-			if (ft_strncmp(&mv[i], "rrr", 2) == 0)
+			if (ft_strncmp(&mv[i], "rrr", 3) == 0)
 				{
 					rev_rotate(&stack_a);
 					rev_rotate(&stack_b);
@@ -94,11 +94,19 @@ int main(int argc, char *argv[])
 					push(&stack_b, &stack_a);
 					i += 3;
 				}
+			else
+				{
+					write(1, "error\n", 7);
+					exit(EXIT_FAILURE);
+				}
 		}
 		else if (mv[i] == '\n')
 			i++;
 		else
-			printf("error\n");
+		{
+			write(1, "error\n", 7);
+			exit(EXIT_FAILURE);
+		}
 	}
 	if (is_sorted(&stack_a) && !stack_b)
 		write(1, "OK\n", 4);

@@ -6,18 +6,32 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 22:08:17 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 20:13:22 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/22 19:47:23 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+* hardcode for 3 elements sorting
+* best element algorithm for the rest
+*/
 void	sorting(t_node	**head_a, t_node **head_b, int size)
 {
 	if (size == 3)
 		sort3(head_a);	
 	else
 		only_lis(head_a, head_b);
+}
+
+/*
+* handle one if only one number got inputed 
+*/
+void	case_one_arg(char	*str, t_node	**stack_a)
+{
+	if (valid_arg(str, stack_a))
+		error(0, stack_a);
+	error(1, stack_a);
 }
 
 int	main(int argc, char **argv)
@@ -28,13 +42,16 @@ int	main(int argc, char **argv)
 
 	len = argc - 1;
 	stack_b = NULL;
-	if (len <= 1)
+	if (len < 1)
 		error(0, &stack_a);
+	else if (len == 1)
+		case_one_arg(argv[1], &stack_a);
 	else
 		stack_a = *(parsing(argc, argv));
 	if (is_sorted(&stack_a))
 		error(0, &stack_a);
 	sorting(&stack_a, &stack_b, len);
+	//print_stacks(&stack_a, &stack_b);
 	//delete_list(&stack_a);
 	//delete_list(&stack_b);
 	//system("leaks push_swap");

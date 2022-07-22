@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:35:08 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 17:39:30 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/22 18:23:08 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,8 @@
 void	error(int e, t_node	**stack_a)
 {
 	if (e)
-	{
 		write(1, "\033[0;31mError\033[0m\n", 18);
-		delete_list(stack_a);
-	}
-	else
-		delete_list(stack_a);
+	delete_list(stack_a);
 	exit(EXIT_FAILURE);
 }
 
