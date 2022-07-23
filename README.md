@@ -106,3 +106,13 @@ Checker will then read instructions on the standard input, each instruction will
 If after executing those instructions, stack a is actually sorted and b is empty, then checker must display "OK" followed by a \n on the standard output. In every other case, checker must display "KO" followed by a \n on the standard output.
 In case of error, you must display Error followed by a \n on the standard error. Errors include for example: some arguments are not integers, there are duplicates, an instruction don’t exist and/or is incorrectly formatted.
 In case of there are no arguments the program displays nothing.
+
+### special inputs to be handled
+"" 
+"" 55 5
+54 "" 5
+8998 89 8 ""
++++ "" 6
+++ 
+65+ 78 8
+55 += 66 66

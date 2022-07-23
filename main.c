@@ -24,15 +24,6 @@ void	sorting(t_node	**head_a, t_node **head_b, int size)
 		only_lis(head_a, head_b);
 }
 
-/*
-* handle one if only one number got inputed 
-*/
-void	case_one_arg(char	*str, t_node	**stack_a)
-{
-	if (valid_arg(str, stack_a))
-		error(0, stack_a);
-	error(1, stack_a);
-}
 
 int	main(int argc, char **argv)
 {
@@ -42,10 +33,15 @@ int	main(int argc, char **argv)
 
 	len = argc - 1;
 	stack_b = NULL;
+	stack_a = NULL;
 	if (len < 1)
 		error(0, &stack_a);
 	else if (len == 1)
-		case_one_arg(argv[1], &stack_a);
+	{	
+		stack_a = *(parsing(argc, argv));
+		if (valid_arg(argv[1], &stack_a))
+			error(0, &stack_a);
+	}
 	else
 		stack_a = *(parsing(argc, argv));
 	if (is_sorted(&stack_a))

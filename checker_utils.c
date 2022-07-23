@@ -30,6 +30,8 @@ t_node	**parsing_check(int argc, char **argv)
 	i = 1;
 	if (valid_arg(argv[i], &stack_a))
 	{
+		if (argv[i][0] == '\0')
+			error(1, &stack_a);
 		stack_a = create_node(ft_atoi(argv[i]));
 		head_a = &stack_a;
 		if (argc >= 3)
@@ -37,21 +39,17 @@ t_node	**parsing_check(int argc, char **argv)
 	}
 	while (argc >= 3 && i < argc && valid_arg(argv[i], &stack_a))
 	{
+		if (argv[i][0] == '\0')
+			error(1, &stack_a);
 		if (identical_found(&stack_a, num) || !is_int(num))
-			{
 				error(1, &stack_a);
-				exit(EXIT_FAILURE);
-			}
 		add_node_end(&stack_a, create_node(num));
 		if (++i == argc)
 			break ;
 		num = ft_atoi(argv[i]);
 	}
 	if (i != argc)
-		{
 			error(1, &stack_a);
-			exit(EXIT_FAILURE);
-		}
 	return (head_a);
 }
 

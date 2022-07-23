@@ -21,15 +21,15 @@ int	valid_arg(char	*str, t_node	**stack_a)
 	int	i;
 
 	i = 0;
-	if (str[i] == '-' || str[i] == '+')
+	while (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == '\0')
-		error(1, stack_a);
+ 		error(1, stack_a);
 	while (ft_isdigit(str[i]) && str[i])
 		i++;
 	if (str[i] == '\0')
-		return (1);
-	return (0);
+		return (1); 
+	error(1, stack_a);
 }
 
 /*
@@ -39,6 +39,8 @@ int	valid_arg(char	*str, t_node	**stack_a)
 * more than one paramater
 * unsorted
 * in INT range
+* no ""
+* no "+" or "-"
 */
 t_node	**parsing(int argc, char **argv)
 {
@@ -48,29 +50,23 @@ t_node	**parsing(int argc, char **argv)
 	t_node		**head_a;
 
 	i = 1;
+	stack_a = create_node(ft_atoi(argv[i]));
 	if (valid_arg(argv[i], &stack_a))
 	{
-		if (argv[i][0] == '\0')
-			error(1, &stack_a);
-		stack_a = create_node(ft_atoi(argv[i]));
 		head_a = &stack_a;
 		if (argc >= 3)
 			num = ft_atoi(argv[++i]);
-		
 	}
 	while (argc >= 3 && i < argc && valid_arg(argv[i], &stack_a))
 	{
-		if (argv[i][0] == '\0')
-			error(1, &stack_a);
 		if (identical_found(&stack_a, num) || !is_int(num))
 			error(1, &stack_a);
 		add_node_end(&stack_a, create_node(num));
 		if (++i == argc)
 			break ;
-		num = ft_atoi(argv[i]);
-		
+		num = ft_atoi(argv[i]);	
 	}
-	if (i != argc)
-		error(1, &stack_a);
+	if (i != argc && argc != 2)
+			error(1, &stack_a);
 	return (head_a);
 }

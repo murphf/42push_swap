@@ -18,8 +18,10 @@
 void	error(int e, t_node	**stack_a)
 {
 	if (e)
+	{
 		write(1, "\033[0;31mError\033[0m\n", 18);
-	delete_list(stack_a);
+		delete_list(stack_a);
+	}
 	exit(EXIT_FAILURE);
 }
 
