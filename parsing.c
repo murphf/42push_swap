@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:05:28 by styes             #+#    #+#             */
-/*   Updated: 2022/07/22 22:34:14 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/23 17:59:21 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	valid_arg(char	*str, t_node	**stack_a)
 	if (str[i] == '\0')
 		return (1); 
 	error(1, stack_a);
+	return(0);
 }
 
 /*

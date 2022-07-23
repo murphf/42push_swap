@@ -31,6 +31,7 @@ SRC_b= checker.c\
 	print_stacks.c\
 	stack_ops0.c\
 	stack_ops1.c\
+	algebra.c\
 
 EXEC= push_swap
 bonus= checker
