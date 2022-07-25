@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/24 23:05:08 by styes             #+#    #+#             */
+/*   Updated: 2022/07/24 23:24:17 by styes            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int main(int argc, char *argv[])
@@ -57,67 +69,45 @@ int main(int argc, char *argv[])
 					push(&stack_a, &stack_b);
 					i += 3;
 				}
+			else if (ft_strncmp(&mv[i], "pa", 2) == 0)
+				{
+					push(&stack_b, &stack_a);
+					i += 3;
+				}
+			else if (ft_strncmp(&mv[i], "ra", 2) == 0)
+				{
+					rotate(&stack_a);
+					i += 3;
+				}
+			else if (ft_strncmp(&mv[i], "rb", 2) == 0)
+				{
+					rotate(&stack_b);
+					i += 3;
+				}
+			else if (ft_strncmp(&mv[i], "rra", 3) == 0)
+				{
+					rev_rotate(&stack_a);
+					i += 3;
+				}
+			else if (ft_strncmp(&mv[i], "rrb", 3) == 0)
+				{
+					rev_rotate(&stack_b);
+					i += 3;
+				}
+			else if (ft_strncmp(&mv[i], "rrr", 3) == 0)
+				{
+					rev_rotate(&stack_a);
+					rev_rotate(&stack_b);
+					i += 3;
+				}
 			else if (mv[i] == '\n')
 				i++;
 			else
-				write(1, "\033[0;31mError\033[0m\n", 18);
+				{
+					write(1, "\033[0;31mError\033[0m\n", 18);
+					exit(EXIT_FAILURE);
+				}
 	}
-	// 		if (ft_strncmp(&mv[i], "ra", 2) == 0)
-	// 			{
-	// 				rotate(&stack_a);
-	// 				i += 3;
-	// 			}
-	// 		if (ft_strncmp(&mv[i], "rb", 2) == 0)
-	// 			{
-	// 				rotate(&stack_b);
-	// 				i += 3;
-	// 			}
-	// 		if (ft_strncmp(&mv[i], "rr", 2) == 0)
-	// 			{
-	// 				rotate(&stack_a);
-	// 				rotate(&stack_b);
-	// 				i += 3;
-	// 			}
-	// 		if (ft_strncmp(&mv[i], "rra", 3) == 0)
-	// 			{
-	// 				rev_rotate(&stack_a);
-	// 				i += 4;
-	// 			}
-	// 		if (ft_strncmp(&mv[i], "rrb", 3) == 0)
-	// 			{
-	// 				rev_rotate(&stack_b);
-	// 				i += 4;
-	// 			}
-	// 		if (ft_strncmp(&mv[i], "rrr", 3) == 0)
-	// 			{
-	// 				rev_rotate(&stack_a);
-	// 				rev_rotate(&stack_b);
-	// 				i += 4;
-	// 			}
-	// 		if (ft_strncmp(&mv[i], "pb", 2) == 0)
-	// 			{
-	// 				push(&stack_a, &stack_b);
-	// 				i += 3;
-	// 			}
-	// 		if (ft_strncmp(&mv[i], "pa", 2) == 0)
-	// 			{
-	// 				push(&stack_b, &stack_a);
-	// 				i += 3;
-	// 			}
-	// 		else
-	// 			{
-	// 				write(1, "error\n", 7);
-	// 				exit(EXIT_FAILURE);
-	// 			}
-	// 	}
-	// 	else if (mv[i] == '\n')
-	// 		i++;
-	// 	else
-	// 	{
-	// 		write(1, "error\n", 7);
-	// 		exit(EXIT_FAILURE);
-	// 	}
-	// }
 	if (is_sorted(&stack_a) && !stack_b)
 		write(1, "OK\n", 4);
 	else

@@ -53,7 +53,8 @@ push_swap: $(SRC) push_swap.h
 
 bonus: $(SRC_b) push_swap.h
 	@make -C libft
-	$(CC) $(SRC_b) libft/libft.a -o checker
+	@echo "\033[0;34mcreating checker\033[0m"
+	@$(CC) $(SRC_b) libft/libft.a -o checker
 
 clean:
 	@make clean -C libft
