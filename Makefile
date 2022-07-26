@@ -36,9 +36,6 @@ SRC_b= $(CHEC)checker.c\
 	$(MV)stack_ops0.c\
 	$(MV)stack_ops1.c\
 
-EXEC=push_swap
-bonus=checker
-
 #COLOR CODES
 COLOR_GREEN=\033[0;32m
 COLOR_RED=\033[0;31m
