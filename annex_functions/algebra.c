@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:30:57 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 05:36:26 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 18:57:06 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * see if a and b have the same sign 

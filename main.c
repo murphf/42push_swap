@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 22:08:17 by styes             #+#    #+#             */
-/*   Updated: 2022/07/22 19:47:23 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 23:39:58 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
 /*
 * hardcode for 3 elements sorting
@@ -23,7 +23,6 @@ void	sorting(t_node	**head_a, t_node **head_b, int size)
 	else
 		only_lis(head_a, head_b);
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -48,7 +47,5 @@ int	main(int argc, char **argv)
 		error(0, &stack_a);
 	sorting(&stack_a, &stack_b, len);
 	//print_stacks(&stack_a, &stack_b);
-	//delete_list(&stack_a);
-	//delete_list(&stack_b);
 	//system("leaks push_swap");
 }

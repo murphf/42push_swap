@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_manipulation.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: styes <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 06:15:47 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 06:15:52 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 18:57:17 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * create a node and assign to it: 

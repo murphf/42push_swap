@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:35:08 by styes             #+#    #+#             */
-/*   Updated: 2022/07/22 18:23:08 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 18:57:13 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * 2 types of error consequences
@@ -43,6 +43,8 @@ bool	is_sorted(t_node **head)
 	t_node	*first_node;
 
 	first_node = *head;
+	if(!*head)
+		return (false);
 	while (first_node->next != *head)
 	{
 		if (first_node->data > first_node->next->data)

@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * print the data of a circular doubly linked list's nodes 

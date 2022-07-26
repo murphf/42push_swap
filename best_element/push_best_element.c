@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:09:00 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 17:20:11 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 18:57:42 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 void	print_nb_mv(t_node **head)
 {
 	t_node	*first_node;

@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:07:16 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 17:18:08 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 19:44:15 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * return the data of the node with the smallest data
@@ -83,7 +83,6 @@ int	position(t_node	**head, int data)
 void	wich_one_ra_rra(t_node **stack, int pos)
 {
 	int		mid;
-	int		len;
 	int		i;
 	int		x;
 

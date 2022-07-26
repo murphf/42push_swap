@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:32:13 by styes             #+#    #+#             */
-/*   Updated: 2022/07/16 14:37:36 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 23:32:02 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	rrr(t_node	**head_a, t_node	**head_b)
 {

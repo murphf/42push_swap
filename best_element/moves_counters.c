@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:16:32 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 17:40:48 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 18:57:40 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * return how much ra/rb is needed for the node to be on top (positive number)

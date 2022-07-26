@@ -6,7 +6,7 @@
 #    By: styes <styes@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/24 20:58:29 by styes             #+#    #+#              #
-#    Updated: 2022/07/05 16:13:08 by styes            ###   ########.fr        #
+#    Updated: 2022/07/26 23:50:00 by styes            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,9 @@ ft_strnstr.c ft_isascii.c ft_memmove.c ft_strdup.c ft_strrchr.c ft_striteri.c\
 OBJS = ${SRCS:.c=.o}
 
 ${NAME}: ${OBJS}
-	@echo "\033[0;34mcreating libft...\033[0m"
 	@ar rc ${NAME} ${OBJS}
+	@echo "\\n\033[34;1m LIBFT CREATED \033[0m \\n"
+	
 
 .c.o:
 	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
@@ -34,11 +35,13 @@ ${NAME}: ${OBJS}
 all: ${NAME}
 
 clean:
-	@echo "\033[0;32mdeleting libft object files...\033[0m"
 	@${RM} ${OBJS}
+	@echo "\\n\033[32;1m LIBFT OBJECT FILE DELETED \033[0m \\n"
+	
 
 fclean:    clean
-	@echo "\033[0;32mdeleteting libft.a...\033[0m"
 	@${RM} ${NAME}
+	@echo "\\n\033[32;1m LIBFT DELETED \033[0m \\n"
+	
 
 re:        fclean all

@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:58:02 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 20:19:08 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 18:57:37 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * create an array of size: $size and fill it with @n

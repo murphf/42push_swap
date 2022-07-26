@@ -116,3 +116,8 @@ In case of there are no arguments the program displays nothing.
 ++ 
 65+ 78 8
 55 += 66 66
+
+## checker part: 
+
+### piping in linux:
+Pipe is used to combine two or more commands; the output of one command acts as input to another command, and this command’s output may act as input to the next command and so on

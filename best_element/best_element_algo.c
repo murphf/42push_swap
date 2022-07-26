@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:15:30 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 16:42:44 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 18:57:33 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * return POSITION of the number who needs the minimum moves

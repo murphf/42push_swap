@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:24:24 by styes             #+#    #+#             */
-/*   Updated: 2022/07/16 16:55:34 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 18:57:10 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * convert circular doubly linked list to an array

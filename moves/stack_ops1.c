@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:46:02 by styes             #+#    #+#             */
-/*   Updated: 2022/07/16 15:04:49 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 23:32:17 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * push first element of stack1 to the top of stack2

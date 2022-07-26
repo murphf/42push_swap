@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:28:55 by styes             #+#    #+#             */
-/*   Updated: 2022/07/17 06:02:07 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 18:57:35 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 /*
 * MOVES[0] concern moves in STACK A
 * MOVES[1] concern moves in STACK B

@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:05:28 by styes             #+#    #+#             */
-/*   Updated: 2022/07/23 17:59:21 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 18:57:22 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * check if str has a valid syntax;

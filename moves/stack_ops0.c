@@ -6,11 +6,11 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:45:47 by styes             #+#    #+#             */
-/*   Updated: 2022/07/18 22:48:58 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/26 23:32:09 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 * swap first two elements of the list
