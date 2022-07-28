@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:35:08 by styes             #+#    #+#             */
-/*   Updated: 2022/07/26 18:57:13 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/28 01:59:59 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ bool	is_sorted(t_node **head)
 	t_node	*first_node;
 
 	first_node = *head;
-	if(!*head)
+	if (!*head)
 		return (false);
 	while (first_node->next != *head)
 	{

@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:28:55 by styes             #+#    #+#             */
-/*   Updated: 2022/07/26 18:57:35 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/28 02:18:24 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,13 @@ bool	in_array(int	*array, int nbr, int len)
 */
 t_node	*sort3(t_node	**head)
 {
-	t_node	*f_node;
 	int		f;
 	int		s;
 	int		t;
 
-	f_node = *head;
-
-	f = f_node->data;
-	s = f_node->next->data;
-	t = f_node->prev->data;
-	
+	f = (*head)->data;
+	s = (*head)->next->data;
+	t = (*head)->prev->data;
 	if (in_range(t, f, s))
 	{
 		rra(head);
@@ -94,7 +90,7 @@ t_node	*sort3(t_node	**head)
 		rra(head);
 	else if (in_range(f, s, t))
 		sa(head);
-	else if(in_range(s, t, f))
+	else if (in_range(s, t, f))
 	{
 		sa(head);
 		rra(head);

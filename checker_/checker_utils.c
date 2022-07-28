@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 16:23:05 by styes             #+#    #+#             */
-/*   Updated: 2022/07/26 18:47:52 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/27 00:36:03 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ void	instruction_2l(char *mv, t_node **stack_a, t_node	**stack_b)
 				rotate(stack_b);
 			}
 	else
-		{
-			printf("-1\n");
 			error_check(stack_a, stack_b);
-		}
 }
 
 void	instruction_3l(char *mv, t_node **stack_a, t_node	**stack_b)
@@ -63,8 +60,5 @@ void	instruction_3l(char *mv, t_node **stack_a, t_node	**stack_b)
 			rev_rotate(stack_b);
 		}
 	else
-	{
-		printf("0\n");
 		error_check(stack_a, stack_b);
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:30:57 by styes             #+#    #+#             */
-/*   Updated: 2022/07/26 18:57:06 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/27 19:45:47 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	_max(int a, int b)
 /*
 * check if a is in ]b, c[
 */
-int	in_range(int a, int b, int	c)
+int	in_range(int a, int b, int c)
 {
 	if (a > b && a < c)
 		return (1);

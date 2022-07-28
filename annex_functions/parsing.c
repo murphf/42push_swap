@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:05:28 by styes             #+#    #+#             */
-/*   Updated: 2022/07/26 18:57:22 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/28 02:09:50 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	valid_arg(char	*str, t_node	**stack_a)
 	while (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == '\0')
- 		error(1, stack_a);
+		error(1, stack_a);
 	while (ft_isdigit(str[i]) && str[i])
 		i++;
 	if (str[i] == '\0')
-		return (1); 
+		return (1);
 	error(1, stack_a);
-	return(0);
+	return (0);
 }
 
 /*
@@ -65,9 +65,9 @@ t_node	**parsing(int argc, char **argv)
 		add_node_end(&stack_a, create_node(num));
 		if (++i == argc)
 			break ;
-		num = ft_atoi(argv[i]);	
+		num = ft_atoi(argv[i]);
 	}
 	if (i != argc && argc != 2)
-			error(1, &stack_a);
+		error(1, &stack_a);
 	return (head_a);
 }

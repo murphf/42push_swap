@@ -1,3 +1,4 @@
+#make checker should work..
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 
@@ -51,7 +52,7 @@ push_swap: $(SRC) ./includes/push_swap.h
 	@$(CC) $(SRC) libft/libft.a -o $@
 	@echo "\\n\033[34;1m PUSH_SWAP CREATED \033[0m \\n"
 
-bonus: $(SRC_b) ./includes/push_swap.h
+bonus checker: $(SRC_b) ./includes/push_swap.h
 	@make -C libft
 	@$(CC) $(SRC_b) libft/libft.a -o checker
 	@echo "\\n\033[34;1m CHECKER CREATED \033[0m \\n"
@@ -64,9 +65,10 @@ clean:
 	
 fclean:
 	@make fclean -C libft
-	@echo "\\n\033[32;1m PUSH_SWAP DELETED \033[0m \\n"
 	@rm -f push_swap
+	@echo "\\n\033[32;1m PUSH_SWAP DELETED \033[0m \\n"
 	@rm -f checker
+	@echo "\\n\033[32;1m CHECKER DELETED \033[0m\\n"
 
 re: clean All
 
