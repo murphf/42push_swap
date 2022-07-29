@@ -25,6 +25,8 @@ int	valid_arg(char	*str, t_node	**stack_a)
 		i++;
 	if (str[i] == '\0')
 		error(1, stack_a);
+	if (i > 1)
+		error(1, stack_a);
 	while (ft_isdigit(str[i]) && str[i])
 		i++;
 	if (str[i] == '\0')
@@ -54,6 +56,8 @@ t_node	**parsing(int argc, char **argv)
 	stack_a = create_node(ft_atoi(argv[i]));
 	if (valid_arg(argv[i], &stack_a))
 	{
+		if (!is_int(ft_atoi(argv[i])))
+			error(1, &stack_a);
 		head_a = &stack_a;
 		if (argc >= 3)
 			num = ft_atoi(argv[++i]);

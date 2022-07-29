@@ -19,7 +19,7 @@ void	error(int e, t_node	**stack_a)
 {
 	if (e)
 	{
-		write(1, "\033[0;31mError\033[0m\n", 18);
+		write(2, "Error\n", 6);
 		delete_list(stack_a);
 	}
 	exit(EXIT_FAILURE);
@@ -30,7 +30,7 @@ void	error(int e, t_node	**stack_a)
 */
 bool	is_int(long num)
 {
-	if (num >= INT_MIN && num <= INT_MAX)
+	if (num >= INT_MIN  && num <= INT_MAX)
 		return (true);
 	return (false);
 }

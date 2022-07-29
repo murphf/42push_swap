@@ -40,8 +40,10 @@ int	main(int argc, char **argv)
 	else if (len == 1)
 	{	
 		stack_a = *(parsing(argc, argv));
-		if (valid_arg(argv[1], &stack_a))
+		if (valid_arg(argv[1], &stack_a) && is_int(ft_atoi(argv[1])))
 			error(0, &stack_a);
+		else if (!is_int(ft_atoi(argv[1])))
+			error(1, &stack_a);
 	}
 	else
 		stack_a = *(parsing(argc, argv));
