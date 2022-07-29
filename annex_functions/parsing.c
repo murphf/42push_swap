@@ -53,11 +53,12 @@ t_node	**parsing(int argc, char **argv)
 	t_node		**head_a;
 
 	i = 1;
-	stack_a = create_node(ft_atoi(argv[i]));
+	stack_a = NULL;
+	stack_a = create_node(int_check(ft_atoi(argv[i]), &stack_a));
 	if (valid_arg(argv[i], &stack_a))
 	{
-		if (!is_int(ft_atoi(argv[i])))
-			error(1, &stack_a);
+		// if (!is_int(ft_atoi(argv[i])))
+		// 	error(1, &stack_a);
 		head_a = &stack_a;
 		if (argc >= 3)
 			num = ft_atoi(argv[++i]);

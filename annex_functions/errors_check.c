@@ -20,7 +20,9 @@ void	error(int e, t_node	**stack_a)
 	if (e)
 	{
 		write(2, "Error\n", 6);
+		fflush(stderr);
 		delete_list(stack_a);
+
 	}
 	exit(EXIT_FAILURE);
 }
@@ -33,6 +35,13 @@ bool	is_int(long num)
 	if (num >= INT_MIN  && num <= INT_MAX)
 		return (true);
 	return (false);
+}
+
+long	int_check(long num, t_node	**stack_a)
+{
+	if (num < INT_MIN || num > INT_MAX)
+		error(1, stack_a);
+	return num;
 }
 
 /*

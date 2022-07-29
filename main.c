@@ -11,7 +11,11 @@
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
-
+void myCleanupFun(void) __attribute__ ((destructor));
+void myCleanupFun(void)
+{
+	fflush(stderr);
+}
 /*
 * hardcode for 3 elements sorting
 * best element algorithm for the rest

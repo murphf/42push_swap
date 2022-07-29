@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ./includes/push_swap.h                                        :+:      :+:    :+:   */
@@ -47,6 +47,7 @@ void	error(int e, t_node	**stack_a);
 bool	is_int(long num);
 bool	is_sorted(t_node **head);
 bool	identical_found(t_node	**head, int new_data);
+long	int_check(long num, t_node	**stack_a);
 
 /* PARSING */
 int	valid_arg(char	*str, t_node	**stack_a);
