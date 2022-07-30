@@ -13,8 +13,8 @@
 #include "../includes/push_swap.h"
 
 /*
-* create an array of size: $size and fill it with @n
-0*/
+* create an array of size: @size and fill it with @n
+*/
 int	*creat_fill(int n, int size)
 {
 	int	*array;
@@ -42,6 +42,7 @@ int	*creat_fill_indx(int size)
 		array[i] = i;
 	return (array);
 }
+
 void	free_3_arr(int	*a, int	*b, int	*c)
 {
 	free(a);
@@ -54,13 +55,14 @@ void	free_3_arr(int	*a, int	*b, int	*c)
 * the LIS returned is reversed 
 * it actually return the Longuest Descreasing Subsequence (starting from the end)
 */
-int	*lis_construct(t_node	**head, int	size)
+int	*lis_construct(t_node **head, int size)
 {
 	int	*lis;
 	int	*prev;
 	int	*seq;
 	int	i;
 	int	j;
+	int	k;
 	int	max;
 	int	idx;
 	int	*arr;
@@ -92,7 +94,7 @@ int	*lis_construct(t_node	**head, int	size)
 			idx = i;
 		}
 	}
-	int k = 0;
+	k = 0;
 	seq = (int *)malloc(sizeof(int) * (max + 1));
 	if (!seq)
 		return (NULL);

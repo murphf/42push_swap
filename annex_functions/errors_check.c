@@ -30,7 +30,7 @@ void	error(int e, t_node	**stack_a)
 */
 bool	is_int(long num)
 {
-	if (num >= INT_MIN  && num <= INT_MAX)
+	if (num >= INT_MIN && num <= INT_MAX)
 		return (true);
 	return (false);
 }
@@ -39,7 +39,7 @@ long	int_check(long num, t_node	**stack_a)
 {
 	if (num < INT_MIN || num > INT_MAX)
 		error(1, stack_a);
-	return num;
+	return (num);
 }
 
 /*

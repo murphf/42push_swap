@@ -18,9 +18,9 @@ static int	ft_isspace(int c)
 	return ((c >= 9 && c <= 13) || c == ' ');
 }
 
-//convert a string to an int ( doesn't handle overflow if > MAX_LONG)
-/*
+/*convert a string to an int ( doesn't handle overflow if > MAX_LONG)
 * minor changes for push_swap
+* return long (so we can check if input is int or not)
 */
 long	ft_atoi(const char *str)
 {
@@ -34,11 +34,8 @@ long	ft_atoi(const char *str)
 	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
-		if (str[i] == '-')
-			{
-				sign *= -1;
-				i++;
-			}
+		if (str[i++] == '-')
+			sign *= -1;
 	while (str[i] >= '0' && str[i] <= '9')
 			a = (a * 10) + (str[i++] - '0');
 	return (sign * a);

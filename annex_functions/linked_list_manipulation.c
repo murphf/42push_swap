@@ -74,26 +74,6 @@ t_node	*add_node_beg(t_node	**head, t_node	*new_node)
 * delete elements of doubly circular linked list
 * the linked list's elements are deleted/freed in case of found errors
 */
-void	delete_list0(t_node **head)
-{
-	t_node	*first_node;
-	t_node	*last_node;
-	t_node	*save;
-
-	if (!*head)
-		return ;
-	first_node = *head;
-	last_node = first_node->prev;
-	while (first_node != last_node)
-	{
-		save = first_node;
-		first_node = first_node->next;
-		free(save);
-	}
-	if (last_node != *head)
-		free(last_node);
-}
-
 void	delete_list(t_node **head)
 {
 	t_node	*first_node;
@@ -102,17 +82,17 @@ void	delete_list(t_node **head)
 	if (!*head)
 		return ;
 	first_node = *head;
-	if (first_node->next == *head)
-		{
-			free(first_node);
-			*head = NULL;
-		}
 	while (first_node->next != *head)
 	{
 		save = first_node;
 		first_node = first_node->next;
 		free(save);
 		save = NULL;
+	}
+	if (first_node->next == *head)
+	{
+		free(first_node);
+		*head = NULL;
 	}
 }
 
@@ -135,6 +115,5 @@ int	list_len(t_node	**head)
 		len++;
 		first_node = first_node->next;
 	}
-	
 	return (len);
 }

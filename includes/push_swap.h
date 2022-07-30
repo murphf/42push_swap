@@ -1,7 +1,7 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ./includes/push_swap.h                                        :+:      :+:    :+:   */
+/*   ./includes/push_swap.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,7 +22,7 @@
 
 typedef struct s_node
 {
-	int			data;
+	int				data;
 	struct s_node	*prev;
 	struct s_node	*next;
 	int				moves[2];
@@ -50,7 +50,7 @@ bool	identical_found(t_node	**head, int new_data);
 long	int_check(long num, t_node	**stack_a);
 
 /* PARSING */
-int	valid_arg(char	*str, t_node	**stack_a);
+int		valid_arg(char	*str, t_node	**stack_a);
 t_node	**parsing(int argc, char **argv);
 
 /* ARRAY MANIPULATION */
@@ -121,4 +121,5 @@ void	print_stacks(t_node	**stack_a, t_node	**stack_b);
 void	error_check(t_node	**stack_a, t_node	**stack_b);
 void	instruction_2l(char *mv, t_node **stack_a, t_node	**stack_b);
 void	instruction_3l(char *mv, t_node **stack_a, t_node	**stack_b);
+void	checker_resp(t_node **stack_a, t_node **stack_b);
 #endif

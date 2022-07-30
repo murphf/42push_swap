@@ -12,13 +12,13 @@
 
 #include "../includes/push_swap.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
 	char	mv[3];
 	char	c;
-	
+
 	stack_b = NULL;
 	if (argc == 1)
 		exit(EXIT_FAILURE);
@@ -26,19 +26,16 @@ int main(int argc, char *argv[])
 	while (read(0, mv, 3))
 	{
 		if (mv[2] == '\n')
-				instruction_2l(mv, &stack_a, &stack_b);
+			instruction_2l(mv, &stack_a, &stack_b);
 		else if (mv[2] == 'a' || mv[2] == 'b' || mv[2] == 'r')
-			{
-				instruction_3l(mv, &stack_a, &stack_b);
-				read(0, &c, 1);
-					if (c != '\n')
-						error_check(&stack_a, &stack_b);
-			}
-		else
+		{
+			instruction_3l(mv, &stack_a, &stack_b);
+			read(0, &c, 1);
+			if (c != '\n')
 				error_check(&stack_a, &stack_b);
+		}
+		else
+			error_check(&stack_a, &stack_b);
 	}
-	if (is_sorted(&stack_a) && !stack_b)
-			write(1, "OK\n", 4);		
-	else
-		write(1, "KO\n", 4);
+	checker_resp(&stack_a, &stack_b);
 }

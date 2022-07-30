@@ -22,8 +22,7 @@ void	swap(t_node	**head)
 	t_node	*third_node;
 	t_node	*last_node;
 
-	
-	if(!*head)
+	if (!*head)
 		return ;
 	if (list_len(head) == 2)
 	{
@@ -49,8 +48,9 @@ void	swap(t_node	**head)
 void	rotate(t_node	**head)
 {
 	t_node	*second_node;
+
 	if (!*head)
-		return;
+		return ;
 	second_node = (*head)->next;
 	*head = second_node;
 }
@@ -61,6 +61,7 @@ void	rotate(t_node	**head)
 void	rev_rotate(t_node	**head)
 {
 	t_node	*last_node;
+
 	if (!*head)
 		return ;
 	last_node = (*head)->prev;

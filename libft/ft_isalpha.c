@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 //check if c is an alphabetic character
 int	ft_isalpha(int c)
 {
