@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: styes <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 15:46:49 by styes             #+#    #+#             */
-/*   Updated: 2021/11/11 10:31:07 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 18:19:33 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
 
 //check if c is a digit
 int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
+
 /*
 int main ()
 {

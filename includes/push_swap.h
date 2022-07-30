@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ./includes/push_swap.h                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 06:09:20 by styes             #+#    #+#             */
-/*   Updated: 2022/07/26 03:03:22 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 19:24:45 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_node	**parsing(int argc, char **argv);
 int		*list_to_array(t_node	**head);
 int		*arr_smallest_on_top(t_node	**head);
 void	printarray(int *array, int size);
-
+void	from_node(int *arr, t_node *node, int s_idx, int e_idx);
 /* LINKED LIST MANIPULATION */
 t_node	*create_node(int data);
 t_node	*add_node_end(t_node	**head, t_node	*new_node);
