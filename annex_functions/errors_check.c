@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:35:08 by styes             #+#    #+#             */
-/*   Updated: 2022/07/28 01:59:59 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 00:49:52 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	error(int e, t_node	**stack_a)
 	if (e)
 	{
 		write(2, "Error\n", 6);
-		fflush(stderr);
 		delete_list(stack_a);
-
 	}
 	exit(EXIT_FAILURE);
 }

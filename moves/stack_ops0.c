@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:45:47 by styes             #+#    #+#             */
-/*   Updated: 2022/07/26 23:32:09 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/29 23:40:47 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void	swap(t_node	**head)
 void	rotate(t_node	**head)
 {
 	t_node	*second_node;
-
+	if (!*head)
+		return;
 	second_node = (*head)->next;
 	*head = second_node;
 }
@@ -60,7 +61,8 @@ void	rotate(t_node	**head)
 void	rev_rotate(t_node	**head)
 {
 	t_node	*last_node;
-
+	if (!*head)
+		return ;
 	last_node = (*head)->prev;
 	*head = last_node;
 }

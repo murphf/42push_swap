@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:46:02 by styes             #+#    #+#             */
-/*   Updated: 2022/07/26 23:32:17 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/29 23:37:43 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	push(t_node	**stack1, t_node **stack2)
 
 void	del_node(t_node	*node)
 {
+	if (!node)
+		return ;
 	free(node);
 	node = NULL;
 }
@@ -48,6 +50,8 @@ void	pop(t_node	**head)
 	first_node = *head;
 	second_node = first_node->next;
 	last_node = first_node->prev;
+	if (!*head)
+		return ;
 	if (first_node == last_node)
 	{
 		del_node(first_node);

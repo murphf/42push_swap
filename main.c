@@ -6,16 +6,12 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 22:08:17 by styes             #+#    #+#             */
-/*   Updated: 2022/07/28 02:19:53 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 01:51:01 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
-void myCleanupFun(void) __attribute__ ((destructor));
-void myCleanupFun(void)
-{
-	fflush(stderr);
-}
+
 /*
 * hardcode for 3 elements sorting
 * best element algorithm for the rest
@@ -46,12 +42,11 @@ int	main(int argc, char **argv)
 		stack_a = *(parsing(argc, argv));
 		if (valid_arg(argv[1], &stack_a) && is_int(ft_atoi(argv[1])))
 			error(0, &stack_a);
-		else if (!is_int(ft_atoi(argv[1])))
-			error(1, &stack_a);
 	}
 	else
 		stack_a = *(parsing(argc, argv));
 	if (is_sorted(&stack_a))
 		error(0, &stack_a);
 	sorting(&stack_a, &stack_b, len);
+	//system("leaks push_swap");
 }

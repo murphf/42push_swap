@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 06:15:47 by styes             #+#    #+#             */
-/*   Updated: 2022/07/28 02:00:21 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 00:41:11 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_node	*add_node_beg(t_node	**head, t_node	*new_node)
 * delete elements of doubly circular linked list
 * the linked list's elements are deleted/freed in case of found errors
 */
-void	delete_list(t_node **head)
+void	delete_list0(t_node **head)
 {
 	t_node	*first_node;
 	t_node	*last_node;
@@ -92,6 +92,28 @@ void	delete_list(t_node **head)
 	}
 	if (last_node != *head)
 		free(last_node);
+}
+
+void	delete_list(t_node **head)
+{
+	t_node	*first_node;
+	t_node	*save;
+
+	if (!*head)
+		return ;
+	first_node = *head;
+	if (first_node->next == *head)
+		{
+			free(first_node);
+			*head = NULL;
+		}
+	while (first_node->next != *head)
+	{
+		save = first_node;
+		first_node = first_node->next;
+		free(save);
+		save = NULL;
+	}
 }
 
 /*

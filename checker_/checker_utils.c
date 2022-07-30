@@ -6,19 +6,28 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 16:23:05 by styes             #+#    #+#             */
-/*   Updated: 2022/07/27 00:36:03 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 00:32:37 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+void	read_until_no_more(void)
+{
+	char c;
+	while (c != '\n')
+		read(0, &c, 1);
+}
+
 void	error_check(t_node	**stack_a, t_node	**stack_b)
 {
-	write(1, "\033[0;31mError\033[0m\n", 18);
+	read_until_no_more();
+	write(2, "Error\n", 6);
 	delete_list(stack_a);
 	delete_list(stack_b);
 	exit(EXIT_FAILURE);
 }
+
 
 void	instruction_2l(char *mv, t_node **stack_a, t_node	**stack_b)
 {

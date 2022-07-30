@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 23:05:08 by styes             #+#    #+#             */
-/*   Updated: 2022/07/27 00:35:35 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 00:33:27 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,4 @@ int main(int argc, char *argv[])
 			write(1, "OK\n", 4);		
 	else
 		write(1, "KO\n", 4);
-	system("leaks checker");
 }

@@ -22,7 +22,7 @@
 
 typedef struct s_node
 {
-	int				data;
+	int			data;
 	struct s_node	*prev;
 	struct s_node	*next;
 	int				moves[2];
