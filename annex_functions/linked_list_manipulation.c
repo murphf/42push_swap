@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 06:15:47 by styes             #+#    #+#             */
-/*   Updated: 2022/07/30 00:41:11 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 03:11:30 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,13 @@ int	list_len(t_node	**head)
 	first_node = *head;
 	if (!first_node)
 		return (0);
+	if (first_node->next == *head)
+		return (1);
 	while (first_node->next != *head)
 	{
 		len++;
 		first_node = first_node->next;
 	}
+	
 	return (len);
 }

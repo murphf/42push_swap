@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:28:55 by styes             #+#    #+#             */
-/*   Updated: 2022/07/28 02:18:24 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 03:12:23 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ t_node	*node_of_index(t_node **head, int i)
 	first_node = *head;
 	while (j < len)
 	{
-		if (j++ == i)
+		if (j == i)
 			return (first_node);
 		first_node = first_node->next;
+		j++;
 	}
 	return (NULL);
 }
@@ -70,7 +71,7 @@ bool	in_array(int	*array, int nbr, int len)
 * of the max, min amd medium
 * medium being the number between min and max
 */
-t_node	*sort3(t_node	**head)
+void	sort3(t_node	**head)
 {
 	int		f;
 	int		s;
@@ -95,5 +96,4 @@ t_node	*sort3(t_node	**head)
 		sa(head);
 		rra(head);
 	}
-	return (*head);
 }

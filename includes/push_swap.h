@@ -82,7 +82,7 @@ void	neg_same_half(t_node	**head_a, t_node	**head_b, t_node	*node);
 void	same_half(t_node	**head_a, t_node	**head_b, t_node	*node);
 void	diff_halfs(t_node	**head_a, t_node	**head_b, t_node	*node);
 void	push_the_elemnt_to_a(t_node	**head_a, t_node	**head_b);
-t_node	*sort3(t_node	**head);
+void	sort3(t_node	**head);
 
 /* LONGUEST INCREASING SUBSEQUENCE */
 int		*creat_fill(int n, int size);

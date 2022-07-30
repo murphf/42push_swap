@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 22:08:17 by styes             #+#    #+#             */
-/*   Updated: 2022/07/30 01:51:01 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 04:23:22 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,4 @@ int	main(int argc, char **argv)
 	if (is_sorted(&stack_a))
 		error(0, &stack_a);
 	sorting(&stack_a, &stack_b, len);
-	//system("leaks push_swap");
 }

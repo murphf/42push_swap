@@ -49,12 +49,12 @@ All: push_swap
 
 push_swap: $(SRC) ./includes/push_swap.h
 	@make -C libft
-	@$(CC) $(SRC) libft/libft.a -o $@
+	@$(CC) $(CFLAGS) $(SRC) libft/libft.a -o $@
 	@echo "\\n\033[34;1m PUSH_SWAP CREATED \033[0m \\n"
 
 bonus checker: $(SRC_b) ./includes/push_swap.h
 	@make -C libft
-	@$(CC) $(SRC_b) libft/libft.a -o checker
+	@$(CC) $(CFLAGS) $(SRC_b) libft/libft.a -o checker
 	@echo "\\n\033[34;1m CHECKER CREATED \033[0m \\n"
 clean:
 	@make clean -C libft

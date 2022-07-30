@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 23:05:08 by styes             #+#    #+#             */
-/*   Updated: 2022/07/30 00:33:27 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 02:33:15 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
 	t_node	*stack_b;
 	char	mv[3];
 	char	c;
-	int		r;
 	
 	stack_b = NULL;
 	if (argc == 1)

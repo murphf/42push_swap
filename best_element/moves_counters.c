@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:16:32 by styes             #+#    #+#             */
-/*   Updated: 2022/07/26 18:57:40 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 04:26:30 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ int	to_the_other_top(t_node	**head_a, int num)
 		f_node = f_node->next;
 	}
 	if (enter)
-		return (to_the_top(head_a, position(head_a, best)));
+			return (to_the_top(head_a, position(head_a, best)));
 	if (num > biggest(head_a))
-			return (to_the_top(head_a,position(head_a, biggest(head_a)) + 1));
+				return (to_the_top(head_a, position(head_a, biggest(head_a)) + 1));
 	return (-1);
 }
 
