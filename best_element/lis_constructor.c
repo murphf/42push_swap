@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:58:02 by styes             #+#    #+#             */
-/*   Updated: 2022/07/30 04:23:49 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 20:47:45 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,29 +43,32 @@ int	*creat_fill_indx(int size)
 	return (array);
 }
 
-void	free_3_arr(int	*a, int	*b, int	*c)
+void	fill_subsequ(int idx, int *prev, int *arr, int *seq)
 {
-	free(a);
-	free(b);
-	free(c);
+	int	k;
+
+	k = 2;
+	while (idx != prev[idx])
+	{
+		idx = prev[idx];
+		seq[k] = arr[idx];
+		k++;
+	}
 }
 
 /*
 * return the Longest Increasing Subsequence of array @arr of size @size
 * the LIS returned is reversed 
 * it actually return the Longuest Descreasing Subsequence (starting from the end)
+* the first element of the returned array is the lenght of the LIS
 */
-int	*lis_construct(t_node **head, int size)
+int	*lis_constructp1(t_node **head, int size)
 {
+	int	*arr;
 	int	*lis;
 	int	*prev;
-	int	*seq;
 	int	i;
 	int	j;
-	int	k;
-	int	max;
-	int	idx;
-	int	*arr;
 
 	arr = arr_smallest_on_top(head);
 	lis = creat_fill(1, size);
@@ -83,8 +86,16 @@ int	*lis_construct(t_node **head, int size)
 			}
 		}
 	}
-	max = 0;
-	idx = 0;
+	return (lis_constructp2(lis, arr, prev, size));
+}
+
+int	*lis_constructp2(int *lis, int *arr, int *prev, int size)
+{
+	int	*seq;
+	int	max;
+	int	idx;
+	int	i;
+
 	i = -1;
 	while (++i < size)
 	{
@@ -94,18 +105,12 @@ int	*lis_construct(t_node **head, int size)
 			idx = i;
 		}
 	}
-	k = 0;
 	seq = (int *)malloc(sizeof(int) * (max + 1));
 	if (!seq)
 		return (NULL);
-	seq[k++] = max;
-	seq[k++] = arr[idx];
-	while (idx != prev[idx])
-	{
-		idx = prev[idx];
-		seq[k] = arr[idx];
-		k++;
-	}
+	seq[0] = max;
+	seq[1] = arr[idx];
+	fill_subsequ(idx, prev, arr, seq);
 	free_3_arr(arr, lis, prev);
 	return (seq);
 }

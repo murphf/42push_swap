@@ -6,11 +6,18 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:15:30 by styes             #+#    #+#             */
-/*   Updated: 2022/07/30 04:16:16 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 20:45:36 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	free_3_arr(int	*a, int	*b, int	*c)
+{
+	free(a);
+	free(b);
+	free(c);
+}
 
 /*
 * return POSITION of the number who needs the minimum moves
@@ -70,7 +77,7 @@ void	only_lis(t_node	**head_a, t_node	**head_b)
 	int		o;
 	t_node	*first_node;
 
-	lis = lis_construct(head_a, list_len(head_a));
+	lis = lis_constructp1(head_a, list_len(head_a));
 	lis_len = lis[0] + 1;
 	first_node = *head_a;
 	o = 0;

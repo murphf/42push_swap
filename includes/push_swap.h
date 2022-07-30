@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 06:09:20 by styes             #+#    #+#             */
-/*   Updated: 2022/07/30 19:24:45 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/30 20:46:37 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ void	sort3(t_node	**head);
 
 /* LONGUEST INCREASING SUBSEQUENCE */
 int		*creat_fill(int n, int size);
-int		*lis_construct(t_node **head, int size);
+int		*lis_constructp1(t_node **head, int size);
+int		*lis_constructp2(int *lis, int *arr, int *prev, int size);
+void	fill_subsequ(int idx, int *prev, int *arr, int *seq);
+void	free_3_arr(int	*a, int	*b, int	*c);
 
 /* MOVES */
 void	swap(t_node	**head);
