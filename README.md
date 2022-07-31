@@ -32,11 +32,11 @@ if the input is valid it gets added to a doubly circular linked list
 ### best element algorithm 
 1- copy STACK A content in array 
 2- put the smallest number at the begining of the array 
-3- extract the Longuest Increasing Subsequence from the array
-4- now returning to STACK A:
-5- push all numbers to STACK B except the elements of LIS
-6- loop over STACK B calculating for each element:
-	1- number of moves it'll take for the element to be on top of STACK B --> the result would be stored in moves[1] 
+3- extract the Longuest Increasing Subsequence from the array 
+4- now returning to STACK A: 
+5- push all numbers to STACK B except the elements of LIS 
+6- loop over STACK B calculating for each element: 
+	1- number of moves it'll take for the element to be on top of STACK B --> the result would be stored in moves[1]  
 		-if rb is used the number is positive 
 		-if rrb is used the number is negative 
 		-this distinction is made to be able to use rr / rrr in case of matching sign with moves[0] 
