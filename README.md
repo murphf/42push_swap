@@ -1,5 +1,5 @@
 ## Description 
-Push_Swap is a 42 projoct who's aim is to sort a stack using a specific set moves
+Push_Swap is a 42 project which aim is to sort a stack using a specific set moves
 
 ### Alowed moves
 sa  
