@@ -2,15 +2,15 @@
 Push_Swap is a 42 projoct who's aim is to sort a stack using a specific set moves
 
 ### Alowed moves
-sa 
-sb 
-ss 
-ra 
-rb 
-rr 
-rra 
-rrb 
-rrr 
+sa  
+sb  
+ss  
+ra  
+rb  
+rr  
+rra  
+rrb  
+rrr  
 
 ### GOAL
 sort the stack in the least possible number of moves 
