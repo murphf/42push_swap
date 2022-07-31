@@ -12,7 +12,7 @@ rra
 rrb 
 rrr 
 
-## GOAL
+### GOAL
 sort the stack in the least possible number of moves 
 to get the full mark, 
 
@@ -21,7 +21,7 @@ to get the full mark,
 100 numbers should be sorted in: max 700 moves   
 500 numbers should be sorted in: max 5500 moves  
 
-## how  
+### how  
 this is my implementation of "the best element algorithm" (as called by the original creator, see their instruction in ressource folder)   
 ### 1-parsing:  
 if the input is valid it gets added to a doubly circular linked list  
