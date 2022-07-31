@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 22:08:17 by styes             #+#    #+#             */
-/*   Updated: 2022/07/30 20:47:16 by styes            ###   ########.fr       */
+/*   Updated: 2022/07/31 07:41:24 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	main(int argc, char **argv)
 		error(0, &stack_a);
 	else if (len == 1)
 	{	
+		stack_a = *(parsing(argc, argv));
 		if (valid_arg(argv[1], &stack_a) && is_int(ft_atoi(argv[1])))
 			error(0, &stack_a);
-		stack_a = *(parsing(argc, argv));
 	}
 	else
 		stack_a = *(parsing(argc, argv));

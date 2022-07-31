@@ -1,4 +1,3 @@
-#make checker should work..
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 
