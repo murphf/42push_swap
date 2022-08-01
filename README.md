@@ -1,5 +1,5 @@
+<sub>README still in progress</sub>  
 ## Description 
-<sub>README still in progress<sub/>
 Push_Swap is a 42 project which aim is to sort a stack using a specific set moves
 
 ### Alowed moves
