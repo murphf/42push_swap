@@ -116,4 +116,38 @@ moves[2]: the array where the number of moves is stored
 - moves[1]: number of moves to put _data_ on top of STACK B   
 - moves[0]: number of moves to put _data_ in its convenable place in STACK A  
 nb_mv: total of moves   
+
+Once the input checked and inserted in STACK A,  
+I create an array, (lets call it array_stack) contaning the elements of STACK A, with the smallest number being at the beginning.   
+I extract the Longuest Increasing Subsequence array_stack, then push all the element that doesn't belong to it from STACK A to STACK B 
+```c
+void	only_lis(t_node	**head_a, t_node	**head_b)
+{
+	int		*lis;
+	int		lis_len;
+	int		o;
+	t_node	*first_node;
+
+	lis = lis_constructp1(head_a, list_len(head_a));
+	lis_len = lis[0] + 1;
+	first_node = *head_a;
+	o = 0;
+	while (o < lis_len)
+	{
+		if (in_array(lis, first_node->data, lis_len) == false)
+		{
+			wich_one_ra_rra(head_a, position(head_a, first_node->data));
+			pb(head_a, head_b);
+			first_node = *head_a;
+		}
+		else
+		{
+			first_node = first_node->next;
+			o++;
+		}
+	}
+	free(lis);
+	best_element(head_a, head_b);
+}
+```
 #### How to find a number most convenable place in STACK A?    
