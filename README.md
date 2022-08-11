@@ -97,7 +97,7 @@ if the input is valid, it gets added to a doubly circular linked list called **s
 	 4. chose the element with the _smallest_ (total number of moves) and push is to its convenable place in **STACK A**  
 6. repeat step 5 until **STACK B** in empty  
 7. in **STACK A**, put smallest number on the top  
-### 3-My implementation
+### 3- My implementation
 I used [_doubly circular linked lists_](https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/) to store and manipulate the inputed numbers, the following is the structure of a node: 
 ```c
 typedef struct s_node
@@ -114,5 +114,6 @@ prev: the previous node
 next: the subsequent node    
 moves[2]: the array where the number of moves is stored   
 - moves[1]: number of moves to put _data_ on top of STACK B   
-- moves[0]: number of moves to put _data_ in its convenable place in STACK A
+- moves[0]: number of moves to put _data_ in its convenable place in STACK A  
+nb_mv: total of moves   
 #### How to find a number most convenable place in STACK A?    
