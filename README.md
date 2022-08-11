@@ -3,33 +3,71 @@
 Push_Swap is a 42 project which aim is to sort a stack using a specific set moves
 
 ### Alowed moves
-sa
+***sa***
 ```
-Swap first two element of stack A
-1      2
-2  =>  1
-3      3
-```
-sb  
-ss  
-ra  
-rb  
-rr  
-rra  
-rrb  
-rrr  
+(swap a)
+Swap the first 2 elements at the top of STACK A
 
+1      5
+5  =>  1
+4      3
+```
+***sb***
+```
+(swap b)
+Swap the first 2 elements at the top of STACK B
+```
+***ss***
+```
+sa and sb at the same time.
+```
+***ra***
+```
+(rotate a)
+In STACK A, the first element becomes the last one.
+
+1      5
+5  =>  4 
+4      1
+```
+***rb***
+```
+(rotate b)
+In STACK B, the first element becomes the last one.
+```
+***rr***
+```
+ra and rb at the same time.
+```
+***rra***
+```
+(reverse rotate a)
+In STACK A, the last element becomes the first one.
+
+1      4
+5  =>  1
+4      5
+```
+***rrb***
+```
+(reverse rotate b)
+In STACK B, the last element becomes the first one.
+```
+***rrr***
+```
+rra and rrb at the same time.
+```
 ### Goal
 Sort the stack in the least possible number of moves.  
 To get the full mark (125):   
 
-3 numbers should be sorted in: max 2 moves  
-5 numbers should be sorted in: max 12 moves  
-100 numbers should be sorted in: max 700 moves   
-500 numbers should be sorted in: max 5500 moves  
+3 numbers should be sorted in: max **2** moves  
+5 numbers should be sorted in: max **12** moves  
+100 numbers should be sorted in: max **700** moves   
+500 numbers should be sorted in: max **5500** moves  
 
 ### How  
-This is my implementation of "the best element algorithm" (as called by the original creator, see their instructions in **ressource** folder)   
+I implemented "the best element algorithm" (as called by the original creator, see **check resources** folder)
 ### 1- Parsing:  
 if the input is valid, it gets added to a doubly circular linked list called **stack_a**  
 #### what's a valid input?
