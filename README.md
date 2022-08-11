@@ -67,7 +67,7 @@ To get the full mark (125):
 500 numbers should be sorted in: max **5500** moves  
 
 ### How  
-I implemented "the best element algorithm" (as called by the original creator, see **check resources** folder)
+I implemented "the best element algorithm" (as called by the original creator, check **ressources** folder)
 ### 1- Parsing:  
 if the input is valid, it gets added to a doubly circular linked list called **stack_a**  
 #### what's a valid input?
