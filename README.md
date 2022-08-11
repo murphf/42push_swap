@@ -3,7 +3,13 @@
 Push_Swap is a 42 project which aim is to sort a stack using a specific set moves
 
 ### Alowed moves
-sa  
+sa
+```
+Swap first two element of stack A
+1      2
+2  =>  1
+3      3
+```
 sb  
 ss  
 ra  
