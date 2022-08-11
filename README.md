@@ -118,8 +118,8 @@ moves[2]: the array where the number of moves is stored
 nb_mv: total of moves   
 
 Once the input checked and inserted in STACK A,  
-I create an array, (lets call it array_stack) contaning the elements of STACK A, with the smallest number being at the beginning.   
-I extract the Longuest Increasing Subsequence array_stack, then push all the element that doesn't belong to it from STACK A to STACK B 
+I create an array, contaning the elements of STACK A, with the smallest number being at the beginning.   
+then extract from it the Longuest Increasing Subsequence, next: I push all the elements that doesn't belong to this LIS from STACK A to STACK B 
 ```c
 void	only_lis(t_node	**head_a, t_node	**head_b)
 {
