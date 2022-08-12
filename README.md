@@ -1,6 +1,6 @@
 <sub>README still in progress</sub>  
 ## Description 
-Push_Swap is a 42 project which aim to sort a stack using another stack and a specific set moves
+Push_Swap is a 42 project which aims to sort a stack using another stack and a specific set moves
 
 ### Alowed moves
 ***sa***
