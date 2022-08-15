@@ -150,4 +150,7 @@ void	only_lis(t_node	**head_a, t_node	**head_b)
 	best_element(head_a, head_b);
 }
 ```
+an illustrastion of this previous steps:    
+
+
 #### How to find a number most convenable place in STACK A?    
