@@ -96,6 +96,7 @@ int	*lis_constructp2(int *lis, int *arr, int *prev, int size)
 	int	idx;
 	int	i;
 
+	max = INT_MIN;
 	i = -1;
 	while (++i < size)
 	{
