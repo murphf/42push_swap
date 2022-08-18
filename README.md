@@ -152,6 +152,6 @@ void	only_lis(t_node	**head_a, t_node	**head_b)
 }
 ```
 Illustration of the previous steps:    
-
+![alt text](ressources/illustration.png "previous steps")
 
 #### How to find a number most convenable place in STACK A?    
