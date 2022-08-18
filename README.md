@@ -1,7 +1,8 @@
 <sub>README still in progress</sub>  
 ## Description 
-Push_Swap is a 42 project which aims to sort a stack using another stack and a specific set moves
+Push_Swap is a 42 project which aims to sort a stack using another stack and a specific set moves. 
 
+![alt text](https://c.tenor.com/SNfaPK2XtsIAAAAC/cute-chick.gif "sorting!")
 ### Alowed moves
 ***sa***
 ```
@@ -150,7 +151,7 @@ void	only_lis(t_node	**head_a, t_node	**head_b)
 	best_element(head_a, head_b);
 }
 ```
-an illustrastion of this previous steps:    
+Illustration of the previous steps:    
 
 
 #### How to find a number most convenable place in STACK A?    
