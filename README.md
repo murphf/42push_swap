@@ -70,13 +70,15 @@ To get the full mark (125):
 
 ## How  
 I implemented "the best element algorithm" (as called by the original creator, check **the resources** folder)
-### 1- Parsing:  
+### 1- Parsing:
+---
 if the input is valid, it gets added to a doubly circular linked list called **stack_a**  
 #### what's a valid input?
 - contains only digits, but may contain ('+' or '-') once at the beginning  
 - an INT  
 - no duplicates   
 ### 2- Best element algorithm (overview)
+---
 1. copy **STACK A**'s content in an array  
 2. put the **smallest** number at the beginning of the array   
 3. extract the [Longest Increasing Subsequence](https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/) from the array  
@@ -100,6 +102,7 @@ if the input is valid, it gets added to a doubly circular linked list called **s
 6. repeat step 5 until **STACK B** is empty  
 7. in **STACK A**, put smallest number on the top  
 ### 3- My implementation
+---
 I used [_doubly circular linked lists_](https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/) to store and manipulate the input numbers, the following is the structure of a node: 
 ```c
 typedef struct s_node
