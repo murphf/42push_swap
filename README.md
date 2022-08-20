@@ -4,6 +4,7 @@ Push_Swap is a 42 project which aims to sort a stack using another stack and a s
 
 ![alt text](https://c.tenor.com/SNfaPK2XtsIAAAAC/cute-chick.gif "sorting!")
 ### Alowed moves
+---
 ***sa***
 ```
 (swap a)
@@ -67,7 +68,7 @@ To get the full mark (125):
 100 numbers should be sorted in: max **700** moves   
 500 numbers should be sorted in: max **5500** moves  
 
-### How  
+## How  
 I implemented "the best element algorithm" (as called by the original creator, check **ressources** folder)
 ### 1- Parsing:  
 if the input is valid, it gets added to a doubly circular linked list called **stack_a**  
@@ -152,6 +153,5 @@ void	only_lis(t_node	**head_a, t_node	**head_b)
 }
 ```
 Illustration of the previous steps:    
-![alt text](ressources/illustration.png "previous steps")
-
+<img src="ressources/illustration.png" width="500">
 #### How to find a number most convenable place in STACK A?    
