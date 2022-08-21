@@ -1,6 +1,6 @@
 <sub>README still in progress</sub>  
 ## Description 
-Push_Swap is a 42 project which aims to sort a stack using another stack and a specific set moves. 
+Push_Swap is a [42-project](https://42.fr/en/network-42/) which aims to sort a **stack** using **another stack** and a **specific set of moves**. 
 
 ![alt text](https://c.tenor.com/SNfaPK2XtsIAAAAC/cute-chick.gif "sorting!")
 ### Alowed moves
@@ -82,7 +82,7 @@ if the input is valid, it gets added to a doubly circular linked list called **s
 1. copy **STACK A**'s content in an array  
 2. put the **smallest** number at the beginning of the array   
 3. extract the [Longest Increasing Subsequence](https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/) from the array  
-4. now returning to **STACK A**: push all numbers to **STACK B** except the elements of **LIS**   
+4. now return to **STACK A**: push all numbers to **STACK B** except the elements of **LIS**   
 5. loop over STACK B calculating for each element:   
 	1. the number of moves it'll take for the element to be **on top of STACK B** --> the result would be stored in **moves[1]**.   
 		- if rb is used the number stored should be positive  
@@ -156,5 +156,6 @@ void	only_lis(t_node	**head_a, t_node	**head_b)
 }
 ```
 Illustration of the previous steps:    
-<img src="ressources/illustration.png" width="500">
-#### How to find a number most convenable place in STACK A?    
+<img src="ressources/illustration.png" width="500">   
+Now, come the part where we'll loop over **STACK B** seeking the best element (aka who needs the least amount of moves),  push it to its place in **STACK A**, then redo this operation until **STACK B** is empty. 
+#### How to find a number's most convenable place in STACK A?    
