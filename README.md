@@ -156,6 +156,8 @@ void	only_lis(t_node	**head_a, t_node	**head_b)
 }
 ```
 Illustration of the previous steps:    
-<img src="ressources/illustration.png" width="500">   
+<img src="ressources/lis0.png" width="500">   
 Now, come the part where we'll loop over **STACK B** seeking the best element (aka who needs the least amount of moves),  push it to its place in **STACK A**, then redo this operation until **STACK B** is empty. 
+chosing the first best element to push from **STACK B** to **STACK A**  
+<img src="ressources/lis1.png" width="500">   
 #### How to find a number's most convenable place in STACK A?    

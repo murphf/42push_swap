@@ -6,7 +6,7 @@
 /*   By: styes <styes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 22:08:17 by styes             #+#    #+#             */
-/*   Updated: 2022/07/31 07:41:24 by styes            ###   ########.fr       */
+/*   Updated: 2022/08/29 18:48:34 by styes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ int	main(int argc, char **argv)
 	if (is_sorted(&stack_a))
 		error(0, &stack_a);
 	sorting(&stack_a, &stack_b, len);
+	print_stacks(&stack_a, &stack_b);
 }
