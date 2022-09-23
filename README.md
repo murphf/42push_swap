@@ -7,7 +7,7 @@
 Push_Swap is a [42-project](https://42.fr/en/network-42/) which aims to sort a **stack** using **another stack** and a **specific set of moves**. 
 
 ![alt text](https://c.tenor.com/SNfaPK2XtsIAAAAC/cute-chick.gif "sorting!")
-### Alowed moves
+### Allowed moves
 ---
 ***sa***
 ```
