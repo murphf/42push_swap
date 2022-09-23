@@ -73,7 +73,7 @@ To get the full mark (125):
 500 numbers should be sorted in max **5500** moves  
 
 ## How  
-I implemented "the best element algorithm" (as called by the original creator, check the [ressource](/ressource) folder)
+I implemented "the best element algorithm" (as called by the original creator, check the [ressource](https://github.com/murphf/42push_swap/tree/master/ressources) folder)
 ### 1- Parsing:
 ---
 if the input is valid, it gets added to a doubly circular linked list called **stack_a**  
